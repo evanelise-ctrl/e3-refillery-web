@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - e3 Refillery</title>
+    
+    <!-- Google Fonts: Lora (Serif) & Lato (Sans-Serif) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&family=Lora:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    
+    <!-- Global Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Page Specific Styles to Guarantee Card Layout & Floating Leaves -->
+    <style>
+        .unified-story-card {
+            background-color: var(--text-alabaster, #e4e0d7);
+            color: var(--bg-deep-spruce, #395856);
+            border-radius: 40px 10px 40px 10px;
+            padding: 3.5rem 4rem;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            z-index: 2; 
+        }
+
+        .unified-story-card p, 
+        .unified-story-card ul {
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .unified-story-card h4 {
+            color: var(--accent-aubergine, #443663); 
+            font-size: 1.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-family: var(--font-heading, 'Lora', serif);
+        }
+
+        .unified-story-card ul {
+            margin-left: 2rem;
+            margin-bottom: 2rem;
+            list-style-type: square;
+        }
+
+        .unified-story-card li {
+            margin-bottom: 0.5rem;
+        }
+
+        .story-sidebar, .story-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* --- FRAMED MISSION SECTION --- */
+        #mission {
+            position: relative;
+            /* Removed overflow: hidden so leaves can break out of the section if needed */
+            padding-top: 8rem; /* Increased padding to give leaves room to breathe */
+            padding-bottom: 8rem; 
+            border-bottom: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Wrapper to hold the box and the framing leaves together */
+        .mission-wrapper {
+            position: relative;
+            z-index: 2; 
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .mission-box {
+            position: relative;
+            z-index: 1; /* Lower than the leaves */
+            margin-bottom: 0 !important; 
+            width: 100%;
+            background-color: var(--surface-camel);
+            color: var(--bg-deep-spruce);
+            padding: 5rem 3rem;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        .mission-box h1, 
+        .mission-box p {
+            position: relative;
+            z-index: 2; 
+        }
+
+        /* The leaves overlapping the corners of the box */
+        .frame-leaf {
+            position: absolute;
+            z-index: 10; /* Guaranteed front layer, way above the box */
+            width: 250px; /* Nice and large */
+            opacity: 0.35; /* Soft transparency */
+            pointer-events: none; 
+        }
+
+        .frame-leaf.top-left {
+            top: -90px; 
+            left: -90px; 
+            transform: rotate(-15deg);
+        }
+
+        .frame-leaf.bottom-right {
+            bottom: -90px; 
+            right: -90px; 
+            transform: rotate(5deg);
+        }
+    </style>
+</head>
+<body>
+
+<div id="global-header"></div>
+
+    <main>
+        <!-- BOLD MISSION SECTION (Framed) -->
+        <section id="mission" class="about-section">
+            <div class="mission-wrapper">
+                
+                <!-- Framing Leaves (As siblings outside the box to guarantee layering) -->
+                <img src="public/Web%20Icons-LeafAccentTop-gold.png" class="frame-leaf top-left" alt="" aria-hidden="true">
+                <img src="public/Web%20Icons-LeafAccentBottom-gold.png" class="frame-leaf bottom-right" alt="" aria-hidden="true">
+                
+                <div class="mission-box">
+                    <h1>Our Mission</h1>
+                    <p class="mission-statement">We are a mobile refillery that exists to make sustainable living accessible to all. We are committed to reducing single-use plastics, providing clean, non-toxic and eco-conscious products made exclusively by women, BIPOC or U.S. businesses.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- OUR STORY SECTION -->
+        <section id="our-story" class="about-section our-story-layout">
+            <div class="story-sidebar">
+                <img src="public/anna.png" alt="Anna Dewey, Founder" class="founder-img">
+                <h3 class="founder-name">Anna Dewey</h3>
+                <p class="founder-title">Founder & Owner<br><strong>e3 refillery LLC</strong></p>
+            </div>
+            
+            <div class="story-content">
+                <h2>Our Story</h2>
+                
+                <div class="unified-story-card">
+                    <p>My whole family has sensitive skin - and I wasn't feeling great about all the ingredients and chemicals I was using to wash our clothes. In 2018 I began experimenting <strong>making my own laundry detergent</strong> at home.</p>
+                    
+                    <h4>Benefits:</h4>
+                    <ul>
+                        <li>I chose what (safe!) ingredients to use</li>
+                        <li>Made a concentrated batch</li>
+                        <li>Re-used my own jug to refill</li>
+                        <li>Saved money by not buying diluted product</li>
+                        <li>Wasn't buying single-use plastic that may - or may not <em>actually</em> get recycled</li>
+                    </ul>
+
+                    <p>But even great ideas aren't always sustainable. In my case, it came at a cost that I really couldn't afford - <strong>time</strong>. With 3 kids under the age of 12 we had A LOT of laundry. Also dishes, messy rooms, busy extra-curricular activities, and oh yeah, family time that was more valuable than me grating up bars of soap into flakes every month. <strong>I had to outsource.</strong></p>
+
+                    <p>I found out that something called a "<strong>refillery</strong>" existed and trekked out to see for myself. This place was <strong>MAGICAL</strong>. I wanted to live there. They had done a brilliant job of curating <strong>clean, trust-worthy</strong> essentials like laundry detergent, shampoo, soap, and other products with <strong>non-toxic ingredients</strong> and without all the extra junky plastic packaging that piles up in landfills. A win/win for my tree-hugging heart!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- VISION SECTION -->
+        <section id="vision" class="about-section split-layout split-reverse">
+            <div class="split-image">
+                <img src="public/Table%20Top%202.png" alt="e3 Refillery Products">
+            </div>
+            <div class="split-content">
+                <h2>Our Vision</h2>
+                <p>Our mobile refillery envisions a world where we have eliminated single-use plastics and packaging waste from regularly consumed household products.</p>
+                <p>Sustainable products that are clean, safe and non-toxic for our families should be accessible to all consumers. We look forward to a more equitable economy, where supporting businesses that are women or BIPOC owned is our community’s first priority.</p>
+            </div>
+        </section>
+
+        <!-- THE REFILL ETHOS SECTION -->
+        <section id="how-it-works" class="about-section">
+            <div class="text-center">
+                <h2>The Refill Ethos</h2>
+                <p>Closing the loop on household waste, one refill at a time.</p>
+            </div>
+            
+            <div class="how-it-works">
+                <div class="step">
+                    <img src="public/e3-icon-jar-beige.png" alt="Jar container icon">
+                    <h3>1. Choose a Container</h3>
+                    <p>We offer two sizes of premium, reusable containers. Purchase once to enter the loop.</p>
+                </div>
+                <div class="step">
+                    <img src="public/e3-icon-pump-bottle-beige.png" alt="Pump bottle icon">
+                    <h3>2. Fill & Enjoy</h3>
+                    <p>Fill it up with our selection of eco-friendly home and personal care goods.</p>
+                </div>
+                <div class="step">
+                    <img src="public/e3-icon-recycle-beige.png" alt="Recycle loop icon">
+                    <h3>3. The Closed Loop</h3>
+                    <p>Return your empty for a freshly cleaned, sanitized, and refilled container. Zero waste.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+<div id="global-footer"></div>
+
+    <!-- Smart Header Script -->
+<script src="components.js"></script>
+
+</body>
+</html>

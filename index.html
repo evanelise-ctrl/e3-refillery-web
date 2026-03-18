@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>e3 Refillery</title>
+    
+    <!-- Google Fonts: Lora (Serif) & Lato (Sans-Serif) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&family=Lora:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    
+    <!-- Global Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Temporary Styles for Page-Specific Layouts - Move to style.css eventually -->
+    <style>
+        /* --- HERO --- */
+        .hero-full-bleed {
+            /* Break out of the main container's padding */
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            margin-top: -4rem; /* Sit flush under the header */
+            margin-bottom: 5rem;
+            
+            /* Sizing and layout */
+            height: 75vh;
+            min-height: 550px;
+            display: flex;
+            align-items: center;
+            padding: 0 10%;
+            
+            /* Background image handling */
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-overlay-box {
+            background-color: rgba(57, 88, 86, 0.85); /* Deep Spruce with opacity */
+            padding: 3rem;
+            border-radius: 16px;
+            max-width: 600px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            backdrop-filter: blur(8px); /* Modern glass effect */
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(228, 224, 215, 0.15); /* Subtle Alabaster border */
+            text-align: left;
+        }
+
+        /* --- THE 3 E's SECTION --- */
+        .three-es-section {
+            padding: 2rem 5% 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .three-es-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .three-es-header h2 {
+            font-size: 2.5rem;
+            color: var(--surface-camel);
+            margin-bottom: 0.5rem;
+        }
+
+        .three-es-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .feature-row {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            margin-bottom: 5rem;
+        }
+
+        .feature-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .feature-row.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .feature-img-container {
+            flex: 1;
+            position: relative;
+        }
+
+        .feature-img-container img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-img-container img:hover {
+            transform: scale(1.02);
+        }
+
+        .feature-text {
+            flex: 1;
+            text-align: left;
+        }
+
+        .feature-text h3 {
+            color: var(--surface-camel);
+            font-size: 2.25rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .feature-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        /* Responsive behavior for the rows */
+        @media (max-width: 850px) {
+            .feature-row, .feature-row.reverse {
+                flex-direction: column;
+                gap: 2rem;
+                text-align: center;
+            }
+            .feature-text {
+                text-align: center;
+            }
+            .feature-text h3 {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Global Header Placeholder -->
+    <div id="global-header"></div>
+
+    <main>
+        <!-- HERO SECTION (Full Bleed) -->
+        <section class="hero-full-bleed" style="background-image: url('public/Table%20Top%201.png');">
+            <div class="hero-overlay-box">
+                <h1>Green living, within reach.</h1>
+                <p>Reduce single-use plastics by refilling your favorite household and personal care products. Bring your own container, or grab one of ours!</p>
+                <br>
+                <a href="find-us.html" class="btn-primary">Find Us</a>
+            </div>
+        </section>
+
+        <!-- WHAT IS A REFILLERY SECTION -->
+        <section class="what-is-refillery" style="text-align: center; max-width: 800px; margin: 5rem auto; padding: 0 1.5rem;">
+            <h2 style="color: var(--surface-camel); font-size: 2.25rem; margin-bottom: 1.5rem;">What is a Refillery?</h2>
+            <p style="font-size: 1.15rem; opacity: 0.9; line-height: 1.8;">A refillery is a sustainable alternative to traditional shopping. Instead of buying a new plastic bottle every time you run out of soap or laundry detergent, you simply bring your own empty containers (or grab one of our reusable ones) and fill them up! It's an easy, cost-effective way to eliminate single-use plastics from your daily routine while keeping your home stocked with clean, non-toxic products.</p>
+        </section>
+
+        <!-- HOW IT WORKS SECTION (Closed Loop) -->
+        <section class="how-it-works">
+            <div class="step">
+                <img src="public/e3-icon-jar-beige.png" alt="Jar container icon">
+                <h3>1. Choose a Container</h3>
+                <p>We offer two sizes of premium, reusable containers. Purchase once to enter the loop.</p>
+            </div>
+            <div class="step">
+                <img src="public/e3-icon-pump-bottle-beige.png" alt="Pump bottle icon">
+                <h3>2. Fill & Enjoy</h3>
+                <p>Fill it up with our selection of eco-friendly home and personal care goods.</p>
+            </div>
+            <div class="step">
+                <img src="public/e3-icon-recycle-beige.png" alt="Recycle loop icon">
+                <h3>3. The Closed Loop</h3>
+                <p>Return your empty for a freshly cleaned, sanitized, and refilled container. Zero waste.</p>
+            </div>
+        </section>
+
+        <!-- THE 3 E's SECTION (NEW) -->
+        <section class="three-es-section">
+            <div class="three-es-header">
+                <h2>The 3 e's</h2>
+                <p>Our name is our promise: Earth, Equity, and Empowerment.</p>
+            </div>
+
+            <!-- E = Earth -->
+            <div class="feature-row">
+                <div class="feature-img-container">
+                    <!-- Update with an Earth/Eco related image -->
+                    <img src="public/earth-image.jpg" alt="Earth conscious products" onerror="this.src='public/Container.png'">
+                </div>
+                <div class="feature-text">
+                    <h3>e = earth</h3>
+                    <p>We exclusively source goods from makers that responsibly produce safe, healthy, and earth-conscious products with little to no packaging waste. By bringing your own container—or using a free, sanitized donated jar—you refill from our bulk supply and pay only for the weight of the product inside. This "closed loop" practice cuts out unnecessary plastic with every single purchase.</p>
+                </div>
+            </div>
+
+            <!-- E = Equity -->
+            <div class="feature-row reverse">
+                <div class="feature-img-container">
+                    <!-- Update with an Equity/Community related image -->
+                    <img src="public/equity-image.jpg" alt="Equitable community" onerror="this.src='public/Table%20Top%202.png'">
+                </div>
+                <div class="feature-text">
+                    <h3>e = equity</h3>
+                    <p>Sustainable living isn't a fad, and it shouldn't be reserved for an elite group. Everyone deserves access to clean, non-toxic, eco-friendly products. In the spirit of reparations, we offer tiered pricing to provide traditionally marginalized communities the option to purchase high-quality products at an equitable rate, alongside "pay it forward" opportunities to uplift one another.</p>
+                </div>
+            </div>
+
+            <!-- E = Empowerment -->
+            <div class="feature-row">
+                <div class="feature-img-container">
+                    <!-- Update with an Empowerment/Small Biz related image -->
+                    <img src="public/empowerment-image.jpg" alt="Empowered small businesses" onerror="this.src='public/Table%20Top%201.png'">
+                </div>
+                <div class="feature-text">
+                    <h3>e = empowerment</h3>
+                    <p>It's hard to compete with the pricing and mass production of big box stores, but when small businesses thrive, our community thrives. We proudly source primarily from women and BIPOC-owned businesses, alongside U.S. businesses with the highest standards for safe ingredients. We are committed to forming ethical partnerships that elevate and expand their reach.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURED PRODUCTS SECTION -->
+        <section class="featured-products" style="background-color: var(--text-alabaster); color: var(--bg-deep-spruce); padding: 5rem 5%; margin: 4rem auto; max-width: 1200px; text-align: center; border-radius: 20px;">
+            <h2 style="color: var(--bg-deep-spruce); font-size: 2.25rem; margin-bottom: 1rem;">A Peek at Our Goods</h2>
+            <p style="max-width: 600px; margin: 0 auto 3rem auto; font-size: 1.1rem; opacity: 0.9;">We stock premium, eco-conscious essentials from brands that care about your health and the planet.</p>
+            
+            <div class="product-preview-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2.5rem; max-width: 1000px; margin: 0 auto;">
+                <!-- Preview 1 -->
+                <div class="preview-card" style="text-align: center;">
+                    <img src="public/Dishwasher.png" alt="Home Care" style="width: 100%; height: 250px; object-fit: cover; border-radius: 12px; margin-bottom: 1rem; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
+                    <h3 style="color: var(--bg-deep-spruce); font-size: 1.25rem; margin-bottom: 0.5rem;">Home Care</h3>
+                    <p style="opacity: 0.8; font-size: 0.95rem;">Laundry, dishwashing, and cleaning.</p>
+                </div>
+                <!-- Preview 2 -->
+                <div class="preview-card" style="text-align: center;">
+                    <img src="public/Shampoo-Bars.png" alt="Personal Care" style="width: 100%; height: 250px; object-fit: cover; border-radius: 12px; margin-bottom: 1rem; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
+                    <h3 style="color: var(--bg-deep-spruce); font-size: 1.25rem; margin-bottom: 0.5rem;">Personal Care</h3>
+                    <p style="opacity: 0.8; font-size: 0.95rem;">Soaps, shampoos, and body wash.</p>
+                </div>
+                <!-- Preview 3 -->
+                <div class="preview-card" style="text-align: center;">
+                    <img src="public/Container.png" alt="Premium Containers" style="width: 100%; height: 250px; object-fit: cover; border-radius: 12px; margin-bottom: 1rem; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
+                    <h3 style="color: var(--bg-deep-spruce); font-size: 1.25rem; margin-bottom: 0.5rem;">Premium Containers</h3>
+                    <p style="opacity: 0.8; font-size: 0.95rem;">Beautiful, reusable glass and aluminum.</p>
+                </div>
+            </div>
+            <br><br>
+            <a href="shop.html" class="btn-primary" style="background-color: var(--bg-deep-spruce); color: var(--text-alabaster);">Shop All Products</a>
+        </section>
+
+    </main>
+
+    <!-- Global Footer Placeholder -->
+    <div id="global-footer"></div>
+
+    <!-- Global Components Script -->
+    <script src="components.js"></script>
+</body>
+</html>

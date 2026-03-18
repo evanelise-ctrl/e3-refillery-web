@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - e3 Refillery</title>
+    
+    <!-- Google Fonts: Lora (Serif) & Lato (Sans-Serif) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&family=Lora:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Social Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Global Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Page Specific Styles for Contact Layout -->
+    <style>
+        .contact-hero {
+            padding-top: 4rem;
+            padding-bottom: 2rem;
+            text-align: center;
+        }
+
+        .contact-hero h1 {
+            color: var(--surface-camel);
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-wrap: balance; /* Keeps headings balanced across lines */
+        }
+
+        .contact-hero p {
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.15rem;
+            opacity: 0.9;
+            text-wrap: pretty; /* Prevents single hanging words on the last line */
+        }
+
+        /* --- CONTACT CONTAINER --- */
+        .contact-container {
+            display: flex;
+            gap: 4rem;
+            max-width: 1000px;
+            margin: 4rem auto 6rem auto;
+            align-items: flex-start;
+        }
+
+        /* --- CONTACT INFO SIDE --- */
+        .contact-info {
+            flex: 1;
+            padding: 3rem 2rem; /* Added slightly more vertical padding */
+            background-color: var(--text-alabaster);
+            color: var(--bg-deep-spruce);
+            border-radius: 16px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
+            text-align: center; /* Centered all text to match the centered icons */
+        }
+
+        .contact-info h2 {
+            color: var(--bg-deep-spruce);
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .info-block {
+            margin-bottom: 2.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .info-block h4 {
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+            color: var(--bg-deep-spruce);
+            opacity: 0.8;
+        }
+
+        .info-block p, .info-block a {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            color: var(--bg-deep-spruce);
+            text-decoration: none;
+            font-weight: 500;
+            line-height: 1.4;
+            text-wrap: pretty; /* Prevents single hanging words on the last line */
+        }
+
+        .info-block a:hover {
+            opacity: 0.7;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center; /* Centers the icons horizontally */
+            gap: 1.25rem;
+            margin-top: 1rem;
+        }
+
+        /* Styled as circular icon buttons */
+        .social-links a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 45px;
+            height: 45px;
+            border: 1px solid var(--bg-deep-spruce);
+            border-radius: 50%;
+            font-size: 1.2rem;
+            color: var(--bg-deep-spruce);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background-color: var(--bg-deep-spruce);
+            color: var(--text-alabaster); 
+            transform: translateY(-2px);
+        }
+
+        /* Decorative leaf inside info box */
+        .info-leaf {
+            position: absolute;
+            width: 200px;
+            bottom: -50px;
+            right: -50px;
+            opacity: 0.15;
+            z-index: 1;
+            transform: rotate(-15deg);
+            pointer-events: none;
+        }
+
+        /* --- CONTACT FORM SIDE --- */
+        .contact-form-wrapper {
+            flex: 1.5;
+            padding: 1rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-alabaster);
+            opacity: 0.9;
+            text-align: left; /* Explicitly enforcing left alignment */
+            width: 100%;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            background-color: rgba(228, 224, 215, 0.05);
+            border: 1px solid rgba(228, 224, 215, 0.2);
+            border-radius: 8px;
+            color: var(--text-alabaster);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            transition: border-color 0.3s ease, background-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--surface-camel);
+            background-color: rgba(228, 224, 215, 0.1);
+        }
+
+        /* Specifically style the dropdown to ensure options are readable */
+        .form-group select option {
+            background-color: var(--bg-deep-spruce);
+            color: var(--text-alabaster);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-btn {
+            align-self: flex-start;
+            margin-top: 1rem;
+            font-size: 1.05rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 850px) {
+            .contact-container {
+                flex-direction: column;
+                gap: 3rem;
+                padding: 0 1.5rem;
+            }
+            .contact-info, .contact-form-wrapper {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="global-header"></div>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section class="contact-hero">
+            <h1>Let's Connect</h1>
+            <p>Have a question about our products, delivery zones, or want to book the mobile refillery for your next event? Drop us a line!</p>
+        </section>
+
+        <!-- CONTACT SPLIT SECTION -->
+        <section class="contact-container">
+            
+            <!-- Direct Info Box -->
+            <div class="contact-info">
+                <img src="public/Web%20Icons-LeafAccentTop-gold.png" class="info-leaf" alt="" aria-hidden="true">
+                
+                <h2>Get in Touch</h2>
+                
+                <div class="info-block">
+                    <h4>Email</h4>
+                    <a href="mailto:hello@e3refillery.com">hello@e3refillery.com</a>
+                </div>
+
+                <div class="info-block">
+                    <h4>Pop-Up Inquiries</h4>
+                    <p>We are currently accepting bookings for community markets, private events, and business pop-ups.</p>
+                </div>
+
+                <div class="info-block">
+                    <h4>Follow the Journey</h4>
+                    <div class="social-links">
+                        <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form-wrapper">
+                <form class="contact-form" action="#" method="POST">
+                    
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your full name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inquiry">What are you getting in touch about?</label>
+                        <select id="inquiry" name="inquiry">
+                            <option value="general">General Question</option>
+                            <option value="delivery">Delivery Order Inquiry</option>
+                            <option value="host">Host a Pop-up</option>
+                            <option value="product">Product Suggestion</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="How can we help you?" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-primary submit-btn">Send Message</button>
+
+                </form>
+            </div>
+
+        </section>
+
+    </main>
+
+<div id="global-footer"></div>
+
+    <!-- Smart Header Script -->
+<script src="components.js"></script>
+
+</body>
+</html>
