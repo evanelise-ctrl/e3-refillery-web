@@ -1,0 +1,297 @@
+/* --- BOLD HERO BANNER --- */
+.find-us-hero {
+    background-color: var(--surface-camel);
+    color: var(--bg-deep-spruce);
+    padding: 5rem 3rem;
+    text-align: center;
+    border-radius: 20px;
+    margin-bottom: 5rem;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.find-us-hero h1 {
+    color: var(--bg-deep-spruce);
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 2;
+}
+
+.find-us-hero p {
+    color: var(--bg-deep-spruce);
+    max-width: 650px;
+    margin: 0 auto;
+    font-size: 1.15rem;
+    font-weight: 500;
+    opacity: 0.95;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-top: 2.5rem;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
+}
+
+/* Custom buttons for the camel background */
+.find-us-hero .btn-primary {
+    background-color: var(--bg-deep-spruce);
+    color: var(--text-alabaster);
+}
+
+.find-us-hero .btn-primary:hover {
+    background-color: var(--text-alabaster);
+    color: var(--bg-deep-spruce);
+}
+
+.find-us-hero .btn-dark {
+    background-color: transparent;
+    color: var(--bg-deep-spruce);
+    border: 2px solid var(--bg-deep-spruce);
+}
+
+.find-us-hero .btn-dark:hover {
+    background-color: var(--bg-deep-spruce);
+    color: var(--text-alabaster);
+}
+
+/* Decorative leaves for the hero */
+.hero-leaf {
+    position: absolute;
+    width: 220px;
+    opacity: 0.15;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hero-leaf.left { top: -40px; left: -40px; transform: rotate(-15deg); }
+.hero-leaf.right { bottom: -40px; right: -40px; transform: rotate(165deg); }
+
+/* --- SCHEDULE CONTAINER --- */
+.schedule-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.schedule-header h2 {
+    font-size: 2.25rem;
+    color: var(--surface-camel);
+    margin-bottom: 0.5rem;
+}
+
+.schedule-container {
+    display: flex;
+    gap: 4rem;
+    max-width: 1000px;
+    margin: 0 auto 4rem auto;
+    align-items: flex-start;
+    text-align: left;
+}
+
+/* --- CALENDAR GRID --- */
+.calendar-wrapper {
+    flex: 1;
+    background-color: var(--text-alabaster);
+    color: var(--bg-deep-spruce);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.calendar-wrapper h3 {
+    text-align: center;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--bg-deep-spruce);
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    text-align: center;
+}
+
+.day-name {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--surface-camel);
+    margin-bottom: 0.5rem;
+}
+
+.calendar-day {
+    padding: 10px 0;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--bg-deep-spruce);
+    opacity: 0.8;
+}
+
+.calendar-day.empty {
+    background-color: transparent;
+}
+
+/* Highlighted Event Days */
+.calendar-day.event {
+    background-color: var(--action-sage);
+    color: var(--bg-deep-spruce);
+    font-weight: 700;
+    opacity: 1;
+    box-shadow: 0 4px 10px rgba(131, 153, 125, 0.4);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.calendar-day.event:hover {
+    transform: scale(1.1);
+}
+
+/* --- EVENT LIST --- */
+.events-wrapper {
+    flex: 1.2;
+}
+
+.events-wrapper h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-alabaster);
+    border-bottom: 1px solid rgba(228, 224, 215, 0.1);
+    padding-bottom: 1rem;
+}
+
+.event-card {
+    background-color: rgba(166, 144, 116, 0.1);
+    border: 1px solid rgba(228, 224, 215, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    background-color: rgba(166, 144, 116, 0.15);
+}
+
+.event-date {
+    background-color: var(--surface-camel);
+    color: var(--bg-deep-spruce);
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 1.1;
+    min-width: 85px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.event-date span {
+    display: block;
+    font-size: 0.8rem;
+    font-family: var(--font-body);
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
+}
+
+.event-details h4 {
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+    color: var(--text-alabaster);
+}
+
+.event-details p {
+    margin-bottom: 0.25rem;
+    font-size: 0.95rem;
+    opacity: 0.8;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* --- HOST US BANNER --- */
+.host-us-banner {
+    background-color: var(--surface-camel);
+    color: var(--bg-deep-spruce);
+    padding: 4rem 3rem;
+    border-radius: 16px;
+    max-width: 800px;
+    margin: 0 auto 4rem auto;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.host-us-banner h2 {
+    color: var(--bg-deep-spruce);
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.host-us-banner p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.btn-dark {
+    background-color: var(--bg-deep-spruce);
+    color: var(--text-alabaster);
+    font-family: var(--font-body);
+    font-weight: 700;
+    padding: 12px 32px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.btn-dark:hover {
+    background-color: var(--accent-aubergine);
+    transform: translateY(-2px);
+    color: var(--text-alabaster);
+}
+
+/* Leaf accent for the host banner */
+.host-leaf {
+    position: absolute;
+    width: 150px;
+    opacity: 0.15;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.host-leaf.left { top: -30px; left: -20px; transform: rotate(-30deg); }
+.host-leaf.right { bottom: -30px; right: -20px; transform: rotate(150deg); }
+
+/* Responsive Stacking */
+@media (max-width: 850px) {
+    .schedule-container {
+        flex-direction: column;
+        gap: 3rem;
+    }
+}

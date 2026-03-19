@@ -1,0 +1,128 @@
+.faq-hero {
+    padding-top: 4rem;
+    padding-bottom: 3rem;
+    text-align: center;
+}
+
+.faq-hero h1 {
+    color: var(--surface-camel);
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.faq-hero p {
+    color: var(--text-alabaster);
+    max-width: 650px;
+    margin: 0 auto;
+    font-size: 1.15rem;
+    opacity: 0.9;
+}
+
+/* --- ACCORDION CONTAINER --- */
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto 6rem auto;
+    padding: 0 1.5rem;
+}
+
+.faq-item {
+    background-color: rgba(166, 144, 116, 0.08); /* Subtle camel tint */
+    border: 1px solid rgba(228, 224, 215, 0.1);
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+}
+
+.faq-item:hover {
+    background-color: rgba(166, 144, 116, 0.15);
+}
+
+.faq-question {
+    width: 100%;
+    text-align: left;
+    padding: 1.5rem 2rem;
+    background: transparent;
+    border: none;
+    color: var(--text-alabaster);
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+/* The plus/minus icon */
+.faq-question::after {
+    content: '+';
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--surface-camel);
+    transition: transform 0.3s ease;
+    line-height: 1;
+    margin-left: 1rem;
+}
+
+/* Active state for question */
+.faq-question.active {
+    color: var(--surface-camel);
+}
+
+.faq-question.active::after {
+    transform: rotate(45deg); /* Turns the + into an x */
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    padding: 0 2rem;
+}
+
+.faq-answer p {
+    color: var(--text-alabaster);
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    opacity: 0.9;
+    margin-bottom: 1.5rem;
+}
+
+/* When the answer is open */
+.faq-answer.open {
+    max-height: 500px; /* Allows content to flow smoothly */
+    padding-bottom: 0.5rem;
+}
+
+/* --- CONTACT CALLOUT --- */
+.contact-callout {
+    text-align: center;
+    padding: 4rem 2rem;
+    border-top: 1px solid rgba(228, 224, 215, 0.1);
+    margin-bottom: 2rem;
+}
+
+.contact-callout h3 {
+    color: var(--text-alabaster);
+    margin-bottom: 1rem;
+    font-size: 1.75rem;
+}
+
+.contact-callout p {
+    color: var(--text-alabaster);
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+/* Make sure buttons styled like global look right here */
+.contact-callout .btn-primary {
+    background-color: var(--surface-camel);
+    color: var(--bg-deep-spruce);
+    padding: 12px 32px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+}
