@@ -1,5 +1,5 @@
 /* =========================================
-   GLOBAL VARIABLES (Inverted Dark Theme)
+   01. GLOBAL VARIABLES (Inverted Dark Theme)
 ========================================= */
 :root {
     /* 60% Base / Background */
@@ -23,12 +23,18 @@
 }
 
 /* =========================================
-   BASE STYLES & TYPOGRAPHY
+   02. BASE STYLES & RESET
 ========================================= */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+/* Added global image reset to prevent overflow */
+img {
+    max-width: 100%;
+    display: block;
 }
 
 body {
@@ -43,6 +49,9 @@ body {
     min-height: 100vh;
 }
 
+/* =========================================
+   03. TYPOGRAPHY
+========================================= */
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
     font-weight: 500;
@@ -69,30 +78,14 @@ a:hover {
     opacity: 0.8;
 }
 
-/* =========================================
-   COMPONENTS
-========================================= */
-.btn-primary {
-    background-color: var(--action-sage);
-    color: var(--bg-deep-spruce);
-    font-family: var(--font-body);
-    font-weight: 700;
-    padding: 12px 28px;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    display: inline-block;
+.text-center {
     text-align: center;
-}
-
-.btn-primary:hover {
-    background-color: var(--text-alabaster);
-    transform: translateY(-2px);
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 /* =========================================
-   STRUCTURAL LAYOUT
+   04. STRUCTURAL LAYOUT
 ========================================= */
 header {
     padding: 0.75rem 5%;
@@ -100,8 +93,6 @@ header {
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid rgba(228, 224, 215, 0.1);
-    
-    /* Sticky Header Properties */
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -149,8 +140,51 @@ footer {
 }
 
 /* =========================================
-   DROPDOWN NAVIGATION
+   05. COMPONENTS (Buttons, Dropdowns, Accordions)
 ========================================= */
+
+/* --- Buttons --- */
+.btn-primary {
+    background-color: var(--action-sage);
+    color: var(--accent-aubergine); /* Fixed syntax error here */
+    font-family: var(--font-body);
+    font-weight: 700;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-primary:hover {
+    background-color: var(--text-alabaster);
+    transform: translateY(-2px);
+}
+
+.frame-button {
+    background-color: var(--bg-deep-spruce);
+    color: var(--text-alabaster);
+    font-family: var(--font-body);
+    font-weight: 700;
+    padding: 12px 32px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block;
+    margin-top: 2rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.frame-button:hover {
+    background-color: var(--accent-aubergine); 
+    transform: translateY(-2px);
+    color: var(--text-alabaster);
+}
+
+/* --- Dropdown --- */
 .dropdown {
     position: relative;
     display: inline-block;
@@ -179,7 +213,6 @@ footer {
 .dropdown-content a {
     color: var(--text-alabaster);
     padding: 12px 16px;
-    text-decoration: none;
     display: block;
     font-size: 0.85rem;
     border-bottom: 1px solid rgba(228, 224, 215, 0.1);
@@ -187,11 +220,6 @@ footer {
 
 .dropdown-content a:last-child {
     border-bottom: none;
-}
-
-.dropdown-content a:hover {
-    background-color: var(--bg-deep-spruce);
-    opacity: 1;
 }
 
 .dropdown:hover .dropdown-content {
@@ -208,9 +236,96 @@ footer {
     z-index: 2;
 }
 
+/* Removed !important by ensuring standard hover rules */
+.dropdown-content a:hover {
+    background-color: var(--accent-aubergine);
+    color: var(--text-alabaster);
+    opacity: 1;
+}
+
+/* --- Accordion --- */
+.story-accordion {
+    width: 100%;
+    margin-top: 1rem;
+    border-top: 1px solid rgba(57, 88, 86, 0.2);
+}
+
+.accordion-item {
+    border-bottom: 1px solid rgba(57, 88, 86, 0.2);
+}
+
+.accordion-button {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 1.5rem 0;
+    font-size: 1.25rem;
+    font-family: var(--font-heading);
+    color: var(--bg-deep-spruce);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+.accordion-button:hover {
+    color: var(--accent-aubergine);
+}
+
+.accordion-icon {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--surface-camel);
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.accordion-button:hover .accordion-icon {
+    color: var(--accent-aubergine);
+}
+
+.accordion-button[aria-expanded="true"] .accordion-icon {
+    transform: rotate(45deg); 
+}
+
+.accordion-content-wrapper {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s ease-out;
+}
+
+.accordion-content-wrapper.open {
+    grid-template-rows: 1fr;
+}
+
+.accordion-content {
+    overflow: hidden;
+    padding-right: 1rem; 
+}
+
+.accordion-content p, 
+.accordion-content ul {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    color: var(--bg-deep-spruce);
+    opacity: 0.9;
+}
+
+.accordion-content ul {
+    padding-left: 1.5rem;
+}
+
+.accordion-content li {
+    margin-bottom: 0.5rem;
+}
+
 /* =========================================
-   PAGE SECTIONS (Home)
+   06. PAGE SECTIONS & FEATURES
 ========================================= */
+
+/* --- Hero Section (Merged) --- */
 .hero-full-bleed {
     width: 100vw;
     position: relative;
@@ -220,13 +335,11 @@ footer {
     margin-right: -50vw;
     margin-top: -4rem;
     margin-bottom: 5rem;
-    
     height: 75vh;
     min-height: 550px;
     display: flex;
     align-items: center;
     padding: 0 10%;
-    
     background-size: cover;
     background-position: center;
 }
@@ -243,9 +356,14 @@ footer {
     text-align: left;
 }
 
-/* =========================================
-   HOW IT WORKS (Boxes)
-========================================= */
+/* Removed !important by targeting specific container directly */
+.hero-overlay-box .btn-primary:hover {
+    background-color: var(--accent-aubergine); 
+    border-color: var(--accent-aubergine);
+    color: var(--text-alabaster);
+}
+
+/* --- How It Works --- */
 .how-it-works {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -262,69 +380,109 @@ footer {
     background-color: rgba(166, 144, 116, 0.1); 
     border: 1px solid rgba(228, 224, 215, 0.1); 
     border-radius: 16px; 
-    transition: transform 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
 }
-
-.step:hover {
-    transform: translateY(-5px); 
-}
-
 .step img {
     width: 60px; 
     height: 60px;
     object-fit: contain;
-    margin-bottom: 1.5rem;
+    /* Changed from margin-bottom: 1.5rem to center the block image */
+    margin: 0 auto 1.5rem auto; 
 }
 
-/* =========================================
-   ABOUT PAGE SECTIONS
-========================================= */
-.about-section {
-    padding-top: 6rem;
-    padding-bottom: 4rem;
-    border-bottom: 1px solid rgba(228, 224, 215, 0.1);
+.step:hover {
+    background-color: var(--accent-aubergine);
+    border-color: var(--accent-aubergine);
+    transform: translateY(-5px);
 }
 
-.about-section:last-child {
-    border-bottom: none;
+.step:hover h3,
+.step:hover p {
+    color: var(--text-alabaster);
 }
 
-.text-center {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-/* NEW: Striking Mission Box Redesign */
-.mission-box {
-    background-color: var(--surface-camel);
+/* --- Framed Features (Three E's) --- */
+.feature-frame {
+    max-width: 1000px;
+    margin: 0 auto 4rem auto; 
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    overflow: hidden; 
+    background-color: var(--text-alabaster);
     color: var(--bg-deep-spruce);
-    padding: 5rem 3rem;
-    border-radius: 16px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-    margin: 0 auto 3rem auto;
-    max-width: 900px;
-    text-align: center;
+    padding: 3rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.mission-box h1 {
+.feature-frame:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+}
+
+.framed-feature-row {
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+    width: 100%;
+}
+
+.framed-feature-row.reverse {
+    flex-direction: row-reverse;
+}
+
+.framed-image-container {
+    flex: 1;
+    border-radius: 12px;
+    position: relative;
+    z-index: 1;
+    transition: box-shadow 0.3s ease;
+}
+
+.framed-image-container:hover {
+    box-shadow: 0 0 20px rgba(228, 224, 215, 0.6);
+}
+
+.framed-image-container img {
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); 
+}
+
+.framed-text-content {
+    flex: 1;
+    text-align: left;
+}
+
+.framed-text-content h3 {
     color: var(--bg-deep-spruce);
-    font-size: 1.25rem;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    font-family: var(--font-body);
-    font-weight: 700;
-    margin-bottom: 1.5rem;
+    font-size: 2rem; 
+    margin-bottom: 0.5rem;
 }
 
-.mission-statement {
-    font-size: 2rem;
-    font-family: var(--font-heading);
-    line-height: 1.4;
-    font-weight: 500;
-    margin-bottom: 0;
+.framed-text-content p {
+    line-height: 1.8;
+    opacity: 0.85;
+    margin-top: 0;
+    font-size: 1.05rem;
 }
 
+.framed-text-content .frame-link {
+    color: var(--bg-deep-spruce);
+    font-weight: 600;
+    opacity: 0.9;
+    transition: opacity 0.3s ease, text-decoration-color 0.3s ease;
+    text-decoration: underline;
+    text-decoration-color: rgba(57, 88, 86, 0.2);
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.framed-text-content .frame-link:hover {
+    opacity: 1;
+    text-decoration-color: rgba(57, 88, 86, 0.8);
+}
+
+/* --- Split Layouts --- */
 .split-layout {
     display: flex;
     align-items: center;
@@ -332,7 +490,6 @@ footer {
     text-align: left;
 }
 
-/* NEW: Zig Zag reverse layout */
 .split-reverse {
     flex-direction: row-reverse;
 }
@@ -346,15 +503,94 @@ footer {
 }
 
 .split-image img {
-    width: 100%;
     border-radius: 12px;
     object-fit: cover;
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
 
-/* =========================================
-   OUR STORY SECTION
-========================================= */
+/* --- About Sections --- */
+.about-section {
+    padding-top: 6rem;
+    padding-bottom: 4rem;
+    border-bottom: 1px solid rgba(228, 224, 215, 0.1);
+}
+
+.about-section:last-child {
+    border-bottom: none;
+}
+
+#mission {
+    position: relative;
+    padding-top: 8rem; 
+    padding-bottom: 8rem; 
+    border-bottom: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mission-wrapper {
+    position: relative;
+    z-index: 2; 
+    max-width: 900px;
+    width: 100%;
+}
+
+.mission-box {
+    position: relative;
+    z-index: 1; 
+    background-color: var(--surface-camel);
+    color: var(--bg-deep-spruce);
+    padding: 5rem 3rem;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    margin: 0 auto;
+    text-align: center;
+}
+
+.mission-box h1 {
+    color: var(--bg-deep-spruce);
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-family: var(--font-body);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.mission-statement {
+    font-size: 2rem;
+    font-family: var(--font-heading);
+    line-height: 1.4;
+    font-weight: 500;
+    margin-bottom: 0;
+    position: relative;
+    z-index: 2;
+}
+
+.frame-leaf {
+    position: absolute;
+    z-index: 10; 
+    width: 250px; 
+    opacity: 0.35; 
+    pointer-events: none; 
+}
+
+.frame-leaf.top-left {
+    top: -90px; 
+    left: -90px; 
+    transform: rotate(-15deg);
+}
+
+.frame-leaf.bottom-right {
+    bottom: -90px; 
+    right: -90px; 
+    transform: rotate(5deg);
+}
+
+/* --- Our Story --- */
 .our-story-layout {
     display: flex;
     align-items: flex-start;
@@ -365,15 +601,16 @@ footer {
 .story-sidebar {
     flex: 0 0 250px;
     text-align: center;
+    position: relative;
+    z-index: 2;
 }
 
 .founder-img {
-    width: 100%;
     border-radius: 12px;
     margin-bottom: 1.5rem;
     object-fit: cover;
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    border: 3px solid rgba(166, 144, 116, 0.3); /* Subtle camel border */
+    border: 3px solid rgba(166, 144, 116, 0.3);
 }
 
 .founder-name {
@@ -391,6 +628,8 @@ footer {
 
 .story-content {
     flex: 1;
+    position: relative;
+    z-index: 2;
 }
 
 .story-card {
@@ -422,122 +661,10 @@ footer {
 .story-card li {
     margin-bottom: 0.5rem;
 }
-/* --- HERO --- */
-.hero-full-bleed {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    margin-top: -4rem;
-    margin-bottom: 5rem;
-    height: 75vh;
-    min-height: 550px;
-    display: flex;
-    align-items: center;
-    padding: 0 10%;
-    background-size: cover;
-    background-position: center;
-}
 
-.hero-overlay-box {
-    background-color: rgba(57, 88, 86, 0.85);
-    padding: 3rem;
-    border-radius: 16px;
-    max-width: 600px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(228, 224, 215, 0.15);
-    text-align: left;
-}
-
-/* --- THE 3 E's SECTION --- */
-.three-es-section {
-    padding: 2rem 5% 5rem 5%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.three-es-header {
-    text-align: center;
-    margin-bottom: 4rem;
-}
-
-.three-es-header h2 {
-    font-size: 2.5rem;
-    color: var(--surface-camel);
-    margin-bottom: 0.5rem;
-}
-
-.three-es-header p {
-    font-size: 1.2rem;
-    opacity: 0.9;
-}
-
-.feature-row {
-    display: flex;
-    align-items: center;
-    gap: 4rem;
-    margin-bottom: 5rem;
-}
-
-.feature-row.reverse {
-    flex-direction: row-reverse;
-}
-
-.feature-img-container {
-    flex: 1;
-    position: relative;
-}
-
-.feature-img-container img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    border-radius: 20px;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-    transition: transform 0.3s ease;
-}
-
-.feature-text {
-    flex: 1;
-    text-align: left;
-}
-
-.feature-text h3 {
-    color: var(--surface-camel);
-    font-size: 2.25rem;
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-}
-
-.feature-text p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    opacity: 0.9;
-}
-
-@media (max-width: 850px) {
-    .feature-row, .feature-row.reverse {
-        flex-direction: column;
-        gap: 2rem;
-        text-align: center;
-    }
-    .feature-text {
-        text-align: center;
-    }
-    .feature-text h3 {
-        justify-content: center;
-    }
-}
-/* --- ABOUT PAGE SPECIFIC STYLES --- */
 .unified-story-card {
-    background-color: var(--text-alabaster, #e4e0d7);
-    color: var(--bg-deep-spruce, #395856);
+    background-color: var(--text-alabaster);
+    color: var(--bg-deep-spruce);
     border-radius: 40px 10px 40px 10px;
     padding: 3.5rem 4rem;
     position: relative;
@@ -552,13 +679,13 @@ footer {
 }
 
 .unified-story-card h4 {
-    color: var(--accent-aubergine, #443663); 
+    color: var(--accent-aubergine); 
     font-size: 1.25rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     margin-top: 2rem;
     margin-bottom: 1rem;
-    font-family: var(--font-heading, 'Lora', serif);
+    font-family: var(--font-heading);
 }
 
 .unified-story-card ul {
@@ -571,64 +698,110 @@ footer {
     margin-bottom: 0.5rem;
 }
 
-.story-sidebar, .story-content {
-    position: relative;
-    z-index: 2;
+/* =========================================
+   07. MEDIA QUERIES
+========================================= */
+@media (max-width: 900px) {
+    .framed-feature-row, .framed-feature-row.reverse {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .feature-frame {
+        padding: 2rem;
+    }
+}
+/* --- Our Story: Thematic Accordion (Updated for Dark Background) --- */
+
+.story-accordion {
+  width: 100%;
+  margin-top: 1rem;
+  border-top: 1px solid rgba(228, 224, 215, 0.2); /* Soft alabaster line */
 }
 
-/* --- FRAMED MISSION SECTION --- */
-#mission {
-    position: relative;
-    padding-top: 8rem; 
-    padding-bottom: 8rem; 
-    border-bottom: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.accordion-item {
+  border-bottom: 1px solid rgba(228, 224, 215, 0.2);
 }
 
-.mission-wrapper {
-    position: relative;
-    z-index: 2; 
-    max-width: 900px;
-    width: 100%;
+.accordion-button {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 1.5rem 0;
+  font-size: 1.25rem;
+  font-family: var(--font-heading);
+  color: var(--text-alabaster); /* Fixed: Light text */
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: color 0.3s ease;
 }
 
-.mission-box {
-    position: relative;
-    z-index: 1; 
-    margin-bottom: 0 !important; 
-    width: 100%;
-    background-color: var(--surface-camel);
-    color: var(--bg-deep-spruce);
-    padding: 5rem 3rem;
-    border-radius: 12px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-    text-align: center;
+.accordion-button:hover {
+  color: var(--surface-camel); /* Camel pops beautifully on the dark green */
 }
 
-.mission-box h1, 
-.mission-box p {
-    position: relative;
-    z-index: 2; 
+/* The +/- Icon */
+.accordion-icon {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--surface-camel);
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.frame-leaf {
-    position: absolute;
-    z-index: 10; 
-    width: 250px; 
-    opacity: 0.35; 
-    pointer-events: none; 
+.accordion-button:hover .accordion-icon {
+  color: var(--text-alabaster);
 }
 
-.frame-leaf.top-left {
-    top: -90px; 
-    left: -90px; 
-    transform: rotate(-15deg);
+.accordion-button[aria-expanded="true"] .accordion-icon {
+  transform: rotate(45deg); 
 }
 
-.frame-leaf.bottom-right {
-    bottom: -90px; 
-    right: -90px; 
-    transform: rotate(5deg);
+/* Smooth expanding/collapsing trick */
+.accordion-content-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease-out;
+}
+
+.accordion-content-wrapper.open {
+  grid-template-rows: 1fr;
+}
+
+.accordion-content {
+  overflow: hidden;
+  padding-right: 1rem; 
+  text-align: left;
+}
+
+/* Styling the actual text inside the accordion */
+.accordion-content p, 
+.accordion-content ul {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+  color: var(--text-alabaster); /* Fixed: Light text */
+  opacity: 0.85;
+}
+
+.accordion-content ul {
+  padding-left: 1.5rem;
+}
+
+.accordion-content li {
+  margin-bottom: 0.5rem;
+}
+/* --- Scroll Reveal Animations --- */
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }

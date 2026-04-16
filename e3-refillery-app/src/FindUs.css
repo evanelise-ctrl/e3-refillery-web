@@ -86,18 +86,20 @@
     margin-bottom: 0.5rem;
 }
 
+/* Flexbox layout to put calendar and events side-by-side */
 .schedule-container {
     display: flex;
+    flex-direction: row;
     gap: 4rem;
-    max-width: 1000px;
-    margin: 0 auto 4rem auto;
+    max-width: 1100px;
+    margin: 0 auto 5rem auto;
     align-items: flex-start;
     text-align: left;
 }
 
 /* --- CALENDAR GRID --- */
 .calendar-wrapper {
-    flex: 1;
+    flex: 1.2;
     background-color: var(--text-alabaster);
     color: var(--bg-deep-spruce);
     padding: 2.5rem;
@@ -158,7 +160,7 @@
 
 /* --- EVENT LIST --- */
 .events-wrapper {
-    flex: 1.2;
+    flex: 1;
 }
 
 .events-wrapper h3 {
@@ -289,9 +291,142 @@
 .host-leaf.right { bottom: -30px; right: -20px; transform: rotate(150deg); }
 
 /* Responsive Stacking */
-@media (max-width: 850px) {
+@media (max-width: 900px) {
     .schedule-container {
         flex-direction: column;
         gap: 3rem;
+        align-items: stretch;
     }
+}
+/* --- SCROLLING EVENT LIST --- */
+.events-list-scroll {
+    max-height: 480px; /* Matches the approximate height of the calendar */
+    overflow-y: auto;
+    padding-right: 15px; /* Adds breathing room for the scrollbar */
+    margin-right: -5px;
+}
+
+/* Custom, sleek scrollbar for webkit browsers */
+.events-list-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+
+.events-list-scroll::-webkit-scrollbar-track {
+    background: rgba(228, 224, 215, 0.1); 
+    border-radius: 10px;
+}
+
+.events-list-scroll::-webkit-scrollbar-thumb {
+    background: var(--surface-camel); 
+    border-radius: 10px;
+}
+
+.events-list-scroll::-webkit-scrollbar-thumb:hover {
+    background: var(--bg-deep-spruce);
+}
+
+/* --- UPDATED CALENDAR GREEN BOXES --- */
+.calendar-day.event {
+    background-color: var(--bg-deep-spruce) !important; /* Bold green background */
+    color: var(--text-alabaster) !important; /* White text for contrast */
+    font-weight: 700;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(57, 88, 86, 0.3); /* Spruce shadow */
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.calendar-day.event:hover {
+    transform: scale(1.1);
+    background-color: #443663 !important; /* Sneak a little aubergine pop on hover! */
+}
+/* --- CALENDAR NAVIGATION --- */
+.calendar-nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding: 0 1rem;
+}
+
+.calendar-nav-header h3 {
+    margin-bottom: 0 !important; /* Overrides previous h3 margin */
+    font-size: 1.5rem;
+    color: var(--bg-deep-spruce);
+}
+
+.calendar-nav-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--surface-camel);
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.2s ease;
+    padding: 0.5rem;
+}
+
+.calendar-nav-btn:hover {
+    color: var(--bg-deep-spruce);
+    transform: scale(1.2);
+}
+
+.calendar-nav-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    transform: none;
+}
+/* --- EXPANDABLE EVENT DETAILS --- */
+.event-card.has-description {
+    cursor: pointer;
+}
+
+.event-card.has-description:hover {
+    border-color: var(--surface-camel);
+}
+
+/* Container for the main info to allow absolutely positioned icons */
+.event-info-wrapper {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+/* The +/- Icon */
+.event-expand-icon {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    color: var(--surface-camel);
+    font-weight: 300;
+    transition: transform 0.3s ease;
+}
+
+.event-card.expanded .event-expand-icon {
+    transform: translateY(-50%) rotate(45deg); /* Turns + into x */
+}
+
+/* The Description Box */
+.event-description-box {
+    width: 100%;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(228, 224, 215, 0.1);
+    color: var(--text-alabaster);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+/* Ensures links inside her Google Calendar description look nice */
+.event-description-box a {
+    color: var(--surface-camel);
+    text-decoration: underline;
+}
+
+.event-description-box a:hover {
+    color: #fff;
 }

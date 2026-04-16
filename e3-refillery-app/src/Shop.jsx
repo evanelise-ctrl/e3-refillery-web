@@ -83,7 +83,7 @@ const Shop = () => {
             <img src="/e3-icon-calendar-teal.png" alt="" aria-hidden="true" className="banner-custom-icon" />
             <div>
               <strong>Make Refilling Easier</strong>
-              <p>Install the e3 Refillery app on your phone for quick, one-tap recurring orders.</p>
+              <p>Install the e3 refillery app on your phone for quick, one-tap recurring orders.</p>
             </div>
           </div>
           <button className="btn-app-install">INSTALL APP</button>
