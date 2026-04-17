@@ -841,18 +841,18 @@ footer {
         padding: 0 1rem; /* Ensures the text never touches the screen edge */
     }
 
-    /* --- 3. HOW IT WORKS (THE 3 STEPS) --- */
+/* --- 3. HOW IT WORKS POLISH --- */
     .how-it-works {
-        display: flex;
-        flex-direction: column !important; /* FORCES them to stack top-to-bottom */
+        display: flex !important; /* Overrides the desktop grid */
+        flex-direction: column !important; 
         align-items: center;
-        gap: 3rem; /* Adds space between each stacked step */
-        padding: 2rem 1.5rem;
+        gap: 1.5rem; /* Tighter gap so they don't feel disconnected */
+        padding: 2rem 1rem; 
     }
     
     .how-it-works .step {
-        width: 100%;
-        max-width: 400px; /* Keeps the steps looking clean when stacked */
-        text-align: center;
+        width: 100%; 
+        max-width: 100%; /* Lets the box stretch wider to fill the screen */
+        padding: 2rem 1.5rem; 
+        box-sizing: border-box;
     }
-}
