@@ -292,6 +292,10 @@ const Home = () => (
 
 // --- MAIN APP SHELL ---
 function App() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const toggleMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
   useEffect(() => {
     let lastScrollTop = 0;
     const headerElement = document.getElementById('main-header');
@@ -315,29 +319,41 @@ function App() {
     <ScrollHandler />
       <div className="site-wrapper">
         
-        {/* HEADER */}
+{/* HEADER */}
         <header id="main-header" style={{ transition: 'transform 0.3s ease-in-out', position: 'sticky', top: 0, zIndex: 1000, backgroundColor: 'var(--bg-deep-spruce)', padding: '1rem 5%', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <Link to="/">
               <img src="/Logo-Beige-Final.png" alt="e3 Refillery Logo" className="logo" style={{ height: '85px', width: 'auto' }} />
           </Link>
           
-          <nav style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
-              <Link to="/" style={{ color: 'var(--text-alabaster)', textDecoration: 'none' }}>Home</Link>
+          {/* THE HAMBURGER BUTTON */}
+          <button 
+            className="hamburger" 
+            onClick={toggleMenu}
+            aria-label="Toggle mobile menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          {/* THE NAV LINKS (Now with a dynamic class instead of inline styles) */}
+          <nav className={`nav-links ${isMobileMenuOpen ? 'open' : ''}`}>
+              <Link to="/" onClick={toggleMenu} style={{ color: 'var(--text-alabaster)', textDecoration: 'none' }}>Home</Link>
               
               <div className="dropdown" style={{ position: 'relative', display: 'inline-block' }}>
                   <Link to="/about" className="dropbtn" style={{ color: 'var(--text-alabaster)', textDecoration: 'none' }}>About ▾</Link>
                   <div className="dropdown-content">
-                      <Link to="/about#mission">Mission</Link>
-                      <Link to="/about#vision">Vision</Link>
-                      <Link to="/about#our-story">Our Story</Link>
-                      <Link to="/about#how-it-works">The Refill Ethos</Link>
+                      <Link to="/about#mission" onClick={toggleMenu}>Mission</Link>
+                      <Link to="/about#vision" onClick={toggleMenu}>Vision</Link>
+                      <Link to="/about#our-story" onClick={toggleMenu}>Our Story</Link>
+                      <Link to="/about#how-it-works" onClick={toggleMenu}>The Refill Ethos</Link>
                   </div>
               </div>
               
-              <Link to="/find-us" style={{ color: 'var(--text-alabaster)', textDecoration: 'none' }}>Find Us</Link>
-              <Link to="/faqs" style={{ color: 'var(--text-alabaster)', textDecoration: 'none' }}>FAQs</Link>
-              <Link to="/contact" style={{ color: 'var(--text-alabaster)', textDecoration: 'none' }}>Contact</Link>
-              <Link to="/shop" style={{ color: 'var(--text-alabaster)', textDecoration: 'none', fontWeight: 'bold' }}>Shop</Link>
+              <Link to="/find-us" onClick={toggleMenu} style={{ color: 'var(--text-alabaster)', textDecoration: 'none' }}>Find Us</Link>
+              <Link to="/faqs" onClick={toggleMenu} style={{ color: 'var(--text-alabaster)', textDecoration: 'none' }}>FAQs</Link>
+              <Link to="/contact" onClick={toggleMenu} style={{ color: 'var(--text-alabaster)', textDecoration: 'none' }}>Contact</Link>
+              <Link to="/shop" onClick={toggleMenu} style={{ color: 'var(--text-alabaster)', textDecoration: 'none', fontWeight: 'bold' }}>Shop</Link>
           </nav>
         </header>
 

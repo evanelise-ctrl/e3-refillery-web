@@ -856,3 +856,52 @@ footer {
         text-align: center;
     }
 }
+/* --- DESKTOP NAV DEFAULT --- */
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.hamburger {
+  display: none; /* Hidden on desktop */
+  flex-direction: column;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1001; 
+}
+
+.hamburger span {
+  width: 30px;
+  height: 3px;
+  background-color: var(--text-alabaster);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* --- MOBILE NAV (Under 768px) --- */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex; /* Show the button */
+  }
+
+  .nav-links {
+    display: none; /* Hide the links by default */
+    flex-direction: column;
+    position: absolute;
+    top: 100%; /* Pushes it right below the header */
+    left: 0;
+    width: 100%;
+    background-color: var(--bg-deep-spruce);
+    padding: 2rem 0;
+    text-align: center;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+  }
+
+  /* When the state is TRUE, React adds the "open" class */
+  .nav-links.open {
+    display: flex;
+  }
+}
