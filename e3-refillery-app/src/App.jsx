@@ -48,7 +48,8 @@ const About = () => {
       </section>
 
       {/* OUR STORY SECTION (Interactive Accordion) */}
-        <section id="our-story" className="about-section our-story-layout frosted-card-break" style={{ display: 'flex', gap: '4rem', maxWidth: '1200px', margin: '4rem auto' }}>        <div className="story-sidebar" style={{ flex: '1', textAlign: 'center' }}>
+<section id="our-story" className="about-section our-story-layout frosted-card-break">        
+        <div className="story-sidebar">
           <img src="/anna.png" alt="Anna Dewey, Founder" className="founder-img" style={{ width: '100%', maxWidth: '300px', borderRadius: '50%', marginBottom: '1.5rem', boxShadow: '0 15px 30px rgba(0,0,0,0.1)' }} />
           <h3 className="founder-name" style={{ color: 'var(--text-alabaster)', fontSize: '1.75rem', marginBottom: '0.25rem' }}>Anna Dewey</h3>
           <p className="founder-title" style={{ color: 'var(--text-alabaster)', fontSize: '1.1rem', opacity: '0.9' }}>Founder & Owner<br /><strong>e3 refillery LLC</strong></p>
@@ -128,18 +129,18 @@ const About = () => {
       </section>
 
 {/* VISION SECTION (Color Blocked) */}
-<section id="vision" className="about-section split-layout split-reverse" style={{ display: 'flex', flexDirection: 'row-reverse', alignItems: 'center', gap: '4rem', padding: '6rem 5%', backgroundColor: 'var(--text-alabaster)' }}>
-  <div style={{ display: 'flex', flexDirection: 'row-reverse', alignItems: 'center', gap: '4rem', maxWidth: '1200px', margin: '0 auto', width: '100%' }}>
-    <div className="split-image" style={{ flex: '1' }}>
-      <img src="/Table%20Top%202.png" alt="e3 Refillery Products" style={{ width: '100%', borderRadius: '20px', boxShadow: '0 15px 30px rgba(0,0,0,0.1)' }} />
-    </div>
-    <div className="split-content" style={{ flex: '1' }}>
-      <h2 style={{ color: 'var(--bg-deep-spruce)', fontSize: '2.5rem', marginBottom: '1.5rem' }}>Our Vision</h2>
-      <p style={{ color: 'var(--bg-deep-spruce)', fontSize: '1.15rem', lineHeight: '1.8', marginBottom: '1.5rem', opacity: '0.9' }}>Our mobile refillery envisions a world where we have eliminated single-use plastics and packaging waste from regularly consumed household products.</p>
-      <p style={{ color: 'var(--bg-deep-spruce)', fontSize: '1.15rem', lineHeight: '1.8', opacity: '0.9' }}>Sustainable products that are clean, safe and non-toxic for our families should be accessible to all consumers. We look forward to a more equitable economy, where supporting businesses that are women or BIPOC owned is our community’s first priority.</p>
-    </div>
-  </div>
-</section>
+<section id="vision" className="about-section split-layout split-reverse">
+        <div className="split-layout-inner">
+          <div className="split-image">
+            <img src="/Table%20Top%202.png" alt="e3 Refillery Products" style={{ width: '100%', borderRadius: '20px', boxShadow: '0 15px 30px rgba(0,0,0,0.1)' }} />
+          </div>
+          <div className="split-content">
+            <h2 style={{ color: 'var(--bg-deep-spruce)', fontSize: '2.5rem', marginBottom: '1.5rem' }}>Our Vision</h2>
+            <p style={{ color: 'var(--bg-deep-spruce)', fontSize: '1.15rem', lineHeight: '1.8', marginBottom: '1.5rem', opacity: '0.9' }}>Our mobile refillery envisions a world where we have eliminated single-use plastics and packaging waste from regularly consumed household products.</p>
+            <p style={{ color: 'var(--bg-deep-spruce)', fontSize: '1.15rem', lineHeight: '1.8', opacity: '0.9' }}>Sustainable products that are clean, safe and non-toxic for our families should be accessible to all consumers. We look forward to a more equitable economy, where supporting businesses that are women or BIPOC owned is our community’s first priority.</p>
+          </div>
+        </div>
+      </section>
 
       {/* THE REFILL ETHOS SECTION */}
       <section id="how-it-works" className="about-section" style={{ padding: '6rem 5%', textAlign: 'center' }}>

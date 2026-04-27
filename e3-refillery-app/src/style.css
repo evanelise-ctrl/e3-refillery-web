@@ -905,3 +905,59 @@ footer {
     display: flex;
   }
 }
+/* --- ABOUT PAGE DESKTOP LAYOUTS --- */
+.our-story-layout {
+  display: flex;
+  gap: 4rem;
+  max-width: 1200px;
+  margin: 4rem auto;
+}
+
+.story-sidebar {
+  flex: 1;
+  text-align: center;
+}
+
+.story-content {
+  flex: 2;
+}
+
+.split-layout {
+  padding: 6rem 5%;
+  background-color: var(--text-alabaster);
+}
+
+.split-layout-inner {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.split-image, .split-content {
+  flex: 1;
+}
+
+/* Fix for horizontal scroll jumping across the whole site */
+body, html {
+  overflow-x: hidden; 
+}
+
+
+/* --- ABOUT PAGE MOBILE LAYOUTS --- */
+@media (max-width: 768px) {
+  .our-story-layout {
+    flex-direction: column; /* Stacks Anna's photo and the accordion */
+    gap: 2rem;
+    margin: 2rem auto;
+    padding: 0 1.5rem; /* Adds breathing room on the sides */
+  }
+
+  .split-layout-inner {
+    flex-direction: column; /* Stacks the Vision image and text */
+    gap: 2rem;
+  }
+}
