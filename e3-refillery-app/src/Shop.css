@@ -1,4 +1,161 @@
-/* --- NEW PRODUCT CARD DETAILS --- */
+/* --- 1. SHOP PAGE WRAPPER & HEADER --- */
+.shop-page-wrapper {
+  padding: 4rem 5%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.shop-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.shop-header h1 {
+  color: var(--text-alabaster); /* Assuming dark background based on screenshot */
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.shop-header p {
+  color: var(--text-alabaster);
+  font-size: 1.15rem;
+  opacity: 0.9;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.status-badge {
+  display: inline-block;
+  background-color: var(--text-alabaster);
+  color: var(--bg-deep-spruce);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+/* --- 2. CATEGORY FILTERS --- */
+.shop-filters {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 4rem;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background-color: transparent;
+  border: 2px solid var(--text-alabaster);
+  color: var(--text-alabaster);
+  padding: 0.5rem 1.5rem;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.filter-btn.active {
+  background-color: var(--text-alabaster);
+  color: var(--bg-deep-spruce);
+}
+
+/* --- 3. BRAND SPOTLIGHT (EDITORIAL HEADER) --- */
+.brand-spotlight-container {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem; /* Massive spacing between different makers */
+}
+
+.brand-banner {
+  border-bottom: 2px solid var(--text-alabaster);
+  padding-bottom: 1.5rem;
+  margin-bottom: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.brand-banner h2 {
+  font-size: 3.5rem;
+  color: var(--text-alabaster);
+  margin: 0 0 0.5rem 0;
+  line-height: 1;
+}
+
+.brand-tags {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.location-tag, .highlight-tag {
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.location-tag {
+  color: var(--text-alabaster);
+  opacity: 0.8;
+}
+
+.highlight-tag {
+  color: #b8860b; 
+  background-color: rgba(184, 134, 11, 0.15);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+}
+
+/* --- 4. PRODUCT GRID & CARDS (THE FIX) --- */
+.product-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+}
+
+.product-card {
+  background-color: #ffffff; /* Forces the white card look */
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+/* Constrains the giant images */
+.product-image-wrapper {
+  height: 280px; 
+  width: 100%;
+  overflow: hidden;
+}
+
+.product-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+}
+
+/* --- 5. PRODUCT CARD INTERNAL TYPOGRAPHY --- */
+.product-info {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  text-align: left; /* Fixes the weird centered text */
+}
+
 .product-meta {
   display: flex;
   justify-content: space-between;
@@ -6,25 +163,40 @@
   margin-bottom: 0.5rem;
 }
 
+.product-category {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #888;
+}
+
 .eco-impact {
   font-size: 0.8rem;
-  color: #2e7d32; /* A nice earthy green */
+  color: #2e7d32; 
   font-weight: 600;
   background-color: #e8f5e9;
   padding: 0.2rem 0.6rem;
   border-radius: 12px;
 }
 
-.product-maker {
-  font-size: 0.9rem;
+.product-info h3 {
   color: var(--bg-deep-spruce);
-  opacity: 0.7;
-  font-weight: 500;
-  margin-top: -0.5rem;
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
   margin-bottom: 1rem;
-  font-style: italic;
+  line-height: 1.2;
 }
 
+.product-description {
+  color: var(--bg-deep-spruce);
+  opacity: 0.85;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+/* --- 6. SCENT TAGS & FOOTER --- */
 .scents-container {
   margin-bottom: 1.5rem;
 }
@@ -48,68 +220,26 @@
   border: 1px solid rgba(57, 88, 86, 0.2);
   color: var(--bg-deep-spruce);
   font-size: 0.75rem;
-  padding: 0.2rem 0.6rem;
+  padding: 0.3rem 0.6rem;
   border-radius: 4px;
 }
 
-.product-price {
-  font-size: 1.1rem; /* Slightly smaller to accommodate the two sizes */
-}
-
-/* --- BRAND SPOTLIGHT LAYOUT --- */
-.brand-spotlight-container {
-  display: flex;
-  flex-direction: column;
-  gap: 5rem; /* Massive spacing between different makers */
-}
-
-.brand-block {
-  background-color: transparent;
-}
-
-/* The Editorial Header */
-.brand-banner {
-  border-bottom: 2px solid var(--bg-deep-spruce);
-  padding-bottom: 1.5rem;
-  margin-bottom: 3rem;
+.product-footer {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
-}
-
-.brand-banner h2 {
-  font-size: 3.5rem;
-  color: var(--bg-deep-spruce);
-  margin: 0 0 0.5rem 0;
-  line-height: 1;
-}
-
-.brand-tags {
-  display: flex;
-  gap: 1rem;
   align-items: center;
-  flex-wrap: wrap;
+  border-top: 1px solid #eee;
+  padding-top: 1rem;
+  margin-top: auto;
 }
 
-.location-tag, .highlight-tag {
-  font-size: 0.95rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
+.product-price {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--bg-deep-spruce);
 }
 
-.location-tag {
-  color: #555;
-}
-
-.highlight-tag {
-  color: #b8860b; /* A nice subtle gold/mustard to make it pop */
-  background-color: rgba(184, 134, 11, 0.1);
-  padding: 0.3rem 0.8rem;
-  border-radius: 20px;
-}
-
-/* --- MOBILE ADJUSTMENTS --- */
+/* --- 7. MOBILE RESPONSIVENESS --- */
 @media (max-width: 768px) {
   .brand-banner {
     flex-direction: column;
@@ -123,5 +253,9 @@
 
   .brand-spotlight-container {
     gap: 4rem;
+  }
+  
+  .shop-header h1 {
+    font-size: 2.25rem;
   }
 }
