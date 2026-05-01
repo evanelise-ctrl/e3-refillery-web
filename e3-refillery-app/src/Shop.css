@@ -63,55 +63,170 @@
   color: var(--bg-deep-spruce);
 }
 
-/* --- 3. BRAND SPOTLIGHT (EDITORIAL HEADER) --- */
-.brand-spotlight-container {
+/* --- 3. PRODUCT GRID & CARDS --- */
+.product-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2.5rem;
+  justify-items: center; /* Keeps cards centered if there are only a few */
+}
+
+.product-card {
+  width: 100%;
+  max-width: 380px; /* Prevents cards from becoming giant banners */
+  background-color: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
-  gap: 6rem; /* Massive spacing between different makers */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.brand-banner {
-  text-align: center;
-  margin-bottom: 3.5rem;
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.product-image-wrapper {
+  height: 280px; 
+  width: 100%;
+  overflow: hidden;
+  background-color: #f8f8f8; /* Soft background in case of transparent PNGs */
+}
+
+.product-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+}
+
+/* --- 4. INTERNAL CARD STYLING --- */
+.product-info {
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 1.25rem;
+  flex-grow: 1;
+  text-align: left;
 }
 
-.brand-banner h2 {
-  font-size: 3.25rem;
-  color: var(--text-alabaster);
-  margin: 0;
-  letter-spacing: 1px;
+.product-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+  gap: 10px;
 }
 
-.brand-tags {
-  display: inline-flex;
-  gap: 1.5rem;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  background-color: rgba(255, 255, 255, 0.05); /* Subtle frosted pill background */
-  padding: 0.6rem 2rem;
-  border-radius: 40px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.location-tag, .highlight-tag {
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 1px;
+.product-category {
+  font-size: 0.75rem;
   text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #888;
+  font-weight: 600;
 }
 
-.location-tag {
-  color: var(--text-alabaster);
-  opacity: 0.7;
+.eco-impact {
+  font-size: 0.75rem;
+  color: #2e7d32; 
+  font-weight: 600;
+  background-color: #e8f5e9;
+  padding: 0.25rem 0.5rem;
+  border-radius: 8px;
+  text-align: right;
+  line-height: 1.2;
 }
 
-.highlight-tag {
-  color: #d4af37; /* A richer, slightly brighter gold */
+.product-info h3 {
+  color: var(--bg-deep-spruce);
+  font-size: 1.4rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+/* --- THE NEW MAKER BLOCK --- */
+.maker-block {
+  background-color: rgba(57, 88, 86, 0.05); /* Very subtle spruce tint */
+  border-left: 3px solid #b8860b; /* Gold accent line */
+  padding: 0.75rem 1rem;
+  border-radius: 0 8px 8px 0;
+  margin-bottom: 1.25rem;
+}
+
+.maker-name {
+  font-weight: bold;
+  color: var(--bg-deep-spruce);
+  margin: 0 0 0.25rem 0;
+  font-size: 0.95rem;
+}
+
+.maker-tags {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.maker-location, .maker-highlight {
+  font-size: 0.8rem;
+  color: #555;
+}
+
+.maker-highlight {
+  font-weight: 600;
+  color: #a67c00; /* Darker gold for readability on white */
+}
+
+/* --- DESCRIPTION & FOOTER --- */
+.product-description {
+  color: var(--bg-deep-spruce);
+  opacity: 0.85;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.scents-container {
+  margin-bottom: 1.5rem;
+}
+
+.scents-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: var(--bg-deep-spruce);
+  margin-bottom: 0.4rem;
+}
+
+.scent-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.scent-tag {
+  background-color: var(--text-alabaster);
+  border: 1px solid rgba(57, 88, 86, 0.2);
+  color: var(--bg-deep-spruce);
+  font-size: 0.75rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+}
+
+.product-footer {
+  display: flex;
+  justify-content: flex-end; /* Pushes price to the right */
+  align-items: center;
+  border-top: 1px solid #eee;
+  padding-top: 1rem;
+  margin-top: auto;
+}
+
+.product-price {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--bg-deep-spruce);
 }
 
 /* --- MOBILE ADJUSTMENTS FOR NEW HEADER --- */

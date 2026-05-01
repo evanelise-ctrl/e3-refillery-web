@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Shop.css';
 
-// --- YOUR INVENTORY DATA ---
+// --- YOUR INVENTORY DATA (Now with real images!) ---
 const productsData = [
   {
     id: 1,
@@ -11,74 +11,74 @@ const productsData = [
     location: "Dexter, MI",
     highlights: "Women-owned, Michigan local",
     price: "$16 Full (3.5oz) | $7 Mini (1oz)",
-    image: "/Shampoo-Bars.png",
-    description: "Very long-lasting, effectively removes build-up, and lathers beautifully to maintain healthy hair follicles. Safe for all hair types (even curly!) and kid-friendly.",
+    image: "/tiani_shampoo_bar.png",
+    description: "Very long-lasting, effectively removes build-up, and lathers beautifully to maintain healthy hair follicles. Safe for all hair types.",
     ecoImpact: "Saves 2-3 plastic bottles",
     scents: ["Grapefruit Patchouli", "Lemongrass", "Orange Clove", "English Lavender"]
   },
   {
     id: 2,
-    name: "Huppy Toothpaste Tablets",
+    name: "Tiani Conditioner Bar",
     category: "Personal Care",
-    brand: "Huppy",
-    location: "California, USA",
-    highlights: "AAPI-Owned",
-    price: "$9.00 (62 tablets)",
-    image: "/Dishwasher.png", /* Placeholder */
-    description: "A fluoride-free, zero-waste alternative to traditional paste that naturally whitens, freshens breath, and fights plaque. Made with clean ingredients like peppermint oil, aloe vera extract, and nano-hydroxyapatite to remineralize enamel.",
-    ecoImpact: "Eliminates plastic tubes",
-    scents: ["Peppermint"]
+    brand: "Tiani Body Care",
+    location: "Dexter, MI",
+    highlights: "Women-owned, Michigan local",
+    price: "$17 Full (3.5oz) | $8 Mini (1oz)",
+    image: "/tiani_conditioner_bar.png",
+    description: "Packed with hair-friendly nutrients! Made with Vitamin E, jojoba, tucuma butter, and chamomile butter. Leaves hair detangled, light, and non-greasy.",
+    ecoImpact: "Saves 2-3 plastic bottles",
+    scents: ["Grapefruit Patchouli", "Lemongrass", "Orange Clove", "English Lavender"]
   },
   {
     id: 3,
-    name: "Dishwashing Trio Set",
-    category: "Cleaning",
-    brand: "Mama Suds",
-    location: "Goodrich, MI",
-    highlights: "Woman-owned, Michigan local",
-    price: "$28.00",
-    image: "/Table%20Top%202.png", /* Placeholder */
-    description: "All you need to get started at the kitchen sink! Includes pure castile dish soap, a natural bamboo and sisal pot brush, and an alder wood soap dish.",
-    ecoImpact: "Plastic-free, Vegan",
-    scents: ["Unscented"]
-  },
-  {
-    id: 4,
-    name: "Laundry Stain Stick",
+    name: "Laundry Powder",
     category: "Laundry Care",
     brand: "Mama Suds",
     location: "Goodrich, MI",
     highlights: "Woman-owned, Michigan local",
-    price: "$7.00",
-    image: "/Table%20Top%201.png", /* Placeholder */
-    description: "This spot-treating super-hero is here to keep your couches, clothes, and even upholstery stain- and toxin-free. A lot of cleaning power is packed into this little stick that lasts forever!",
-    ecoImpact: "Biodegradable, Vegan",
+    price: "$0.35 / oz",
+    image: "/mamasuds_laundry_powder.png",
+    description: "A powerful, safe, and non-toxic laundry powder that is tough on stains but gentle on sensitive skin and the environment.",
+    ecoImpact: "Plastic-free, Vegan",
+    scents: ["Unscented", "Lemon"]
+  },
+  {
+    id: 4,
+    name: "Ultimate Unsponge",
+    category: "Accessories",
+    brand: "Modern Cottage NC",
+    location: "Nevada City, CA",
+    highlights: "Women & Indigenous-owned",
+    price: "$8.00",
+    image: "/ultimate-unsponge.png",
+    description: "A quilted, washable, reusable household sponge made from all-natural fabrics and fibers. 100% cotton on one side, burlap on the other.",
+    ecoImpact: "Zero-waste, plastic-free",
     scents: []
   },
   {
     id: 5,
-    name: "Alpaca Dryer Balls (Set of 3)",
-    category: "Laundry Care",
-    brand: "Cotton Creek Farms",
-    location: "Thompsonville, MI",
-    highlights: "Family-owned, Michigan local, USA-made",
-    price: "$22.00",
-    image: "/Container.png", /* Placeholder */
-    description: "Made from 100% humanely sheared alpaca fiber from our own Michigan farm. Hypoallergenic, dye-free, and chemical-free. Lasts hundreds of loads!",
-    ecoImpact: "Saves 25-30% in drying costs",
+    name: "Wooden Soap Dish",
+    category: "Accessories",
+    brand: "Howells Wood Products",
+    location: "Redmond, OR",
+    highlights: "Handmade, eco-friendly",
+    price: "$5.00",
+    image: "/howells-wood-soap-dish.png",
+    description: "Handmade out of red alder wood. The original design prevents soap from sticking, and deep channels allow water to quickly run off.",
+    ecoImpact: "Plastic-free",
     scents: []
   },
   {
     id: 6,
-    name: "Reusable Paper Towels (Pack of 6)",
+    name: "Sisal Soap Saver Bag",
     category: "Accessories",
-    brand: "Craftinista Girl",
-    location: "Farmington Hills, MI",
-    highlights: "Women-owned, Michigan local",
-    price: "$18.00",
-    image: "/whatisarefillery.png", /* Placeholder */
-    description: "Made with absorbent flannel material. Each individual towel measures 10\" x 12\". Wash with like items in the washing machine.",
-    ecoImpact: "Reduces single-use plastic",
+    brand: "Four Peaks Soapery",
+    location: "New Mexico",
+    highlights: "Handmade, Woman/Veteran-owned",
+    price: "$4.00",
+    image: "/sisal_soap_saver.png",
+    description: "Slip your soap bar or broken pieces inside to prolong the life of the soap. Creates an excellent lather and gently exfoliates.",
+    ecoImpact: "Biodegradable, compostable",
     scents: []
   },
   {
@@ -89,7 +89,7 @@ const productsData = [
     location: "Dearborn, MI",
     highlights: "Handmade, Women-owned, Local",
     price: "$6 (16oz) | $8 (32oz)",
-    image: "/Container.png", /* Placeholder */
+    image: "/Jarket assortment.png",
     description: "Protect your mason jar glass with a handmade, colorful 'jarket'. Slip over the bottom of your mason jar to add protection. Machine washable.",
     ecoImpact: "Plastic-free alternative to silicone",
     scents: []
@@ -99,23 +99,10 @@ const productsData = [
 const Shop = () => {
   const [activeCategory, setActiveCategory] = useState('All');
 
-  // 1. Filter by category first
+  // Filter products by category (No more brand grouping!)
   const filteredProducts = activeCategory === 'All' 
     ? productsData 
     : productsData.filter(product => product.category === activeCategory);
-
-  // 2. Group the remaining products by Brand
-  const groupedByBrand = filteredProducts.reduce((acc, product) => {
-    if (!acc[product.brand]) {
-      acc[product.brand] = {
-        location: product.location,
-        highlights: product.highlights,
-        products: []
-      };
-    }
-    acc[product.brand].products.push(product);
-    return acc;
-  }, {});
 
   const categories = ['All', ...new Set(productsData.map(item => item.category))];
 
@@ -139,58 +126,50 @@ const Shop = () => {
         ))}
       </div>
 
-      {/* BRAND SPOTLIGHT LAYOUT */}
-      <div className="brand-spotlight-container">
-        {Object.entries(groupedByBrand).map(([brandName, brandInfo]) => (
-          <div key={brandName} className="brand-block">
+      {/* FLAT PRODUCT GRID */}
+      <div className="product-grid-container">
+        {filteredProducts.map(product => (
+          <div key={product.id} className="product-card">
             
-            {/* The Big Editorial Brand Header */}
-            <div className="brand-banner">
-              <div className="brand-banner-content">
-                <h2>{brandName}</h2>
-                <div className="brand-tags">
-                  <span className="location-tag">📍 {brandInfo.location}</span>
-                  <span className="highlight-tag">✨ {brandInfo.highlights}</span>
+            <div className="product-image-wrapper">
+              <img src={product.image} alt={product.name} />
+            </div>
+            
+            <div className="product-info">
+              <div className="product-meta">
+                <span className="product-category">{product.category}</span>
+                <span className="eco-impact">🌱 {product.ecoImpact}</span>
+              </div>
+              
+              <h3>{product.name}</h3>
+              
+              {/* NEW MAKER BLOCK INSIDE THE CARD */}
+              <div className="maker-block">
+                <p className="maker-name">{product.brand}</p>
+                <div className="maker-tags">
+                  <span className="maker-location">📍 {product.location}</span>
+                  <span className="maker-highlight">✨ {product.highlights}</span>
                 </div>
               </div>
-            </div>
-
-            {/* The Brand's Specific Products */}
-            <div className="product-grid-container">
-              {brandInfo.products.map(product => (
-                <div key={product.id} className="product-card">
-                  <div className="product-image-wrapper">
-                    <img src={product.image} alt={product.name} />
-                  </div>
-                  <div className="product-info">
-                    <div className="product-meta">
-                      <span className="product-category">{product.category}</span>
-                      <span className="eco-impact">🌱 {product.ecoImpact}</span>
-                    </div>
-                    
-                    <h3>{product.name}</h3>
-                    <p className="product-description">{product.description}</p>
-                    
-{/* Only show the scents container if there are scents available */}
-                    {product.scents && product.scents.length > 0 && (
-                      <div className="scents-container">
-                        <span className="scents-label">Scents:</span>
-                        <div className="scent-tags">
-                          {product.scents.map((scent, index) => (
-                            <span key={index} className="scent-tag">{scent}</span>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                    
-                    <div className="product-footer">
-                      <span className="product-price">{product.price}</span>
-                    </div>
+              
+              <p className="product-description">{product.description}</p>
+              
+              {/* Conditional Scents Rendering */}
+              {product.scents && product.scents.length > 0 && (
+                <div className="scents-container">
+                  <span className="scents-label">Scents:</span>
+                  <div className="scent-tags">
+                    {product.scents.map((scent, index) => (
+                      <span key={index} className="scent-tag">{scent}</span>
+                    ))}
                   </div>
                 </div>
-              ))}
+              )}
+
+              <div className="product-footer">
+                <span className="product-price">{product.price}</span>
+              </div>
             </div>
-            
           </div>
         ))}
       </div>
