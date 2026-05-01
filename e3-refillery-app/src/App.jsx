@@ -267,25 +267,36 @@ const Home = () => (
       </div>
     </section>
 
-    <section className="featured-products" style={{ backgroundColor: 'var(--text-alabaster)', color: 'var(--bg-deep-spruce)', padding: '5rem 5%', margin: '4rem auto', maxWidth: '1200px', textAlign: 'center', borderRadius: '20px' }}>
+<section className="featured-products" style={{ backgroundColor: 'var(--text-alabaster)', color: 'var(--bg-deep-spruce)', padding: '5rem 5%', margin: '4rem auto', maxWidth: '1200px', textAlign: 'center', borderRadius: '20px' }}>
         <h2 style={{ color: 'var(--bg-deep-spruce)', fontSize: '2.25rem', marginBottom: '1rem' }}>A Peek at Our Goods</h2>
         <p style={{ maxWidth: '600px', margin: '0 auto 3rem auto', fontSize: '1.1rem', opacity: '0.9' }}>We stock premium, eco-conscious essentials from brands <br />that care about your health and the planet.</p>
+        
         <div className="product-preview-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2.5rem', maxWidth: '1000px', margin: '0 auto' }}>
-            <div className="preview-card" style={{ textAlign: 'center', backgroundColor: '#ffffff', padding: '1.5rem', borderRadius: '12px' }}>
-                <img src="/Dishwasher.png" alt="Home Care" style={{ width: '100%', height: '250px', objectFit: 'cover', borderRadius: '8px', marginBottom: '1rem' }} />
-                <h3 style={{ color: 'var(--bg-deep-spruce)', fontSize: '1.25rem', marginBottom: '0.5rem' }}>Home Care</h3>
-                <p style={{ opacity: '0.8', fontSize: '0.95rem' }}>Laundry, dishwashing, and cleaning</p>
+            
+            {/* Featured Product 1 */}
+            <div className="preview-card" style={{ textAlign: 'left', backgroundColor: '#ffffff', padding: '1.5rem', borderRadius: '12px', boxShadow: '0 10px 20px rgba(0,0,0,0.05)' }}>
+                <img src="/tiani_shampoo_bar.png" alt="Tiani Shampoo Bar" style={{ width: '100%', height: '250px', objectFit: 'cover', borderRadius: '8px', marginBottom: '1rem' }} />
+                <h3 style={{ color: 'var(--bg-deep-spruce)', fontSize: '1.3rem', margin: '0 0 0.25rem 0' }}>Tiani Shampoo Bar</h3>
+                <p style={{ color: '#555', fontSize: '0.9rem', marginBottom: '1.5rem', fontStyle: 'italic' }}>Tiani Body Care</p>
+                <Link to="/shop" style={{ display: 'block', textAlign: 'center', padding: '0.75rem', borderRadius: '8px', textDecoration: 'none', backgroundColor: 'var(--bg-deep-spruce)', color: 'var(--text-alabaster)', fontWeight: 'bold', transition: 'opacity 0.3s' }}>View in Shop</Link>
             </div>
-            <div className="preview-card" style={{ textAlign: 'center', backgroundColor: '#ffffff', padding: '1.5rem', borderRadius: '12px' }}>
-                <img src="/Shampoo-Bars.png" alt="Personal Care" style={{ width: '100%', height: '250px', objectFit: 'cover', borderRadius: '8px', marginBottom: '1rem' }} />
-                <h3 style={{ color: 'var(--bg-deep-spruce)', fontSize: '1.25rem', marginBottom: '0.5rem' }}>Personal Care</h3>
-                <p style={{ opacity: '0.8', fontSize: '0.95rem' }}>Soaps, shampoos, and body wash</p>
+
+            {/* Featured Product 2 */}
+            <div className="preview-card" style={{ textAlign: 'left', backgroundColor: '#ffffff', padding: '1.5rem', borderRadius: '12px', boxShadow: '0 10px 20px rgba(0,0,0,0.05)' }}>
+                <img src="/mamasuds_solid_dish_soap.png" alt="Dishwashing Trio Set" style={{ width: '100%', height: '250px', objectFit: 'cover', borderRadius: '8px', marginBottom: '1rem' }} />
+                <h3 style={{ color: 'var(--bg-deep-spruce)', fontSize: '1.3rem', margin: '0 0 0.25rem 0' }}>Dishwashing Trio Set</h3>
+                <p style={{ color: '#555', fontSize: '0.9rem', marginBottom: '1.5rem', fontStyle: 'italic' }}>Mama Suds</p>
+                <Link to="/shop" style={{ display: 'block', textAlign: 'center', padding: '0.75rem', borderRadius: '8px', textDecoration: 'none', backgroundColor: 'var(--bg-deep-spruce)', color: 'var(--text-alabaster)', fontWeight: 'bold', transition: 'opacity 0.3s' }}>View in Shop</Link>
             </div>
-            <div className="preview-card" style={{ textAlign: 'center', backgroundColor: '#ffffff', padding: '1.5rem', borderRadius: '12px' }}>
-                <img src="/Container.png" alt="Premium Containers" style={{ width: '100%', height: '250px', objectFit: 'cover', borderRadius: '8px', marginBottom: '1rem' }} />
-                <h3 style={{ color: 'var(--bg-deep-spruce)', fontSize: '1.25rem', marginBottom: '0.5rem' }}>Premium Containers</h3>
-                <p style={{ opacity: '0.8', fontSize: '0.95rem' }}>Beautiful, reusable glass made in the U.S.A.</p>
+
+            {/* Featured Product 3 */}
+            <div className="preview-card" style={{ textAlign: 'left', backgroundColor: '#ffffff', padding: '1.5rem', borderRadius: '12px', boxShadow: '0 10px 20px rgba(0,0,0,0.05)' }}>
+                <img src="/Jarket assortment.png" alt="Handmade Mason Jarket" style={{ width: '100%', height: '250px', objectFit: 'cover', borderRadius: '8px', marginBottom: '1rem' }} />
+                <h3 style={{ color: 'var(--bg-deep-spruce)', fontSize: '1.3rem', margin: '0 0 0.25rem 0' }}>Handmade Mason "Jarket"</h3>
+                <p style={{ color: '#555', fontSize: '0.9rem', marginBottom: '1.5rem', fontStyle: 'italic' }}>MJ Jarkets</p>
+                <Link to="/shop" style={{ display: 'block', textAlign: 'center', padding: '0.75rem', borderRadius: '8px', textDecoration: 'none', backgroundColor: 'var(--bg-deep-spruce)', color: 'var(--text-alabaster)', fontWeight: 'bold', transition: 'opacity 0.3s' }}>View in Shop</Link>
             </div>
+
         </div>
     </section>
   </>
