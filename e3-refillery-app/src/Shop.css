@@ -55,3 +55,73 @@
 .product-price {
   font-size: 1.1rem; /* Slightly smaller to accommodate the two sizes */
 }
+
+/* --- BRAND SPOTLIGHT LAYOUT --- */
+.brand-spotlight-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem; /* Massive spacing between different makers */
+}
+
+.brand-block {
+  background-color: transparent;
+}
+
+/* The Editorial Header */
+.brand-banner {
+  border-bottom: 2px solid var(--bg-deep-spruce);
+  padding-bottom: 1.5rem;
+  margin-bottom: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.brand-banner h2 {
+  font-size: 3.5rem;
+  color: var(--bg-deep-spruce);
+  margin: 0 0 0.5rem 0;
+  line-height: 1;
+}
+
+.brand-tags {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.location-tag, .highlight-tag {
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.location-tag {
+  color: #555;
+}
+
+.highlight-tag {
+  color: #b8860b; /* A nice subtle gold/mustard to make it pop */
+  background-color: rgba(184, 134, 11, 0.1);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+}
+
+/* --- MOBILE ADJUSTMENTS --- */
+@media (max-width: 768px) {
+  .brand-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .brand-banner h2 {
+    font-size: 2.5rem;
+  }
+
+  .brand-spotlight-container {
+    gap: 4rem;
+  }
+}
