@@ -38,7 +38,7 @@ const productsData = [
     location: "California, USA",
     highlights: "AAPI-Owned",
     price: "$9.00 (62 tablets)",
-    image: "/Table%20Top%202.png", 
+    image: "/huppy_toothpaste.png", 
     description: "A fluoride-free, zero-waste alternative to traditional paste that naturally whitens, freshens breath, and fights plaque. Made with clean ingredients like peppermint oil, aloe vera extract, and nano-hydroxyapatite.",
     ecoImpact: "Eliminates plastic tubes",
     scents: ["Peppermint"]
@@ -66,7 +66,7 @@ const productsData = [
     location: "Goodrich, MI",
     highlights: "Woman-owned, Michigan local",
     price: "$28.00",
-    image: "/Table%20Top%201.png", 
+    image: "/mamasuds_solid_dish_soap.png", 
     description: "All you need to get started at the kitchen sink! Includes pure castile dish soap, a natural bamboo and sisal pot brush, and an alder wood soap dish.",
     ecoImpact: "Plastic-free, Vegan",
     scents: ["Unscented"]
@@ -105,7 +105,7 @@ const productsData = [
     location: "Johnson City, TN",
     highlights: "Woman-owned, EWG Verified",
     price: "$0.52 per tablet",
-    image: "/Dishwasher.png", 
+    image: "/green_llama_dishwasher_tabs.png", 
     description: "Sparkling dishes. Zero plastic. 100% peace of mind. Deliver powerful, mineral and plant-based cleaning in plastic-free, compostable packaging. Spot-free finish without synthetic fragrances.",
     ecoImpact: "Zero Waste, No PVA or microplastics",
     scents: ["Unscented"]
@@ -118,7 +118,7 @@ const productsData = [
     location: "Johnson City, TN",
     highlights: "Woman-owned, EWG Verified",
     price: "$3.00 (2 tablets)",
-    image: "/green_llama_glass_cleaner.png", 
+    image: "/green_llama_glass_cleaner.png", /* Kept this image placeholder for the tablet until an AP-specific one is added */
     description: "Expertly formulated with natural, non-toxic ingredients. Your surfaces will be left impeccably clean with no harsh chemicals. Dissolve 2 tablets in 16oz of water.",
     ecoImpact: "Compostable packaging, zero plastic",
     scents: ["Lemongrass & Geranium"]
@@ -131,10 +131,23 @@ const productsData = [
     location: "Goodrich, MI",
     highlights: "Woman-owned, Michigan local",
     price: "Starter $9.36 | Refill $6.86 (14oz)",
-    image: "/Container.png", 
+    image: "/mama_suds_logo.png", 
     description: "Staying true to traditional soap-making, this is one of the best natural and bio-degradable soaps available. Perfect for washing body, laundry, hair, and shaving.",
     ecoImpact: "Biodegradable, Leaping Bunny",
     scents: ["Unscented", "Lemon"]
+  },
+  {
+    id: 20,
+    name: "Glass Cleaner Tablet",
+    category: "Cleaning",
+    brand: "Green Llama",
+    location: "Johnson City, TN",
+    highlights: "Woman-owned, EWG Verified",
+    price: "Price TBD", 
+    image: "/green_llama_glass_cleaner.png", 
+    description: "Achieve brilliantly clean, streak-free windows and glass surfaces all while prioritizing the well-being of our planet. Simply dissolve 1 tablet in 16oz of warm water.",
+    ecoImpact: "Compostable packaging, zero plastic",
+    scents: ["Citrus"]
   },
 
   // --- LAUNDRY CARE ---
@@ -159,7 +172,7 @@ const productsData = [
     location: "Goodrich, MI",
     highlights: "Woman-owned, Michigan local",
     price: "Refills starting at $5.04",
-    image: "/whatisarefillery.png", 
+    image: "/mamasuds_liquid_laundry_soap.png", 
     description: "Formulated based on the owner's need for a laundry soap that would clean cloth diapers but be gentle enough to not irritate her baby's skin. Gentle, safe, and effective.",
     ecoImpact: "Biodegradable, Refillable",
     scents: ["Unscented", "Lavender"]
@@ -172,7 +185,7 @@ const productsData = [
     location: "Goodrich, MI",
     highlights: "Woman-owned, Michigan local",
     price: "$7.00",
-    image: "/Table%20Top%201.png", 
+    image: "/mama_suds_logo.png", 
     description: "This spot-treating super-hero is here to keep your couches, clothes, and even upholstery stain- and toxin-free. A lot of cleaning power is packed into this little stick that lasts forever!",
     ecoImpact: "Biodegradable, Vegan",
     scents: ["Unscented"]
@@ -185,7 +198,7 @@ const productsData = [
     location: "Thompsonville, MI",
     highlights: "Family-owned, Michigan local",
     price: "$22.00",
-    image: "/Container.png", 
+    image: "/alpaca_dryer_balls.png", 
     description: "Made from 100% humanely sheared alpaca fiber from our own Michigan farm. Hypoallergenic, dye-free, and chemical-free. Lasts hundreds of loads!",
     ecoImpact: "Saves 25-30% in drying costs",
     scents: []
@@ -239,7 +252,7 @@ const productsData = [
     location: "Farmington Hills, MI",
     highlights: "Women-owned, Michigan local",
     price: "$18.00",
-    image: "/whatisarefillery.png", 
+    image: "/craftinista_girl_reusable_paper_towel.png", 
     description: "Made with absorbent flannel material. Each individual towel measures 10\" x 12\". Wash with like items in the washing machine.",
     ecoImpact: "Reduces single-use plastic",
     scents: []
@@ -256,19 +269,6 @@ const productsData = [
     description: "Protect your mason jar glass with a handmade, colorful 'jarket'. Slip over the bottom of your mason jar to add protection. Machine washable.",
     ecoImpact: "Plastic-free alternative to silicone",
     scents: []
-  },
-  {
-    id: 20,
-    name: "Glass Cleaner Tablet",
-    category: "Cleaning",
-    brand: "Green Llama",
-    location: "Johnson City, TN",
-    highlights: "Woman-owned, EWG Verified",
-    price: "Price TBD", /* Update this when you have the price! */
-    image: "/green_llama_glass_cleaner.png", 
-    description: "Achieve brilliantly clean, streak-free windows and glass surfaces all while prioritizing the well-being of our planet. Simply dissolve 1 tablet in 16oz of warm water.",
-    ecoImpact: "Compostable packaging, zero plastic",
-    scents: ["Citrus"]
   }
 ];
 
