@@ -129,14 +129,18 @@
 }
 
 /* --- 4. PRODUCT GRID & CARDS (THE FIX) --- */
+/* --- 4. PRODUCT GRID & CARDS (THE FIX) --- */
 .product-grid-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centers the cards nicely if there's only 1 or 2 */
   gap: 2.5rem;
 }
 
 .product-card {
-  background-color: #ffffff; /* Forces the white card look */
+  width: 100%;
+  max-width: 360px; /* The Magic Fix: Stops the cards from turning into massive banners! */
+  background-color: #ffffff; 
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 10px 20px rgba(0,0,0,0.1);
