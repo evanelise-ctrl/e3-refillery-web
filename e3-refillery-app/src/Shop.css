@@ -71,45 +71,61 @@
 }
 
 .brand-banner {
-  border-bottom: 2px solid var(--text-alabaster);
-  padding-bottom: 1.5rem;
-  margin-bottom: 3rem;
+  text-align: center;
+  margin-bottom: 3.5rem;
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
 }
 
 .brand-banner h2 {
-  font-size: 3.5rem;
+  font-size: 3.25rem;
   color: var(--text-alabaster);
-  margin: 0 0 0.5rem 0;
-  line-height: 1;
+  margin: 0;
+  letter-spacing: 1px;
 }
 
 .brand-tags {
-  display: flex;
-  gap: 1rem;
+  display: inline-flex;
+  gap: 1.5rem;
   align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
+  background-color: rgba(255, 255, 255, 0.05); /* Subtle frosted pill background */
+  padding: 0.6rem 2rem;
+  border-radius: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .location-tag, .highlight-tag {
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   font-weight: 600;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
   text-transform: uppercase;
 }
 
 .location-tag {
   color: var(--text-alabaster);
-  opacity: 0.8;
+  opacity: 0.7;
 }
 
 .highlight-tag {
-  color: #b8860b; 
-  background-color: rgba(184, 134, 11, 0.15);
-  padding: 0.3rem 0.8rem;
-  border-radius: 20px;
+  color: #d4af37; /* A richer, slightly brighter gold */
+}
+
+/* --- MOBILE ADJUSTMENTS FOR NEW HEADER --- */
+@media (max-width: 768px) {
+  .brand-banner h2 {
+    font-size: 2.5rem;
+  }
+  
+  .brand-tags {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+    border-radius: 20px;
+  }
 }
 
 /* --- 4. PRODUCT GRID & CARDS (THE FIX) --- */
