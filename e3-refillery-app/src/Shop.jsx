@@ -1,98 +1,53 @@
 import React, { useState } from 'react';
 import './Shop.css';
 
+// --- YOUR INVENTORY DATA ---
+const productsData = [
+  {
+    id: 1,
+    name: "Tiani Shampoo Bar",
+    category: "Personal Care",
+    maker: "Tiani Body Care | Dexter, MI",
+    price: "$16 Full (3.5oz) | $7 Mini (1oz)",
+    image: "/Shampoo-Bars.png",
+    description: "Very long-lasting, effectively removes build-up, and lathers beautifully to maintain healthy hair follicles and a moisturized scalp. Safe for all hair types (even curly!) and kid-friendly.",
+    ecoImpact: "Saves 2-3 plastic bottles",
+    scents: ["Grapefruit Patchouli", "Lemongrass", "Orange Clove", "English Lavender (Mini)"]
+  },
+  {
+    id: 2,
+    name: "Tiani Conditioner Bar",
+    category: "Personal Care",
+    maker: "Tiani Body Care | Dexter, MI",
+    price: "$17 Full (3.5oz) | $8 Mini (1oz)",
+    image: "/Table%20Top%201.png",
+    description: "Packed with hair-friendly nutrients & salon-quality ingredients! Made with Vitamin E, jojoba, tucuma butter, and chamomile butter. Leaves hair detangled, light, and non-greasy.",
+    ecoImpact: "Saves 2-3 plastic bottles",
+    scents: ["Grapefruit Patchouli", "Lemongrass", "Orange Clove", "English Lavender (Mini)"]
+  }
+  // You can continue adding her other products here following this exact format!
+];
+
 const Shop = () => {
-  const [activeCategory, setActiveCategory] = useState('All Products');
+  const [activeCategory, setActiveCategory] = useState('All');
 
-  // --- PRODUCT DATA ARRAY ---
-  const products = [
-    {
-      id: 1,
-      name: 'Dishwasher Detergent',
-      price: '$0.40 / oz',
-      category: 'Home Care',
-      image: '/Dishwasher.png', 
-      buttonText: '+ SELECT SIZE'
-    },
-    {
-      id: 2,
-      name: 'Nourishing Shampoo Bar',
-      price: '$12.00 / bar',
-      category: 'Personal Care',
-      image: '/Shampoo-Bars.png',
-      buttonText: '+ SELECT SIZE'
-    },
-    {
-      id: 3,
-      name: 'Mint Toothpaste Tabs',
-      price: '$0.15 / tab',
-      category: 'Personal Care',
-      image: '/toothpaste-tabs.png',
-      buttonText: '+ SELECT SIZE'
-    },
-    {
-      id: 4,
-      name: 'Reusable Glass Container',
-      price: '$6.00',
-      category: 'Containers',
-      image: '/Container.png',
-      buttonText: '+ ADD TO CART'
-    },
-    {
-      id: 5,
-      name: 'Unscented Laundry Detergent',
-      price: '$0.35 / oz',
-      category: 'Home Care',
-      image: '/Table Top 1.png', /* Temporary placeholder */
-      buttonText: '+ SELECT SIZE'
-    },
-    {
-      id: 6,
-      name: 'Lavender Hand Soap',
-      price: '$0.45 / oz',
-      category: 'Home Care',
-      image: '/Table Top 2.png', /* Temporary placeholder */
-      buttonText: '+ SELECT SIZE'
-    }
-  ];
+  const filteredProducts = activeCategory === 'All' 
+    ? productsData 
+    : productsData.filter(product => product.category === activeCategory);
 
-  const filteredProducts = activeCategory === 'All Products' 
-    ? products 
-    : products.filter(product => product.category === activeCategory);
+  const categories = ['All', ...new Set(productsData.map(item => item.category))];
 
   return (
-    <div className="shop-page-container">
+    <div className="shop-page-wrapper">
       
-      {/* HERO SECTION */}
-      <section className="shop-hero">
-        <h1>Shop Sustainable Goods</h1>
-        <p>Clean, safe, and non-toxic products for your home and family. Order by the ounce to fill your own containers or purchase our reusable premium jars.</p>
+      <section className="shop-header">
+        <h1>Our Goods</h1>
+        <p>Browse our curated selection of clean, non-toxic essentials. <br/> Bring your own container to the refillery, or grab one of ours!</p>
+        <div className="status-badge">Available for in-person refill only at this time.</div>
       </section>
 
-      {/* INFO BANNERS */}
-      <div className="shop-banners">
-        {/* Banner 1: Delivery Icon */}
-        <div className="banner info-banner">
-          <img src="/e3-icon-delivery-beige.png" alt="" aria-hidden="true" className="banner-custom-icon" />
-          <p><strong>Pop-Up Refills:</strong> Order online and pick up at our next community event, or bring your empty e3 jars for in-person refills!</p>
-        </div>
-
-        {/* Banner 2: App Install */}
-        <div className="banner app-banner">
-          <div className="app-banner-text">
-            <img src="/e3-icon-calendar-teal.png" alt="" aria-hidden="true" className="banner-custom-icon" />
-            <div>
-              <strong>Make Refilling Easier</strong>
-              <p>Install the e3 refillery app on your phone for quick, one-tap recurring orders.</p>
-            </div>
-          </div>
-          <button className="btn-app-install">INSTALL APP</button>
-        </div>
-      </div>
-
-      {/* FILTER BUTTONS */}
       <div className="shop-filters">
-        {['All Products', 'Home Care', 'Personal Care', 'Containers'].map(category => (
+        {categories.map(category => (
           <button 
             key={category}
             className={`filter-btn ${activeCategory === category ? 'active' : ''}`}
@@ -103,17 +58,35 @@ const Shop = () => {
         ))}
       </div>
 
-      {/* PRODUCT GRID */}
-      <section className="product-grid">
+      <section className="product-grid-container">
         {filteredProducts.map(product => (
           <div key={product.id} className="product-card">
-            <div className="product-image-container">
-              <img src={product.image} alt={product.name} className="product-image" />
+            <div className="product-image-wrapper">
+              <img src={product.image} alt={product.name} />
             </div>
-            <div className="product-details">
+            <div className="product-info">
+              <div className="product-meta">
+                <span className="product-category">{product.category}</span>
+                <span className="eco-impact">🌱 {product.ecoImpact}</span>
+              </div>
+              
               <h3>{product.name}</h3>
-              <p className="product-price">{product.price}</p>
-              <button className="btn-add-cart">{product.buttonText}</button>
+              <p className="product-maker">{product.maker}</p>
+              
+              <p className="product-description">{product.description}</p>
+              
+              <div className="scents-container">
+                <span className="scents-label">Available in:</span>
+                <div className="scent-tags">
+                  {product.scents.map((scent, index) => (
+                    <span key={index} className="scent-tag">{scent}</span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="product-footer">
+                <span className="product-price">{product.price}</span>
+              </div>
             </div>
           </div>
         ))}
