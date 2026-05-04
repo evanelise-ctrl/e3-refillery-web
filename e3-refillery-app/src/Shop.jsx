@@ -219,13 +219,13 @@ const productsData = [
   },
 
   // --- ACCESSORIES ---
-  {
+{
     id: 15,
     name: "Ultimate Unsponge",
     category: "Accessories",
     brand: "Modern Cottage NC",
     location: "Nevada City, CA",
-    highlights: "Women & Indigenous-owned",
+    highlights: "Handmade, Women, Black & Indigenous-owned",
     price: "$8.00",
     image: "/ultimate-unsponge.png",
     description: "A quilted, washable, reusable household sponge made from all-natural fabrics and fibers. 100% cotton on one side, burlap on the other.",
