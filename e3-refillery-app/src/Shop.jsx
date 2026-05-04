@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Shop.css';
 
-// --- YOUR INVENTORY DATA ---
+// --- YOUR INVENTORY DATA (Now with ingredients!) ---
 const productsData = [
   // --- PERSONAL CARE ---
   {
@@ -15,7 +15,8 @@ const productsData = [
     image: "/tiani_shampoo_bar.png",
     description: "Very long-lasting, effectively removes build-up, and lathers beautifully to maintain healthy hair follicles. Safe for all hair types (even curly!) and kid-friendly.",
     ecoImpact: "Saves 2-3 plastic bottles",
-    scents: ["Grapefruit Patchouli", "Lemongrass", "Orange Clove", "English Lavender"]
+    scents: ["Grapefruit Patchouli", "Lemongrass", "Orange Clove", "English Lavender"],
+    ingredients: "Sodium Cocoyl Isethionate, Organic Cocoa Butter, Cetyl Alcohol, Cupuacu Butter, Sweet Orange Essential Oil, Lemon Peel Powder, Pro-Vitamin B5, Organic Coconut Oil, Grapefruit Essential Oil, Patchouli Essential Oil, Calendula Oil, Aritha Powder, Shikakai Powder, Lemongrass Essential Oil, Chamomile Oil, Rose Clay, Beet Root Powder, Rosemary Extract, Vitamin E."
   },
   {
     id: 2,
@@ -28,7 +29,8 @@ const productsData = [
     image: "/tiani_conditioner_bar.png",
     description: "Packed with hair-friendly nutrients! Made with Vitamin E, jojoba, tucuma butter, and chamomile butter. Leaves hair detangled, light, and non-greasy.",
     ecoImpact: "Saves 2-3 plastic bottles",
-    scents: ["Grapefruit Patchouli", "Lemongrass", "Orange Clove", "English Lavender"]
+    scents: ["Grapefruit Patchouli", "Lemongrass", "Orange Clove", "English Lavender"],
+    ingredients: "BTMS-50, Jojoba Oil, Tucuma Butter, Cetyl Alcohol, Stearic Acid, Chamomile Butter, Hydrolyzed Rice Protein, DL-Panthenol, Cyclomethicone, Vitamin E, Sweet Orange Essential Oil, Patchouli Essential Oil, Grapefruit Essential Oil, Lemongrass Essential Oil, Optiphen, Madder Root Powder."
   },
   {
     id: 3,
@@ -41,7 +43,8 @@ const productsData = [
     image: "/huppy_toothpaste.png", 
     description: "A fluoride-free, zero-waste alternative to traditional paste that naturally whitens, freshens breath, and fights plaque. Made with clean ingredients like peppermint oil, aloe vera extract, and nano-hydroxyapatite.",
     ecoImpact: "Eliminates plastic tubes",
-    scents: ["Peppermint"]
+    scents: ["Peppermint"],
+    ingredients: "Xylitol, Calcium Carbonate, Nano-Hydroxyapatite (5%), Bentonite Clay, Natural Mint Flavor, Sodium Lauryl Sulfoacetate, Caesalpinia Spinosa (Tara) Gum, Hydroxypropyl Cellulose, Silicon Dioxide, Zinc Citrate, Menthol*, Sodium Bicarbonate, Ammonium Glycyrrhizate, Cocamidopropyl Betaine, Mentha Piperita Oil*, Cocos Nucifera Oil*, Aloe Barbadensis Extract*, Melaleuca Alternifolia Oil*. *Organic."
   },
   {
     id: 4,
@@ -52,9 +55,10 @@ const productsData = [
     highlights: "Woman-owned, Michigan local",
     price: "$9.00 (4oz bar)",
     image: "/lincolnst_oatmeal_soap.png",
-    description: "Crafted with natural ingredients and wrapped in sustainable, minimal packaging. Designed for those who value clean beauty and a lighter environmental footprint. Rich lather, long-lasting bars, small-batch quality.",
+    description: "Crafted with natural ingredients and wrapped in sustainable, minimal packaging. Designed for those who value clean beauty and a lighter environmental footprint. Rich lather, long-lasting bars.",
     ecoImpact: "Sustainable, minimal packaging",
-    scents: ["Oatmeal", "Almond", "Bergamot & Sandalwood", "Honeysuckle", "Lavender Sage"]
+    scents: ["Oatmeal", "Almond", "Bergamot & Sandalwood", "Honeysuckle", "Lavender Sage"],
+    ingredients: "Avocado, castor, coconut, olive oils; shea butter; colloidal oats. (Ingredients may vary slightly by scent)."
   },
 
   // --- CLEANING ---
@@ -69,7 +73,8 @@ const productsData = [
     image: "/mamasuds_solid_dish_soap.png", 
     description: "All you need to get started at the kitchen sink! Includes pure castile dish soap, a natural bamboo and sisal pot brush, and an alder wood soap dish.",
     ecoImpact: "Plastic-free, Vegan",
-    scents: ["Unscented"]
+    scents: ["Unscented"],
+    ingredients: "Sodium Olivate (saponified olive oil). Free of any synthetic ingredients."
   },
   {
     id: 6,
@@ -80,9 +85,10 @@ const productsData = [
     highlights: "Woman-owned, Michigan local",
     price: "$15 (10 pack) | $1.75 (Individual)",
     image: "/toilet_bomb_cleaning_tabs.png",
-    description: "PLOP. FIZZ. SCRUB. FLUSH. Naturally. A safer, smarter way to keep your bathroom fresh, made from scratch with simple, honest ingredients that work. Infused with pure essential oils.",
+    description: "PLOP. FIZZ. SCRUB. FLUSH. Naturally. A safer, smarter way to keep your bathroom fresh, made from scratch with simple, honest ingredients that work.",
     ecoImpact: "Plastic-free, Leaping Bunny Certified",
-    scents: ["Peppermint, Tea Tree & Lemon"]
+    scents: ["Peppermint, Tea Tree & Lemon"],
+    ingredients: "Sodium bicarbonate, non-GMO citric acid, water, essential oils of organic peppermint, tea tree + lemon. Safe for septic systems."
   },
   {
     id: 7,
@@ -95,7 +101,8 @@ const productsData = [
     image: "/mamasuds_all_purpose.png",
     description: "This cleaner is good for sinks, counters, doorknobs, stove-tops, garbage lids, etc. Safe for natural stone and granite.",
     ecoImpact: "Biodegradable, Vegan",
-    scents: ["Clove, Cinnamon, Lemon & Eucalyptus"]
+    scents: ["Clove, Cinnamon, Lemon & Eucalyptus"],
+    ingredients: "Water, MamaSuds handcrafted Castile Soap (potassium olivate), organic whole leaf aloe vera gel juice with citric acid*, pure essential oils of clove bud, organic cinnamon leaf, lemon, eucalyptus radiata, and rosemary."
   },
   {
     id: 8,
@@ -106,9 +113,10 @@ const productsData = [
     highlights: "Woman-owned, EWG Verified",
     price: "$0.52 per tablet",
     image: "/green_llama_dishwasher_tabs.png", 
-    description: "Sparkling dishes. Zero plastic. 100% peace of mind. Deliver powerful, mineral and plant-based cleaning in plastic-free, compostable packaging. Spot-free finish without synthetic fragrances.",
+    description: "Sparkling dishes. Zero plastic. 100% peace of mind. Deliver powerful, mineral and plant-based cleaning in plastic-free, compostable packaging.",
     ecoImpact: "Zero Waste, No PVA or microplastics",
-    scents: ["Unscented"]
+    scents: ["Unscented"],
+    ingredients: "Sodium Carbonate, Sodium Percarbonate, Citric Acid, Sodium Metasilicate, Polyitaconic acid, TAED, Sodium Lauryl Sulfoacetate, Amylase, Protease."
   },
   {
     id: 9,
@@ -118,10 +126,11 @@ const productsData = [
     location: "Johnson City, TN",
     highlights: "Woman-owned, EWG Verified",
     price: "$3.00 (2 tablets)",
-    image: "/green_llama_glass_cleaner.png", /* Kept this image placeholder for the tablet until an AP-specific one is added */
+    image: "/green_llama_glass_cleaner.png", 
     description: "Expertly formulated with natural, non-toxic ingredients. Your surfaces will be left impeccably clean with no harsh chemicals. Dissolve 2 tablets in 16oz of water.",
     ecoImpact: "Compostable packaging, zero plastic",
-    scents: ["Lemongrass & Geranium"]
+    scents: ["Lemongrass & Geranium"],
+    ingredients: "Citric acid, Citrus Essential Oil Blend, Sodium Benzoate, Sodium Carbonate, Sodium Coco Sulfate, Sorbitol."
   },
   {
     id: 10,
@@ -134,7 +143,8 @@ const productsData = [
     image: "/mama_suds_logo.png", 
     description: "Staying true to traditional soap-making, this is one of the best natural and bio-degradable soaps available. Perfect for washing body, laundry, hair, and shaving.",
     ecoImpact: "Biodegradable, Leaping Bunny",
-    scents: ["Unscented", "Lemon"]
+    scents: ["Unscented", "Lemon"],
+    ingredients: "Water, 100% Castile potassium olivate (saponified olive oil) - no palm, no coconut, no synthetic blends."
   },
   {
     id: 20,
@@ -147,7 +157,8 @@ const productsData = [
     image: "/green_llama_glass_cleaner.png", 
     description: "Achieve brilliantly clean, streak-free windows and glass surfaces all while prioritizing the well-being of our planet. Simply dissolve 1 tablet in 16oz of warm water.",
     ecoImpact: "Compostable packaging, zero plastic",
-    scents: ["Citrus"]
+    scents: ["Citrus"],
+    ingredients: "Sodium Gluconate."
   },
 
   // --- LAUNDRY CARE ---
@@ -162,7 +173,8 @@ const productsData = [
     image: "/mamasuds_laundry_powder.png",
     description: "Discover a laundry detergent that truly cares for your clothes, your family, and the planet. Powerful, nontoxic laundry detergent made with simple, natural ingredients.",
     ecoImpact: "Biodegradable, Leaping Bunny Certified",
-    scents: ["Unscented"]
+    scents: ["Unscented"],
+    ingredients: "Sodium carbonate, sodium percarbonate, sodium olivate (saponified olive oil)."
   },
   {
     id: 12,
@@ -175,7 +187,8 @@ const productsData = [
     image: "/mamasuds_liquid_laundry_soap.png", 
     description: "Formulated based on the owner's need for a laundry soap that would clean cloth diapers but be gentle enough to not irritate her baby's skin. Gentle, safe, and effective.",
     ecoImpact: "Biodegradable, Refillable",
-    scents: ["Unscented", "Lavender"]
+    scents: ["Unscented", "Lavender"],
+    ingredients: "Water, potassium olivate (saponified olive oil), sodium carbonate, and sodium borate."
   },
   {
     id: 13,
@@ -188,7 +201,8 @@ const productsData = [
     image: "/mama_suds_logo.png", 
     description: "This spot-treating super-hero is here to keep your couches, clothes, and even upholstery stain- and toxin-free. A lot of cleaning power is packed into this little stick that lasts forever!",
     ecoImpact: "Biodegradable, Vegan",
-    scents: ["Unscented"]
+    scents: ["Unscented"],
+    ingredients: "Sodium olivate (saponified olive oil). Palm free, coconut free, SLS-free, dye-free, phthalate free."
   },
   {
     id: 14,
@@ -272,10 +286,78 @@ const productsData = [
   }
 ];
 
+// --- INDIVIDUAL PRODUCT CARD COMPONENT ---
+// This acts as the independent "brain" for the toggle feature
+const ProductCard = ({ product }) => {
+  const [showIngredients, setShowIngredients] = useState(false);
+
+  return (
+    <div className="product-card">
+      <div className="product-image-wrapper">
+        <img src={product.image} alt={product.name} />
+      </div>
+      
+      <div className="product-info">
+        <div className="product-meta">
+          <span className="product-category">{product.category}</span>
+          <span className="eco-impact">🌱 {product.ecoImpact}</span>
+        </div>
+        
+        <h3>{product.name}</h3>
+        
+        <div className="maker-block">
+          <p className="maker-name">{product.brand}</p>
+          <div className="maker-tags">
+            <span className="maker-location">📍 {product.location}</span>
+            <span className="maker-highlight">✨ {product.highlights}</span>
+          </div>
+        </div>
+        
+        <p className="product-description">{product.description}</p>
+        
+        {/* Conditional Scents Rendering */}
+        {product.scents && product.scents.length > 0 && (
+          <div className="scents-container">
+            <span className="scents-label">Scents:</span>
+            <div className="scent-tags">
+              {product.scents.map((scent, index) => (
+                <span key={index} className="scent-tag">{scent}</span>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* --- INGREDIENTS TOGGLE --- */}
+        {product.ingredients && (
+          <div className="ingredients-section">
+            <button 
+              className="ingredients-toggle"
+              onClick={() => setShowIngredients(!showIngredients)}
+            >
+              {showIngredients ? '− Hide Ingredients' : '+ View Ingredients'}
+            </button>
+            
+            {showIngredients && (
+              <div className="ingredients-content">
+                <p>{product.ingredients}</p>
+              </div>
+            )}
+          </div>
+        )}
+
+        <div className="product-footer">
+          <span className="product-price">{product.price}</span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+
+// --- MAIN SHOP COMPONENT ---
 const Shop = () => {
   const [activeCategory, setActiveCategory] = useState('All');
 
-  // Filter products by category (No more brand grouping!)
   const filteredProducts = activeCategory === 'All' 
     ? productsData 
     : productsData.filter(product => product.category === activeCategory);
@@ -302,51 +384,10 @@ const Shop = () => {
         ))}
       </div>
 
-      {/* FLAT PRODUCT GRID */}
       <div className="product-grid-container">
+        {/* Mapping over the independent ProductCard component */}
         {filteredProducts.map(product => (
-          <div key={product.id} className="product-card">
-            
-            <div className="product-image-wrapper">
-              <img src={product.image} alt={product.name} />
-            </div>
-            
-            <div className="product-info">
-              <div className="product-meta">
-                <span className="product-category">{product.category}</span>
-                <span className="eco-impact">🌱 {product.ecoImpact}</span>
-              </div>
-              
-              <h3>{product.name}</h3>
-              
-              {/* NEW MAKER BLOCK INSIDE THE CARD */}
-              <div className="maker-block">
-                <p className="maker-name">{product.brand}</p>
-                <div className="maker-tags">
-                  <span className="maker-location">📍 {product.location}</span>
-                  <span className="maker-highlight">✨ {product.highlights}</span>
-                </div>
-              </div>
-              
-              <p className="product-description">{product.description}</p>
-              
-              {/* Conditional Scents Rendering */}
-              {product.scents && product.scents.length > 0 && (
-                <div className="scents-container">
-                  <span className="scents-label">Scents:</span>
-                  <div className="scent-tags">
-                    {product.scents.map((scent, index) => (
-                      <span key={index} className="scent-tag">{scent}</span>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              <div className="product-footer">
-                <span className="product-price">{product.price}</span>
-              </div>
-            </div>
-          </div>
+          <ProductCard key={product.id} product={product} />
         ))}
       </div>
     </div>
