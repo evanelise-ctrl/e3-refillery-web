@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Shop.css';
 
-// --- YOUR INVENTORY DATA (Now with ingredients!) ---
+// --- YOUR INVENTORY DATA (With exact scent-by-scent ingredients) ---
 const productsData = [
   // --- PERSONAL CARE ---
   {
@@ -16,7 +16,7 @@ const productsData = [
     description: "Very long-lasting, effectively removes build-up, and lathers beautifully to maintain healthy hair follicles. Safe for all hair types (even curly!) and kid-friendly.",
     ecoImpact: "Saves 2-3 plastic bottles",
     scents: ["Grapefruit Patchouli", "Lemongrass", "Orange Clove", "English Lavender"],
-    ingredients: "Sodium Cocoyl Isethionate, Organic Cocoa Butter, Cetyl Alcohol, Cupuacu Butter, Sweet Orange Essential Oil, Lemon Peel Powder, Pro-Vitamin B5, Organic Coconut Oil, Grapefruit Essential Oil, Patchouli Essential Oil, Calendula Oil, Aritha Powder, Shikakai Powder, Lemongrass Essential Oil, Chamomile Oil, Rose Clay, Beet Root Powder, Rosemary Extract, Vitamin E."
+    ingredients: "Grapefruit Patchouli: Sodium Cocoyl Isethionate, Organic Cocoa Butter, Cetyl Alcohol, Cupuacu Butter, Sweet Orange Essential Oil, Lemon Peel Powder, Pro-Vitamin B5, Organic Coconut Oil, Grapefruit Essential Oil, Patchouli Essential Oil, Calendula Oil, Aritha Powder, Shikakai Powder, Lemongrass Essential Oil, Chamomile Oil, Rose Clay, Beet Root Powder, Rosemary Extract, Vitamin E.\n\nLemongrass: Sodium Cocoyl Isethionate, Organic Cocoa Butter, Cetyl Alcohol, Cupuacu Butter, Lemongrass Essential Oil, Lemon Peel Powder, Pro-Vitamin B5, Calendula Oil, Aritha Powder, Shikakai Powder, Chamomile Oil, Turmeric Powder, Rosemary Extract, Vitamin E.\n\nOrange Clove: Sodium Cocoyl Isethionate, Organic Cocoa Butter, Cetyl Alcohol, Cupuacu Butter, Lemon Peel Powder, Pro-Vitamin B5, Organic Coconut Oil, Orange Essential Oil, Calendula Oil, Aritha Powder, Shikakai Powder, Chamomile Oil, Clove Essential Oil, Cardamom Essential Oil, Annatto Powder, Rosemary Extract, Vitamin E.\n\nEnglish Lavender: Sodium Cocoyl Isethionate, Organic Cocoa Butter, Cetyl Alcohol, Cupuacu Butter, English Lavender Essential Oil, Lemon Peel Powder, Pro-Vitamin B5, Organic Coconut Oil, Calendula Oil, Aritha Powder, Shikakai Powder, Chamomile Oil, Rose Kaolin Clay, Indigo Plant Powder, Rosemary Extract, Vitamin E."
   },
   {
     id: 2,
@@ -30,7 +30,7 @@ const productsData = [
     description: "Packed with hair-friendly nutrients! Made with Vitamin E, jojoba, tucuma butter, and chamomile butter. Leaves hair detangled, light, and non-greasy.",
     ecoImpact: "Saves 2-3 plastic bottles",
     scents: ["Grapefruit Patchouli", "Lemongrass", "Orange Clove", "English Lavender"],
-    ingredients: "BTMS-50, Jojoba Oil, Tucuma Butter, Cetyl Alcohol, Stearic Acid, Chamomile Butter, Hydrolyzed Rice Protein, DL-Panthenol, Cyclomethicone, Vitamin E, Sweet Orange Essential Oil, Patchouli Essential Oil, Grapefruit Essential Oil, Lemongrass Essential Oil, Optiphen, Madder Root Powder."
+    ingredients: "Grapefruit Patchouli: BTMS-50, Jojoba Oil, Tucuma Butter, Cetyl Alcohol, Stearic Acid, Chamomile Butter, Hydrolyzed Rice Protein, DL-Panthenol, Cyclomethicone, Vitamin E, Sweet Orange Essential Oil, Patchouli Essential Oil, Grapefruit Essential Oil, Lemongrass Essential Oil, Optiphen, Madder Root Powder.\n\nLemongrass: BTMS-50, Jojoba Oil, Tucuma Butter, Cetyl Alcohol, Stearic Acid, Chamomile Butter, Hydrolyzed Rice Protein, DL-Panthenol, Cyclomethicone, Vitamin E, Lemongrass Essential Oil, Optiphen, Turmeric Powder.\n\nOrange Clove: BTMS-50, Jojoba Oil, Tucuma Butter, Cetyl Alcohol, Stearic Acid, Chamomile Butter, Hydrolyzed Rice Protein, DL-Panthenol, Cyclomethicone, Vitamin E, Orange Essential Oil, Clove Essential Oil, Brazilian Red Clay, Optiphen, Activated Charcoal.\n\nEnglish Lavender: BTMS-50, Jojoba Oil, Tucuma Butter, Cetyl Alcohol, Stearic Acid, Chamomile Butter, Hydrolyzed Rice Protein, DL-Panthenol, Cyclomethicone, Vitamin E, Lavender Essential Oil, Rose Kaolin Clay, Optiphen, Organic Indigo Powder."
   },
   {
     id: 3,
@@ -44,7 +44,7 @@ const productsData = [
     description: "A fluoride-free, zero-waste alternative to traditional paste that naturally whitens, freshens breath, and fights plaque. Made with clean ingredients like peppermint oil, aloe vera extract, and nano-hydroxyapatite.",
     ecoImpact: "Eliminates plastic tubes",
     scents: ["Peppermint"],
-    ingredients: "Xylitol, Calcium Carbonate, Nano-Hydroxyapatite (5%), Bentonite Clay, Natural Mint Flavor, Sodium Lauryl Sulfoacetate, Caesalpinia Spinosa (Tara) Gum, Hydroxypropyl Cellulose, Silicon Dioxide, Zinc Citrate, Menthol*, Sodium Bicarbonate, Ammonium Glycyrrhizate, Cocamidopropyl Betaine, Mentha Piperita Oil*, Cocos Nucifera Oil*, Aloe Barbadensis Extract*, Melaleuca Alternifolia Oil*. *Organic."
+    ingredients: "Xylitol, Calcium Carbonate, Nano-Hydroxyapatite (5% Concentration), Bentonite Clay, Natural Mint Flavor, Sodium Lauryl Sulfoacetate, Caesalpinia Spinosa (Tara) Gum, Hydroxypropyl Cellulose, Silicon Dioxide, Zinc Citrate, Menthol*, Sodium Bicarbonate, Ammonium Glycyrrhizate, Cocamidopropyl Betaine, Mentha Piperita Oil*, Cocos Nucifera Oil*, Aloe Barbadensis Extract*, Melaleuca Alternifolia Oil*. *Organic."
   },
   {
     id: 4,
@@ -57,8 +57,8 @@ const productsData = [
     image: "/lincolnst_oatmeal_soap.png",
     description: "Crafted with natural ingredients and wrapped in sustainable, minimal packaging. Designed for those who value clean beauty and a lighter environmental footprint. Rich lather, long-lasting bars.",
     ecoImpact: "Sustainable, minimal packaging",
-    scents: ["Oatmeal", "Almond", "Bergamot & Sandalwood", "Honeysuckle", "Lavender Sage"],
-    ingredients: "Avocado, castor, coconut, olive oils; shea butter; colloidal oats. (Ingredients may vary slightly by scent)."
+    scents: ["Oatmeal", "Almond", "Bergamot & Sandalwood"],
+    ingredients: "Oatmeal: Avocado, castor, coconut, olive oils; shea butter; colloidal oats.\n\nAlmond: Olive oil, coconut oil, almond oil, rice bran oil, castor oil, shea butter, fragrance (bitter almond & soft orange notes).\n\nBergamot and Sandalwood: Avocado oil, castor oil, coconut oil, olive oil, shea butter, bergamot essential oil, Egyptian sandalwood fragrance."
   },
 
   // --- CLEANING ---
@@ -144,7 +144,7 @@ const productsData = [
     description: "Staying true to traditional soap-making, this is one of the best natural and bio-degradable soaps available. Perfect for washing body, laundry, hair, and shaving.",
     ecoImpact: "Biodegradable, Leaping Bunny",
     scents: ["Unscented", "Lemon"],
-    ingredients: "Water, 100% Castile potassium olivate (saponified olive oil) - no palm, no coconut, no synthetic blends."
+    ingredients: "Water, 100% Castile potassium olivate (saponified olive oil) - no palm, no coconut, no synthetic blends. (Optional lemon essential oil for scented version)."
   },
   {
     id: 20,
@@ -188,7 +188,7 @@ const productsData = [
     description: "Formulated based on the owner's need for a laundry soap that would clean cloth diapers but be gentle enough to not irritate her baby's skin. Gentle, safe, and effective.",
     ecoImpact: "Biodegradable, Refillable",
     scents: ["Unscented", "Lavender"],
-    ingredients: "Water, potassium olivate (saponified olive oil), sodium carbonate, and sodium borate."
+    ingredients: "Unscented: Water, potassium olivate (saponified olive oil), sodium carbonate, and sodium borate.\n\nLavender: Water, potassium olivate (saponified olive oil), sodium carbonate, sodium borate, lavender essential oil."
   },
   {
     id: 13,
@@ -287,7 +287,6 @@ const productsData = [
 ];
 
 // --- INDIVIDUAL PRODUCT CARD COMPONENT ---
-// This acts as the independent "brain" for the toggle feature
 const ProductCard = ({ product }) => {
   const [showIngredients, setShowIngredients] = useState(false);
 
@@ -339,7 +338,10 @@ const ProductCard = ({ product }) => {
             
             {showIngredients && (
               <div className="ingredients-content">
-                <p>{product.ingredients}</p>
+                {/* This split function takes the \n\n in the data and creates actual separate paragraphs for each scent! */}
+                {product.ingredients.split('\n\n').map((paragraph, idx) => (
+                  <p key={idx} style={{ marginBottom: '0.75rem' }}>{paragraph}</p>
+                ))}
               </div>
             )}
           </div>
@@ -385,7 +387,6 @@ const Shop = () => {
       </div>
 
       <div className="product-grid-container">
-        {/* Mapping over the independent ProductCard component */}
         {filteredProducts.map(product => (
           <ProductCard key={product.id} product={product} />
         ))}
