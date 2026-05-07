@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Shop.css';
 
-// --- YOUR INVENTORY DATA (With exact scent-by-scent ingredients) ---
+// --- YOUR INVENTORY DATA (Fully updated with Starter Kits & Containers!) ---
 const productsData = [
   // --- PERSONAL CARE ---
   {
@@ -39,9 +39,9 @@ const productsData = [
     brand: "Huppy",
     location: "California, USA",
     highlights: "AAPI-Owned",
-    price: "$9.00 (62 tablets)",
+    price: "Refills: $9.00 (1mo) | $18.00 (2mo)",
     image: "/huppy_toothpaste.png", 
-    description: "A fluoride-free, zero-waste alternative to traditional paste that naturally whitens, freshens breath, and fights plaque. Made with clean ingredients like peppermint oil, aloe vera extract, and nano-hydroxyapatite.",
+    description: "A fluoride-free, zero-waste alternative to traditional paste that naturally whitens, freshens breath, and fights plaque. Made with clean ingredients like peppermint oil, aloe vera extract, and nano-hydroxyapatite.\n\nStarters (includes premium jar): 1 Month Supply ($10.50) | 2 Month Supply ($20.00).",
     ecoImpact: "Eliminates plastic tubes",
     scents: ["Peppermint"],
     ingredients: "Xylitol, Calcium Carbonate, Nano-Hydroxyapatite (5% Concentration), Bentonite Clay, Natural Mint Flavor, Sodium Lauryl Sulfoacetate, Caesalpinia Spinosa (Tara) Gum, Hydroxypropyl Cellulose, Silicon Dioxide, Zinc Citrate, Menthol*, Sodium Bicarbonate, Ammonium Glycyrrhizate, Cocamidopropyl Betaine, Mentha Piperita Oil*, Cocos Nucifera Oil*, Aloe Barbadensis Extract*, Melaleuca Alternifolia Oil*. *Organic."
@@ -83,7 +83,7 @@ const productsData = [
     brand: "Mama Suds",
     location: "Goodrich, MI",
     highlights: "Woman-owned, Michigan local",
-    price: "$15 (10 pack) | $1.75 (Individual)",
+    price: "$15.00 (10 pack)",
     image: "/toilet_bomb_cleaning_tabs.png",
     description: "PLOP. FIZZ. SCRUB. FLUSH. Naturally. A safer, smarter way to keep your bathroom fresh, made from scratch with simple, honest ingredients that work.",
     ecoImpact: "Plastic-free, Leaping Bunny Certified",
@@ -97,9 +97,9 @@ const productsData = [
     brand: "Mama Suds",
     location: "Goodrich, MI",
     highlights: "Woman-owned, Michigan local",
-    price: "$3.50 (14oz refill)",
+    price: "Refills: $3.50 (14oz)",
     image: "/mamasuds_all_purpose.png",
-    description: "This cleaner is good for sinks, counters, doorknobs, stove-tops, garbage lids, etc. Safe for natural stone and granite.",
+    description: "This cleaner is good for sinks, counters, doorknobs, stove-tops, garbage lids, etc. Safe for natural stone and granite.\n\nStarters: 14oz Basic ($6.00) includes regular mouth pint jar & lid. 14oz Starter Plus ($12.99) adds a reCAP mason sprayer attachment.",
     ecoImpact: "Biodegradable, Vegan",
     scents: ["Clove, Cinnamon, Lemon & Eucalyptus"],
     ingredients: "Water, MamaSuds handcrafted Castile Soap (potassium olivate), organic whole leaf aloe vera gel juice with citric acid*, pure essential oils of clove bud, organic cinnamon leaf, lemon, eucalyptus radiata, and rosemary."
@@ -139,9 +139,9 @@ const productsData = [
     brand: "Mama Suds",
     location: "Goodrich, MI",
     highlights: "Woman-owned, Michigan local",
-    price: "Starter $9.36 | Refill $6.86 (14oz)",
+    price: "Refills: $6.86 (14oz) | $14.70 (30oz)",
     image: "/mama_suds_logo.png", 
-    description: "Staying true to traditional soap-making, this is one of the best natural and bio-degradable soaps available. Perfect for washing body, laundry, hair, and shaving.",
+    description: "Staying true to traditional soap-making, this is one of the best natural and bio-degradable soaps available. Perfect for washing body, laundry, hair, and shaving.\n\nStarters: 14oz Basic ($9.36) | 14oz Starter Plus with reCAP pump ($14.99) | 30oz Basic ($18.45).",
     ecoImpact: "Biodegradable, Leaping Bunny",
     scents: ["Unscented", "Lemon"],
     ingredients: "Water, 100% Castile potassium olivate (saponified olive oil) - no palm, no coconut, no synthetic blends. (Optional lemon essential oil for scented version)."
@@ -183,9 +183,9 @@ const productsData = [
     brand: "Mama Suds",
     location: "Goodrich, MI",
     highlights: "Woman-owned, Michigan local",
-    price: "Refills starting at $5.04",
+    price: "Refills: $5.04 (14oz) | $10.80 (30oz)",
     image: "/mamasuds_liquid_laundry_soap.png", 
-    description: "Formulated based on the owner's need for a laundry soap that would clean cloth diapers but be gentle enough to not irritate her baby's skin. Gentle, safe, and effective.",
+    description: "Formulated based on the owner's need for a laundry soap that would clean cloth diapers but be gentle enough to not irritate her baby's skin. Gentle, safe, and effective. (14oz = approx 28 TBSP | 30oz = approx 60 TBSP).\n\nStarters: 14oz Basic ($7.79) | 14oz Starter Plus with Brewing America pour spout ($14.00) | 30oz Basic ($14.55) | 30oz Starter Plus with Brewing America pour spout ($20.00).",
     ecoImpact: "Biodegradable, Refillable",
     scents: ["Unscented", "Lavender"],
     ingredients: "Unscented: Water, potassium olivate (saponified olive oil), sodium carbonate, and sodium borate.\n\nLavender: Water, potassium olivate (saponified olive oil), sodium carbonate, sodium borate, lavender essential oil."
@@ -219,7 +219,7 @@ const productsData = [
   },
 
   // --- ACCESSORIES ---
-{
+  {
     id: 15,
     name: "Ultimate Unsponge",
     category: "Accessories",
@@ -283,6 +283,68 @@ const productsData = [
     description: "Protect your mason jar glass with a handmade, colorful 'jarket'. Slip over the bottom of your mason jar to add protection. Machine washable.",
     ecoImpact: "Plastic-free alternative to silicone",
     scents: []
+  },
+
+  // --- CONTAINERS ---
+  {
+    id: 21,
+    name: "2oz Glass Jar (Metal Lid)",
+    category: "Containers",
+    brand: "e3 Premium Jars",
+    location: "USA",
+    highlights: "Reusable",
+    price: "$1.50",
+    image: "/mama_suds_logo.png", // Fallback placeholder
+    description: "Fill with a 1 month supply of toothpaste tablets (62 tablets). Must be purchased with an accompanying product.",
+    ecoImpact: "Zero-waste"
+  },
+  {
+    id: 22,
+    name: "4oz Glass Jar (Metal Lid)",
+    category: "Containers",
+    brand: "e3 Premium Jars",
+    location: "USA",
+    highlights: "Reusable",
+    price: "$2.00",
+    image: "/mama_suds_logo.png", // Fallback placeholder
+    description: "Sample size. Fill with 3.75 oz of liquid or powder laundry soap. Must be purchased with an accompanying product.",
+    ecoImpact: "Zero-waste"
+  },
+  {
+    id: 23,
+    name: "16oz Regular Mouth Pint Jar",
+    category: "Containers",
+    brand: "e3 Premium Jars",
+    location: "USA",
+    highlights: "USA Made",
+    price: "$2.50",
+    image: "/mama_suds_logo.png", // Fallback placeholder
+    description: "Premium glass mason pint jar with metal lid. Fill with 14 oz powder laundry soap, castile soap, or all-purpose cleaner. Compatible with reCAP mason spray and pump attachments (regular mouth). Must be purchased with an accompanying product.",
+    ecoImpact: "Zero-waste"
+  },
+  {
+    id: 24,
+    name: "16oz Wide Mouth Pint Jar",
+    category: "Containers",
+    brand: "e3 Premium Jars",
+    location: "USA",
+    highlights: "USA Made",
+    price: "$2.75",
+    image: "/mama_suds_logo.png", // Fallback placeholder
+    description: "Premium glass mason pint jar with metal lid. Fill with 14 oz of liquid or powder laundry soap. Compatible with Brewing America pour spout (wide mouth). Must be purchased with an accompanying product.",
+    ecoImpact: "Zero-waste"
+  },
+  {
+    id: 25,
+    name: "32oz Wide Mouth Quart Jar",
+    category: "Containers",
+    brand: "e3 Premium Jars",
+    location: "USA",
+    highlights: "USA Made",
+    price: "$3.75",
+    image: "/mama_suds_logo.png", // Fallback placeholder
+    description: "Premium glass mason quart jar with metal lid. Fill with 30 oz of liquid or powder laundry soap. Compatible with Brewing America pour spout (wide mouth). Must be purchased with an accompanying product.",
+    ecoImpact: "Zero-waste"
   }
 ];
 
@@ -299,7 +361,7 @@ const ProductCard = ({ product }) => {
       <div className="product-info">
         <div className="product-meta">
           <span className="product-category">{product.category}</span>
-          <span className="eco-impact">🌱 {product.ecoImpact}</span>
+          {product.ecoImpact && <span className="eco-impact">🌱 {product.ecoImpact}</span>}
         </div>
         
         <h3>{product.name}</h3>
@@ -312,7 +374,14 @@ const ProductCard = ({ product }) => {
           </div>
         </div>
         
-        <p className="product-description">{product.description}</p>
+        {/* Render description paragraphs cleanly, highlighting starter kit text */}
+        <div className="product-description">
+          {product.description.split('\n\n').map((paragraph, idx) => (
+            <p key={idx} className="product-description" style={idx > 0 ? { marginTop: '-1rem', fontSize: '0.85rem', opacity: 0.85, fontWeight: 500 } : {}}>
+              {paragraph}
+            </p>
+          ))}
+        </div>
         
         {/* Conditional Scents Rendering */}
         {product.scents && product.scents.length > 0 && (
@@ -338,7 +407,6 @@ const ProductCard = ({ product }) => {
             
             {showIngredients && (
               <div className="ingredients-content">
-                {/* This split function takes the \n\n in the data and creates actual separate paragraphs for each scent! */}
                 {product.ingredients.split('\n\n').map((paragraph, idx) => (
                   <p key={idx} style={{ marginBottom: '0.75rem' }}>{paragraph}</p>
                 ))}
