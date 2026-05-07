@@ -397,7 +397,7 @@ function App() {
       </div>
     </BrowserRouter>
   );
-}
+
 return (
     <Router>
       <ScrollToTop />
@@ -411,5 +411,5 @@ return (
       <Analytics />
     </Router>
   );
-  
+ } 
 export default App;
