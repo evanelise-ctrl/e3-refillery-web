@@ -5,6 +5,7 @@ import FindUs from './FindUs';
 import Contact from './Contact';
 import Faqs from './Faqs';
 import Shop from './Shop';
+import { Analytics } from "@vercel/analytics/react";
 
 // --- SCROLL HELPER ---
 const ScrollHandler = () => {
@@ -397,5 +398,18 @@ function App() {
     </BrowserRouter>
   );
 }
-
+return (
+    <Router>
+      <ScrollToTop />
+      <Navbar />
+      <Routes>
+        {/* All your different page routes are here */}
+      </Routes>
+      <Footer />
+      
+      {/* Add the Analytics tag right here! */}
+      <Analytics />
+    </Router>
+  );
+  
 export default App;
