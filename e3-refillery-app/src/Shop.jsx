@@ -342,7 +342,7 @@ const productsData = [
     location: "USA",
     highlights: "Reusable",
     price: "$2.00",
-    image: "/mama_suds_logo.png", 
+    image: "/2ozjar.png", 
     description: "Sample size. Fill with 3.75 oz of liquid or powder laundry soap. Must be purchased with an accompanying product.",
     ecoImpact: "Zero-waste"
   },
