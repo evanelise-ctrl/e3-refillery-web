@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Shop.css';
 
-// --- YOUR INVENTORY DATA (Fully updated with Starter Kits & Containers!) ---
+// --- YOUR INVENTORY DATA (Fully updated with Starter Kits, Containers & Spouts!) ---
 const productsData = [
   // --- PERSONAL CARE ---
   {
@@ -84,7 +84,7 @@ const productsData = [
     location: "Goodrich, MI",
     highlights: "Woman-owned, Michigan local",
     price: "$15.00 (10 pack)",
-    image: "/toilet_bomb_cleaning_tabs.png",
+    image: "/mamasuds-toilet-refil-bag.png",
     description: "PLOP. FIZZ. SCRUB. FLUSH. Naturally. A safer, smarter way to keep your bathroom fresh, made from scratch with simple, honest ingredients that work.",
     ecoImpact: "Plastic-free, Leaping Bunny Certified",
     scents: ["Peppermint, Tea Tree & Lemon"],
@@ -284,6 +284,42 @@ const productsData = [
     ecoImpact: "Plastic-free alternative to silicone",
     scents: []
   },
+  {
+    id: 26,
+    name: "reCAP Mason Pump",
+    category: "Accessories",
+    brand: "reCAP Mason Jars",
+    location: "Erie, Pennsylvania",
+    highlights: "Women-owned, made in USA",
+    price: "$8.99",
+    image: "/reCap_mason_pump.png",
+    description: "The reCAP® Pump Lid transforms Mason jars into refillable dispensers for liquid soaps, lotions, condiments, and more.\n\nThis 2 cc (0.0676 fl oz) pump features a lock-down saddle head and glass ball mechanism for smooth dispensing and long-lasting performance.\n\n- BPA-Free\n- Top-Rack Dishwasher Safe\n- Freezer Safe\n- Stain Resistant\n- Made in the USA",
+    ecoImpact: "Repurposes mason jars for a variety of uses"
+  },
+  {
+    id: 27,
+    name: "reCAP Mason Sprayer",
+    category: "Accessories",
+    brand: "reCAP Mason Jars",
+    location: "Erie, Pennsylvania",
+    highlights: "Women-owned, made in USA",
+    price: "$8.99",
+    image: "/recap_mason_sprayer.png",
+    description: "This trigger sprayer features a wide ergonomic head for comfort and an adjustable nozzle that goes from a fine mist to a strong, high-output spray. Built with a no-leak design, it provides smooth operation and consistent coverage on every use.\n\n- BPA-Free\n- Top-Rack Dishwasher Safe\n- Freezer Safe\n- Stain Resistant\n- Made in the USA",
+    ecoImpact: "Repurposes mason jars for a variety of uses"
+  },
+  {
+    id: 28,
+    name: "Mason Jar Pour Spout",
+    category: "Accessories",
+    brand: "Brewing America",
+    location: "Cove, Oregon",
+    highlights: "Veteran-owned, made in USA",
+    price: "$8.25",
+    image: "/brewingamerica_spout.png",
+    description: "This patent-pending design is made in the USA and engineered to be alcohol-resistant and leakproof; great for wet or dry food and liquids. Features a screw down flip cap with a handy notched hinge to give you a neatly controlled pour spout.",
+    ecoImpact: "Repurposes mason jars for a variety of uses"
+  },
 
   // --- CONTAINERS ---
   {
@@ -294,7 +330,7 @@ const productsData = [
     location: "USA",
     highlights: "Reusable",
     price: "$1.50",
-    image: "/mama_suds_logo.png", // Fallback placeholder
+    image: "/2ozjar.png",
     description: "Fill with a 1 month supply of toothpaste tablets (62 tablets). Must be purchased with an accompanying product.",
     ecoImpact: "Zero-waste"
   },
@@ -306,7 +342,7 @@ const productsData = [
     location: "USA",
     highlights: "Reusable",
     price: "$2.00",
-    image: "/mama_suds_logo.png", // Fallback placeholder
+    image: "/mama_suds_logo.png", 
     description: "Sample size. Fill with 3.75 oz of liquid or powder laundry soap. Must be purchased with an accompanying product.",
     ecoImpact: "Zero-waste"
   },
@@ -318,7 +354,7 @@ const productsData = [
     location: "USA",
     highlights: "USA Made",
     price: "$2.50",
-    image: "/mama_suds_logo.png", // Fallback placeholder
+    image: "/16ozjarregular.png",
     description: "Premium glass mason pint jar with metal lid. Fill with 14 oz powder laundry soap, castile soap, or all-purpose cleaner. Compatible with reCAP mason spray and pump attachments (regular mouth). Must be purchased with an accompanying product.",
     ecoImpact: "Zero-waste"
   },
@@ -330,7 +366,7 @@ const productsData = [
     location: "USA",
     highlights: "USA Made",
     price: "$2.75",
-    image: "/mama_suds_logo.png", // Fallback placeholder
+    image: "/16ozjarwide.png",
     description: "Premium glass mason pint jar with metal lid. Fill with 14 oz of liquid or powder laundry soap. Compatible with Brewing America pour spout (wide mouth). Must be purchased with an accompanying product.",
     ecoImpact: "Zero-waste"
   },
@@ -342,7 +378,7 @@ const productsData = [
     location: "USA",
     highlights: "USA Made",
     price: "$3.75",
-    image: "/mama_suds_logo.png", // Fallback placeholder
+    image: "/32ozjar.png",
     description: "Premium glass mason quart jar with metal lid. Fill with 30 oz of liquid or powder laundry soap. Compatible with Brewing America pour spout (wide mouth). Must be purchased with an accompanying product.",
     ecoImpact: "Zero-waste"
   }
