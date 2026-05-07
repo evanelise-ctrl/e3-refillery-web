@@ -140,7 +140,7 @@ const productsData = [
     location: "Goodrich, MI",
     highlights: "Woman-owned, Michigan local",
     price: "Refills from $6.86",
-    image: "/mama_suds_logo.png", 
+    image: "/mamasudscastillesoap.png", 
     description: "Staying true to traditional soap-making, this is one of the best natural and bio-degradable soaps available. Perfect for washing body, laundry, hair, and shaving.\n\nPricing Tiers:\n• 14oz Basic Starter: $9.36\n• 14oz Starter Plus (w/ pump): $14.99\n• 14oz Refill: $6.86\n• 30oz Basic Starter: $18.45\n• 30oz Refill: $14.70",
     ecoImpact: "Biodegradable, Leaping Bunny",
     scents: ["Unscented", "Lemon"],
@@ -342,7 +342,7 @@ const productsData = [
     location: "", 
     highlights: "Reusable",
     price: "$2.00",
-    image: "/mama_suds_logo.png", 
+    image: "/2ozjar.png", 
     description: "Sample size. Fill with 3.75 oz of liquid or powder laundry soap. Must be purchased with an accompanying product.",
     ecoImpact: "Zero-waste"
   },
