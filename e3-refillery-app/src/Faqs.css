@@ -92,7 +92,7 @@
 
 /* When the answer is open */
 .faq-answer.open {
-    max-height: 500px; /* Allows content to flow smoothly */
+    max-height: 2000px; /* Allows content to flow smoothly */
     padding-bottom: 0.5rem;
 }
 
@@ -116,7 +116,6 @@
     opacity: 0.9;
 }
 
-/* Make sure buttons styled like global look right here */
 .contact-callout .btn-primary {
     background-color: var(--surface-camel);
     color: var(--bg-deep-spruce);
