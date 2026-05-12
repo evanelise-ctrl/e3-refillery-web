@@ -69,7 +69,7 @@ const faqsData = [
     answer: (
       <>
         <p>If you find us in person at a market, you can fill your order right there! Don’t have time to wait? No problem. You can also request pre-orders in person, and we will have it ready for you by Tuesday or Wednesday of the following week.</p>
-        <p>At any time, you can also place an order with us online. Until we roll out our online shop, please make all orders through this form: <a href="https://forms.gle/caBd6tmsdi97ZzUL7" target="_blank" rel="noreferrer" style={{color: 'var(--surface-camel)', textDecoration: 'underline'}}>Order Form</a></p>
+        <p>At any time, e3 refillery can only fulfill local orders. Until we roll out our online shop, please make all orders through this form: <a href="https://forms.gle/caBd6tmsdi97ZzUL7" target="_blank" rel="noreferrer" style={{color: 'var(--surface-camel)', textDecoration: 'underline'}}>Order Form</a></p>
         <p>As long as we have it in stock, and your order is submitted by Sunday at 11:59 pm, your order will be ready by Tuesday (for “meet up”) or Wednesday (for delivery). We will email you personally by Monday at 3 pm with our “meet up” location if you want to choose that option. Please remember to make your selection either way by 10 pm Monday night.</p>
       </>
     )

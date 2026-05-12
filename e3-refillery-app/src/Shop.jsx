@@ -342,7 +342,7 @@ const productsData = [
     location: "", 
     highlights: "Reusable",
     price: "$2.00",
-    image: "/2ozjar.png", 
+    image: "/4ozwlid.png", 
     description: "Sample size. Fill with 3.75 oz of liquid or powder laundry soap. Must be purchased with an accompanying product.",
     ecoImpact: "Zero-waste"
   },
