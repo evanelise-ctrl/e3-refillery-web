@@ -503,7 +503,7 @@ const Shop = () => {
             onMouseOver={(e) => e.currentTarget.style.opacity = '0.9'}
             onMouseOut={(e) => e.currentTarget.style.opacity = '1'}
           >
-            Place an Order Form
+            Place an Order Here
           </a>
           <p style={{ marginTop: '1rem', fontSize: '0.95rem', opacity: 0.8, fontStyle: 'italic' }}>
             Currently accepting orders for Tuesday meet-ups & Wednesday local delivery!
