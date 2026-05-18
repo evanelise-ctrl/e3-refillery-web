@@ -309,6 +309,7 @@ function App() {
   const toggleMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
+  
   useEffect(() => {
     let lastScrollTop = 0;
     const headerElement = document.getElementById('main-header');
@@ -329,16 +330,15 @@ function App() {
 
   return (
     <BrowserRouter>
-    <ScrollHandler />
+      <ScrollHandler />
       <div className="site-wrapper">
         
-{/* HEADER */}
+        {/* HEADER */}
         <header id="main-header" style={{ transition: 'transform 0.3s ease-in-out', position: 'sticky', top: 0, zIndex: 1000, backgroundColor: 'var(--bg-deep-spruce)', padding: '1rem 5%', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <Link to="/">
               <img src="/Logo-Beige-Final.png" alt="e3 Refillery Logo" className="logo" style={{ height: '85px', width: 'auto' }} />
           </Link>
           
-          {/* THE HAMBURGER BUTTON */}
           <button 
             className="hamburger" 
             onClick={toggleMenu}
@@ -349,7 +349,6 @@ function App() {
             <span></span>
           </button>
 
-          {/* THE NAV LINKS (Now with a dynamic class instead of inline styles) */}
           <nav className={`nav-links ${isMobileMenuOpen ? 'open' : ''}`}>
               <Link to="/" onClick={toggleMenu} style={{ color: 'var(--text-alabaster)', textDecoration: 'none' }}>Home</Link>
               
@@ -382,8 +381,76 @@ function App() {
           </Routes>
         </main>
 
+        {/* --- NEWSLETTER SIGNUP BLOCK --- */}
+        <section className="newsletter-signup" style={{ 
+          backgroundColor: 'rgba(166, 144, 116, 0.1)', 
+          padding: '4rem 5%', 
+          textAlign: 'center', 
+          borderTop: '1px solid rgba(57, 88, 86, 0.1)',
+          marginTop: '4rem'
+        }}>
+          <div style={{ maxWidth: '600px', margin: '0 auto' }}>
+            <h3 style={{ color: 'var(--bg-deep-spruce)', fontSize: '1.75rem', marginBottom: '1rem' }}>Keep in the Loop</h3>
+            <p style={{ color: '#555', marginBottom: '2rem', lineHeight: '1.6' }}>
+              Subscribe to get updates on new products, upcoming pop-up locations, and tips for a lower-waste home.
+            </p>
+            
+            <form 
+              action="https://gmail.us5.list-manage.com/subscribe/post?u=7c134e02bcdafa0f25afe4011&id=699351d548&f_id=00c9afe1f0" 
+              method="post" 
+              id="mc-embedded-subscribe-form" 
+              name="mc-embedded-subscribe-form" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{ display: 'flex', gap: '0.5rem', justifyContent: 'center', flexWrap: 'wrap' }} 
+            >
+              <input 
+                type="email" 
+                name="EMAIL" 
+                id="mce-EMAIL"
+                placeholder="Enter your email address" 
+                required 
+                style={{ 
+                  padding: '12px 20px', 
+                  borderRadius: '30px', 
+                  border: '1px solid #ccc', 
+                  minWidth: '250px', 
+                  flex: '1 1 auto', 
+                  fontSize: '1rem',
+                  outline: 'none'
+                }} 
+              />
+              
+              <div style={{ position: 'absolute', left: '-5000px' }} aria-hidden="true">
+                 <input type="text" name="b_7c134e02bcdafa0f25afe4011_699351d548" tabIndex="-1" defaultValue="" />
+              </div>
+
+              <button 
+                type="submit" 
+                name="subscribe" 
+                id="mc-embedded-subscribe"
+                style={{ 
+                  backgroundColor: 'var(--bg-deep-spruce)', 
+                  color: 'var(--text-alabaster)', 
+                  border: 'none', 
+                  padding: '12px 32px', 
+                  borderRadius: '30px', 
+                  fontWeight: 'bold', 
+                  cursor: 'pointer', 
+                  fontSize: '1rem',
+                  transition: 'opacity 0.2s ease'
+                }}
+                onMouseOver={(e) => e.currentTarget.style.opacity = '0.9'}
+                onMouseOut={(e) => e.currentTarget.style.opacity = '1'}
+              >
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </section>
+
         {/* FOOTER */}
-        <footer className="site-footer" style={{ padding: '4rem 5% 2rem 5%', backgroundColor: 'var(--text-alabaster)', color: 'var(--bg-deep-spruce)', textAlign: 'center', marginTop: '5rem' }}>
+        <footer className="site-footer" style={{ padding: '4rem 5% 2rem 5%', backgroundColor: 'var(--text-alabaster)', color: 'var(--bg-deep-spruce)', textAlign: 'center' }}>
           <img src="/Logomark-Teal-Final.png" alt="e3 Refillery Logomark" className="footer-logo" style={{ maxWidth: '100px', margin: '0 auto 1.5rem auto', display: 'block', opacity: 0.9 }} />
           <p style={{ fontSize: '1.25rem', marginBottom: '0.5rem', fontWeight: 'bold' }}>earth, equity, empowerment</p>
           <p style={{ opacity: 0.8, maxWidth: '600px', margin: '0 auto 2rem auto', lineHeight: '1.6' }}>
@@ -394,22 +461,11 @@ function App() {
           </div>
         </footer>
 
+        {/* ANALYTICS IN THE CORRECT SPOT */}
+        <Analytics />
       </div>
     </BrowserRouter>
   );
+} 
 
-return (
-    <Router>
-      <ScrollToTop />
-      <Navbar />
-      <Routes>
-        {/* All your different page routes are here */}
-      </Routes>
-      <Footer />
-      
-      {/* Add the Analytics tag right here! */}
-      <Analytics />
-    </Router>
-  );
- } 
 export default App;
