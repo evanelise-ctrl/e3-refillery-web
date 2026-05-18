@@ -381,17 +381,17 @@ function App() {
           </Routes>
         </main>
 
-        {/* --- NEWSLETTER SIGNUP BLOCK --- */}
+{/* --- NEWSLETTER SIGNUP BLOCK --- */}
         <section className="newsletter-signup" style={{ 
-          backgroundColor: 'rgba(166, 144, 116, 0.1)', 
+          backgroundColor: 'var(--bg-deep-spruce)', 
           padding: '4rem 5%', 
           textAlign: 'center', 
-          borderTop: '1px solid rgba(57, 88, 86, 0.1)',
-          marginTop: '4rem'
+          borderTop: '1px solid rgba(228, 224, 215, 0.1)', /* Subtle alabaster border */
+          marginTop: '0' /* Removed the margin so it sits flush against content */
         }}>
           <div style={{ maxWidth: '600px', margin: '0 auto' }}>
-            <h3 style={{ color: 'var(--bg-deep-spruce)', fontSize: '1.75rem', marginBottom: '1rem' }}>Keep in the Loop</h3>
-            <p style={{ color: '#555', marginBottom: '2rem', lineHeight: '1.6' }}>
+            <h3 style={{ color: 'var(--surface-camel)', fontSize: '1.75rem', marginBottom: '1rem' }}>Keep in the Loop</h3>
+            <p style={{ color: 'var(--text-alabaster)', marginBottom: '2rem', lineHeight: '1.6', opacity: '0.9' }}>
               Subscribe to get updates on new products, upcoming pop-up locations, and tips for a lower-waste home.
             </p>
             
@@ -413,7 +413,9 @@ function App() {
                 style={{ 
                   padding: '12px 20px', 
                   borderRadius: '30px', 
-                  border: '1px solid #ccc', 
+                  border: '1px solid var(--surface-camel)', 
+                  backgroundColor: 'var(--text-alabaster)',
+                  color: 'var(--bg-deep-spruce)',
                   minWidth: '250px', 
                   flex: '1 1 auto', 
                   fontSize: '1rem',
@@ -430,8 +432,8 @@ function App() {
                 name="subscribe" 
                 id="mc-embedded-subscribe"
                 style={{ 
-                  backgroundColor: 'var(--bg-deep-spruce)', 
-                  color: 'var(--text-alabaster)', 
+                  backgroundColor: 'var(--surface-camel)', 
+                  color: 'var(--bg-deep-spruce)', 
                   border: 'none', 
                   padding: '12px 32px', 
                   borderRadius: '30px', 
@@ -440,7 +442,7 @@ function App() {
                   fontSize: '1rem',
                   transition: 'opacity 0.2s ease'
                 }}
-                onMouseOver={(e) => e.currentTarget.style.opacity = '0.9'}
+                onMouseOver={(e) => e.currentTarget.style.opacity = '0.8'}
                 onMouseOut={(e) => e.currentTarget.style.opacity = '1'}
               >
                 Subscribe
