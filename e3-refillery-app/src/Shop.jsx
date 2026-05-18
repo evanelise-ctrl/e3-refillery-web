@@ -490,7 +490,7 @@ const Shop = () => {
             rel="noreferrer" 
             style={{ 
               display: 'inline-block', 
-              backgroundColor: 'var(--bg-deep-spruce)', 
+              backgroundColor: 'var(--accent-aubergine)', 
               color: 'var(--text-alabaster)', 
               padding: '14px 36px', 
               borderRadius: '30px', 
