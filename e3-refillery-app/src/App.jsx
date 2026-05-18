@@ -390,7 +390,7 @@ function App() {
           marginTop: '4rem'
         }}>
           <div style={{ maxWidth: '600px', margin: '0 auto' }}>
-            <h3 style={{ color: 'var(--bg-deep-spruce)', fontSize: '1.75rem', marginBottom: '1rem' }}>Keep in the Loop</h3>
+            <h3 style={{ color: 'var(--action-sage)', fontSize: '1.75rem', marginBottom: '1rem' }}>Keep in the Loop</h3>
             <p style={{ color: '#555', marginBottom: '2rem', lineHeight: '1.6' }}>
               Subscribe to get updates on new products, upcoming pop-up locations, and tips for a lower-waste home.
             </p>
