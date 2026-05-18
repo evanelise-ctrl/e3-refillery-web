@@ -478,10 +478,37 @@ const Shop = () => {
 
   return (
     <div className="shop-page-wrapper">
-      <section className="shop-header">
+<section className="shop-header">
         <h1>Shop Sustainable Goods</h1>
         <p>Clean, safe, and non-toxic products for your home and family. <br/> Supporting our community, one refill at a time.</p>
-        <div className="status-badge">Available for in-person refill only at this time.</div>
+        
+        {/* NEW ORDER FORM CTA */}
+        <div className="order-cta-container" style={{ marginTop: '2.5rem' }}>
+          <a 
+            href="https://forms.gle/caBd6tmsdi97ZzUL7" 
+            target="_blank" 
+            rel="noreferrer" 
+            style={{ 
+              display: 'inline-block', 
+              backgroundColor: 'var(--bg-deep-spruce)', 
+              color: 'var(--text-alabaster)', 
+              padding: '14px 36px', 
+              borderRadius: '30px', 
+              textDecoration: 'none', 
+              fontWeight: 'bold', 
+              fontSize: '1.15rem',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+              transition: 'transform 0.2s ease, opacity 0.2s ease'
+            }}
+            onMouseOver={(e) => e.currentTarget.style.opacity = '0.9'}
+            onMouseOut={(e) => e.currentTarget.style.opacity = '1'}
+          >
+            Place an Order Form
+          </a>
+          <p style={{ marginTop: '1rem', fontSize: '0.95rem', opacity: 0.8, fontStyle: 'italic' }}>
+            Currently accepting orders for Tuesday meet-ups & Wednesday local delivery!
+          </p>
+        </div>
       </section>
 
       <div className="shop-filters">
