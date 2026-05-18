@@ -450,7 +450,7 @@ function App() {
         </section>
 
         {/* FOOTER */}
-        <footer className="site-footer" style={{ padding: '4rem 5% 2rem 5%', backgroundColor: 'var(--text-alabaster)', color: 'var(--bg-deep-spruce)', textAlign: 'center' }}>
+        <footer className="site-footer" style={{ padding: '4rem 5% 2rem 5%', backgroundColor: 'var(--text-alabaster)', color: 'var(--action-sage)', textAlign: 'center' }}>
           <img src="/Logomark-Teal-Final.png" alt="e3 Refillery Logomark" className="footer-logo" style={{ maxWidth: '100px', margin: '0 auto 1.5rem auto', display: 'block', opacity: 0.9 }} />
           <p style={{ fontSize: '1.25rem', marginBottom: '0.5rem', fontWeight: 'bold' }}>earth, equity, empowerment</p>
           <p style={{ opacity: 0.8, maxWidth: '600px', margin: '0 auto 2rem auto', lineHeight: '1.6' }}>
