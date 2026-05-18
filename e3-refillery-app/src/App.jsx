@@ -402,85 +402,14 @@ return (
     <Router>
       <ScrollToTop />
       <Navbar />
-      
       <Routes>
         {/* All your different page routes are here */}
       </Routes>
+      <Footer />
       
-      {/* --- NEWSLETTER SIGNUP BLOCK --- */}
-      <section className="newsletter-signup" style={{ 
-        backgroundColor: 'rgba(166, 144, 116, 0.1)', 
-        padding: '4rem 5%', 
-        textAlign: 'center', 
-        borderTop: '1px solid rgba(57, 88, 86, 0.1)',
-        marginTop: '4rem'
-      }}>
-        <div style={{ maxWidth: '600px', margin: '0 auto' }}>
-          <h3 style={{ color: 'var(--bg-deep-spruce)', fontSize: '1.75rem', marginBottom: '1rem' }}>Keep in the Loop</h3>
-          <p style={{ color: '#555', marginBottom: '2rem', lineHeight: '1.6' }}>
-            Subscribe to get updates on new products, upcoming pop-up locations, and tips for a lower-waste home.
-          </p>
-          
-          {/* FULLY WIRED MAILCHIMP FORM */}
-          <form 
-            action="https://gmail.us5.list-manage.com/subscribe/post?u=7c134e02bcdafa0f25afe4011&id=699351d548&f_id=00c9afe1f0" 
-            method="post" 
-            id="mc-embedded-subscribe-form" 
-            name="mc-embedded-subscribe-form" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            style={{ display: 'flex', gap: '0.5rem', justifyContent: 'center', flexWrap: 'wrap' }} 
-          >
-            <input 
-              type="email" 
-              name="EMAIL" 
-              id="mce-EMAIL"
-              placeholder="Enter your email address" 
-              required 
-              style={{ 
-                padding: '12px 20px', 
-                borderRadius: '30px', 
-                border: '1px solid #ccc', 
-                minWidth: '250px', 
-                flex: '1 1 auto', 
-                fontSize: '1rem',
-                outline: 'none'
-              }} 
-            />
-            
-            {/* Anti-bot spam protection field (Hidden) built using your exact URL IDs */}
-            <div style={{ position: 'absolute', left: '-5000px' }} aria-hidden="true">
-               <input type="text" name="b_7c134e02bcdafa0f25afe4011_699351d548" tabIndex="-1" defaultValue="" />
-            </div>
-
-            <button 
-              type="submit" 
-              name="subscribe" 
-              id="mc-embedded-subscribe"
-              style={{ 
-                backgroundColor: 'var(--bg-deep-spruce)', 
-                color: 'var(--text-alabaster)', 
-                border: 'none', 
-                padding: '12px 32px', 
-                borderRadius: '30px', 
-                fontWeight: 'bold', 
-                cursor: 'pointer', 
-                fontSize: '1rem',
-                transition: 'opacity 0.2s ease'
-              }}
-              onMouseOver={(e) => e.currentTarget.style.opacity = '0.9'}
-              onMouseOut={(e) => e.currentTarget.style.opacity = '1'}
-            >
-              Subscribe
-            </button>
-          </form>
-        </div>
-      </section>
-
-      {/* Analytics stays at the very bottom! */}
+      {/* Add the Analytics tag right here! */}
       <Analytics />
     </Router>
   );
-} 
-
+ } 
 export default App;
