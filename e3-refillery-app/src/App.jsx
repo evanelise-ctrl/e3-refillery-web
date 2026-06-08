@@ -175,7 +175,7 @@ const About = () => {
 // --- HOMEPAGE CONTENT ---
 const Home = () => (
   <>
-    <section className="hero-full-bleed" style={{ backgroundImage: "url('/Table%20Top%202.png')" }}>
+    <section className="hero-full-bleed" style={{ backgroundImage: "url('/herovideo.mp4')" }}>
         <div className="hero-overlay-box">
             <h1>Green living, within reach</h1>
             <p>Reduce single-use plastics by refilling your favorite household and personal care products. Bring your own container, or grab one of ours!</p>
