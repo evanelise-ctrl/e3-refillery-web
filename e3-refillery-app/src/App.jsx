@@ -175,28 +175,7 @@ const About = () => {
 // --- HOMEPAGE CONTENT ---
 const Home = () => (
   <>
-<section className="hero-full-bleed" style={{ position: 'relative', overflow: 'hidden' }}>
-        {/* Background Video */}
-        <video 
-          autoPlay 
-          loop 
-          muted 
-          playsInline 
-          style={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            transform: 'translate(-50%, -50%)',
-            zIndex: '-1'
-          }}
-        >
-          <source src="/herovideo.mp4" type="video/mp4" />
-        </video>
-
-        {/* Hero Content */}
+    <section className="hero-full-bleed" style={{ backgroundImage: "url('/Table%20Top%202.png')" }}>
         <div className="hero-overlay-box">
             <h1>Green living, within reach</h1>
             <p>Reduce single-use plastics by refilling your favorite household and personal care products. Bring your own container, or grab one of ours!</p>
