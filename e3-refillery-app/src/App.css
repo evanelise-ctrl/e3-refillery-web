@@ -182,3 +182,22 @@
     border-right-color: var(--border);
   }
 }
+/* --- MOBILE HERO ADJUSTMENTS --- */
+@media (max-width: 768px) {
+  .hero-full-bleed {
+    /* Ensures the hero section is tall enough to show both video and text */
+    min-height: 85vh; 
+    display: flex;
+    align-items: flex-end; /* Pushes the content to the bottom */
+    padding-bottom: 2rem;
+  }
+
+  .hero-overlay-box {
+    margin-top: auto; /* Helps push the box down if flex isn't overriding */
+    width: 90%; /* Leaves a nice margin on the sides */
+    padding: 1.5rem; /* Shrinks the inner padding slightly to save space */
+    /* Optional: If the box is still too tall, you can force it to scroll internally */
+    max-height: 50vh; 
+    overflow-y: auto; 
+  }
+}
