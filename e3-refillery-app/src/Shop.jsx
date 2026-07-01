@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import './Shop.css';
+import { useCart } from './CartContext';
+import CartDrawer from './CartDrawer';
+import OrderForm from './OrderForm';
 
 // --- YOUR INVENTORY DATA ---
 const productsData = [
@@ -8,10 +11,13 @@ const productsData = [
     id: 1,
     name: "Tiani Shampoo Bar",
     category: "Personal Care",
-    brand: "Tiani Body Care", 
+    brand: "Tiani Body Care",
     location: "Dexter, MI",
     highlights: "Women-owned, Michigan local",
-    price: "$16 Full (3.5oz) | $7 Mini (1oz)",
+    options: [
+      { label: "Full (3.5oz)", price: 16.00 },
+      { label: "Mini (1oz)", price: 7.00 }
+    ],
     image: "/tiani_shampoo_bar.png",
     description: "Very long-lasting, effectively removes build-up, and lathers beautifully to maintain healthy hair follicles. Safe for all hair types (even curly!) and kid-friendly.",
     ecoImpact: "Saves 2-3 plastic bottles",
@@ -25,7 +31,10 @@ const productsData = [
     brand: "Tiani Body Care",
     location: "Dexter, MI",
     highlights: "Women-owned, Michigan local",
-    price: "$17 Full (3.5oz) | $8 Mini (1oz)",
+    options: [
+      { label: "Full (3.5oz)", price: 17.00 },
+      { label: "Mini (1oz)", price: 8.00 }
+    ],
     image: "/tiani_conditioner_bar.png",
     description: "Packed with hair-friendly nutrients! Made with Vitamin E, jojoba, tucuma butter, and chamomile butter. Leaves hair detangled, light, and non-greasy.",
     ecoImpact: "Saves 2-3 plastic bottles",
@@ -39,9 +48,14 @@ const productsData = [
     brand: "Huppy",
     location: "California, USA",
     highlights: "AAPI-Owned",
-    price: "Refills: $9.00 (1mo) | $18.00 (2mo)",
-    image: "/huppy_toothpaste.png", 
-    description: "A fluoride-free, zero-waste alternative to traditional paste that naturally whitens, freshens breath, and fights plaque. Made with clean ingredients like peppermint oil, aloe vera extract, and nano-hydroxyapatite.\n\nStarters (includes premium jar):\n• 1 Month Supply: $10.50\n• 2 Month Supply: $20.00",
+    options: [
+      { label: "1-Month Starter (incl. jar)", price: 10.50 },
+      { label: "2-Month Starter (incl. jar)", price: 20.00 },
+      { label: "1-Month Refill", price: 9.00 },
+      { label: "2-Month Refill", price: 18.00 }
+    ],
+    image: "/huppy_toothpaste.png",
+    description: "A fluoride-free, zero-waste alternative to traditional paste that naturally whitens, freshens breath, and fights plaque. Made with clean ingredients like peppermint oil, aloe vera extract, and nano-hydroxyapatite.",
     ecoImpact: "Eliminates plastic tubes",
     scents: ["Peppermint"],
     ingredients: "Xylitol, Calcium Carbonate, Nano-Hydroxyapatite (5% Concentration), Bentonite Clay, Natural Mint Flavor, Sodium Lauryl Sulfoacetate, Caesalpinia Spinosa (Tara) Gum, Hydroxypropyl Cellulose, Silicon Dioxide, Zinc Citrate, Menthol*, Sodium Bicarbonate, Ammonium Glycyrrhizate, Cocamidopropyl Betaine, Mentha Piperita Oil*, Cocos Nucifera Oil*, Aloe Barbadensis Extract*, Melaleuca Alternifolia Oil*. *Organic."
@@ -53,7 +67,9 @@ const productsData = [
     brand: "Lincoln Street Soap",
     location: "Dearborn, MI",
     highlights: "Woman-owned, Michigan local",
-    price: "$9.00 (4oz bar)",
+    options: [
+      { label: "4oz Bar", price: 9.00 }
+    ],
     image: "/lincolnst_oatmeal_soap.png",
     description: "Crafted with natural ingredients and wrapped in sustainable, minimal packaging. Designed for those who value clean beauty and a lighter environmental footprint. Rich lather, long-lasting bars.",
     ecoImpact: "Sustainable, minimal packaging",
@@ -69,8 +85,10 @@ const productsData = [
     brand: "Mama Suds",
     location: "Goodrich, MI",
     highlights: "Woman-owned, Michigan local",
-    price: "$28.00",
-    image: "/mamasuds_solid_dish_soap.png", 
+    options: [
+      { label: "Trio Set", price: 28.00 }
+    ],
+    image: "/mamasuds_solid_dish_soap.png",
     description: "All you need to get started at the kitchen sink! Includes pure castile dish soap, a natural bamboo and sisal pot brush, and an alder wood soap dish.",
     ecoImpact: "Plastic-free, Vegan",
     scents: ["Unscented"],
@@ -83,7 +101,9 @@ const productsData = [
     brand: "Mama Suds",
     location: "Goodrich, MI",
     highlights: "Woman-owned, Michigan local",
-    price: "$1.75 (Individual)",
+    options: [
+      { label: "Individual Tab", price: 1.75 }
+    ],
     image: "/mamasuds-toilet-refil-bag.png",
     description: "PLOP. FIZZ. SCRUB. FLUSH. Naturally. A safer, smarter way to keep your bathroom fresh, made from scratch with simple, honest ingredients that work.",
     ecoImpact: "Plastic-free, Leaping Bunny Certified",
@@ -97,9 +117,13 @@ const productsData = [
     brand: "Mama Suds",
     location: "Goodrich, MI",
     highlights: "Woman-owned, Michigan local",
-    price: "Refills from $3.50",
+    options: [
+      { label: "14oz Basic Starter", price: 6.00 },
+      { label: "14oz Starter Plus (w/ sprayer)", price: 12.99 },
+      { label: "14oz Refill", price: 3.50 }
+    ],
     image: "/mamasuds_all_purpose.png",
-    description: "This cleaner is good for sinks, counters, doorknobs, stove-tops, garbage lids, etc. Safe for natural stone and granite.\n\nPricing Tiers:\n• 14oz Basic Starter: $6.00\n• 14oz Starter Plus (w/ sprayer): $12.99\n• 14oz Refill: $3.50",
+    description: "This cleaner is good for sinks, counters, doorknobs, stove-tops, garbage lids, etc. Safe for natural stone and granite.",
     ecoImpact: "Biodegradable, Vegan",
     scents: ["Clove, Cinnamon, Lemon & Eucalyptus"],
     ingredients: "Water, MamaSuds handcrafted Castile Soap (potassium olivate), organic whole leaf aloe vera gel juice with citric acid*, pure essential oils of clove bud, organic cinnamon leaf, lemon, eucalyptus radiata, and rosemary."
@@ -111,8 +135,10 @@ const productsData = [
     brand: "Green Llama",
     location: "Johnson City, TN",
     highlights: "Woman-owned, EWG Verified",
-    price: "$0.52 per tablet",
-    image: "/green_llama_dishwasher_tabs.png", 
+    options: [
+      { label: "Per Tablet", price: 0.52 }
+    ],
+    image: "/green_llama_dishwasher_tabs.png",
     description: "Sparkling dishes. Zero plastic. 100% peace of mind. Deliver powerful, mineral and plant-based cleaning in plastic-free, compostable packaging.",
     ecoImpact: "Zero Waste, No PVA or microplastics",
     scents: ["Unscented"],
@@ -125,8 +151,10 @@ const productsData = [
     brand: "Green Llama",
     location: "Johnson City, TN",
     highlights: "Woman-owned, EWG Verified",
-    price: "$3.00 (2 tablets)",
-    image: "/green_llama_glass_cleaner.png", 
+    options: [
+      { label: "2 Tablets", price: 3.00 }
+    ],
+    image: "/green_llama_glass_cleaner.png",
     description: "Expertly formulated with natural, non-toxic ingredients. Your surfaces will be left impeccably clean with no harsh chemicals. Dissolve 2 tablets in 16oz of water.",
     ecoImpact: "Compostable packaging, zero plastic",
     scents: ["Lemongrass & Geranium"],
@@ -139,9 +167,15 @@ const productsData = [
     brand: "Mama Suds",
     location: "Goodrich, MI",
     highlights: "Woman-owned, Michigan local",
-    price: "Refills from $6.86",
-    image: "/mamasudscastillesoap.png", 
-    description: "Staying true to traditional soap-making, this is one of the best natural and bio-degradable soaps available. Perfect for washing body, laundry, hair, and shaving.\n\nPricing Tiers:\n• 14oz Basic Starter: $9.36\n• 14oz Starter Plus (w/ pump): $14.99\n• 14oz Refill: $6.86\n• 30oz Basic Starter: $18.45\n• 30oz Refill: $14.70",
+    options: [
+      { label: "14oz Basic Starter", price: 9.36 },
+      { label: "14oz Starter Plus (w/ pump)", price: 14.99 },
+      { label: "14oz Refill", price: 6.86 },
+      { label: "30oz Basic Starter", price: 18.45 },
+      { label: "30oz Refill", price: 14.70 }
+    ],
+    image: "/mamasudscastillesoap.png",
+    description: "Staying true to traditional soap-making, this is one of the best natural and bio-degradable soaps available. Perfect for washing body, laundry, hair, and shaving.",
     ecoImpact: "Biodegradable, Leaping Bunny",
     scents: ["Unscented", "Lemon"],
     ingredients: "Water, 100% Castile potassium olivate (saponified olive oil) - no palm, no coconut, no synthetic blends. (Optional lemon essential oil for scented version)."
@@ -153,8 +187,10 @@ const productsData = [
     brand: "Green Llama",
     location: "Johnson City, TN",
     highlights: "Woman-owned, EWG Verified",
-    price: "$3.00 (1 tablet)", 
-    image: "/green_llama_glass_cleaner.png", 
+    options: [
+      { label: "1 Tablet", price: 3.00 }
+    ],
+    image: "/green_llama_glass_cleaner.png",
     description: "Achieve brilliantly clean, streak-free windows and glass surfaces all while prioritizing the well-being of our planet. Simply dissolve 1 tablet in 16oz of warm water.",
     ecoImpact: "Compostable packaging, zero plastic",
     scents: ["Citrus"],
@@ -169,9 +205,14 @@ const productsData = [
     brand: "Mama Suds",
     location: "Goodrich, MI",
     highlights: "Woman-owned, Michigan local",
-    price: "Refills from $3.08",
+    options: [
+      { label: "14oz Starter", price: 5.83 },
+      { label: "14oz Refill", price: 3.08 },
+      { label: "30oz Starter", price: 10.35 },
+      { label: "30oz Refill", price: 6.60 }
+    ],
     image: "/mamasuds_laundry_powder.png",
-    description: "Discover a laundry detergent that truly cares for your clothes, your family, and the planet. Powerful, nontoxic laundry detergent made with simple, natural ingredients.\n\nPricing Tiers:\n• 14oz Starter: $5.83\n• 14oz Refill: $3.08\n• 30oz Starter: $10.35\n• 30oz Refill: $6.60",
+    description: "Discover a laundry detergent that truly cares for your clothes, your family, and the planet. Powerful, nontoxic laundry detergent made with simple, natural ingredients.",
     ecoImpact: "Biodegradable, Leaping Bunny Certified",
     scents: ["Unscented"],
     ingredients: "Sodium carbonate, sodium percarbonate, sodium olivate (saponified olive oil)."
@@ -183,9 +224,16 @@ const productsData = [
     brand: "Mama Suds",
     location: "Goodrich, MI",
     highlights: "Woman-owned, Michigan local",
-    price: "Refills from $5.04",
-    image: "/mamasuds_liquid_laundry_soap.png", 
-    description: "Formulated based on the owner's need for a laundry soap that would clean cloth diapers but be gentle enough to not irritate her baby's skin. Gentle, safe, and effective. (14oz = approx 28 TBSP | 30oz = approx 60 TBSP).\n\nPricing Tiers:\n• 14oz Basic Starter: $7.79\n• 14oz Starter Plus (w/ spout): $14.00\n• 14oz Refill: $5.04\n• 30oz Basic Starter: $14.55\n• 30oz Starter Plus (w/ spout): $20.00\n• 30oz Refill: $10.80",
+    options: [
+      { label: "14oz Basic Starter", price: 7.79 },
+      { label: "14oz Starter Plus (w/ spout)", price: 14.00 },
+      { label: "14oz Refill", price: 5.04 },
+      { label: "30oz Basic Starter", price: 14.55 },
+      { label: "30oz Starter Plus (w/ spout)", price: 20.00 },
+      { label: "30oz Refill", price: 10.80 }
+    ],
+    image: "/mamasuds_liquid_laundry_soap.png",
+    description: "Formulated based on the owner's need for a laundry soap that would clean cloth diapers but be gentle enough to not irritate her baby's skin. Gentle, safe, and effective. (14oz = approx 28 TBSP | 30oz = approx 60 TBSP).",
     ecoImpact: "Biodegradable, Refillable",
     scents: ["Unscented", "Lavender"],
     ingredients: "Unscented: Water, potassium olivate (saponified olive oil), sodium carbonate, and sodium borate.\n\nLavender: Water, potassium olivate (saponified olive oil), sodium carbonate, sodium borate, lavender essential oil."
@@ -197,8 +245,10 @@ const productsData = [
     brand: "Mama Suds",
     location: "Goodrich, MI",
     highlights: "Woman-owned, Michigan local",
-    price: "$7.00",
-    image: "/mamasuds_stainstick.png", 
+    options: [
+      { label: "Stain Stick", price: 7.00 }
+    ],
+    image: "/mamasuds_stainstick.png",
     description: "This spot-treating super-hero is here to keep your couches, clothes, and even upholstery stain- and toxin-free. A lot of cleaning power is packed into this little stick that lasts forever!",
     ecoImpact: "Biodegradable, Vegan",
     scents: ["Unscented"],
@@ -211,8 +261,10 @@ const productsData = [
     brand: "Cotton Creek Farms",
     location: "Thompsonville, MI",
     highlights: "Family-owned, Michigan local",
-    price: "$22.00",
-    image: "/alpaca_dryer_balls.png", 
+    options: [
+      { label: "Set of 3", price: 22.00 }
+    ],
+    image: "/alpaca_dryer_balls.png",
     description: "Made from 100% humanely sheared alpaca fiber from our own Michigan farm. Hypoallergenic, dye-free, and chemical-free. Lasts hundreds of loads!",
     ecoImpact: "Saves 25-30% in drying costs",
     scents: []
@@ -226,7 +278,9 @@ const productsData = [
     brand: "Modern Cottage NC",
     location: "Nevada City, CA",
     highlights: "Handmade, Women, Black & Indigenous-owned",
-    price: "$8.00",
+    options: [
+      { label: "Single", price: 8.00 }
+    ],
     image: "/ultimate-unsponge.png",
     description: "A quilted, washable, reusable household sponge made from all-natural fabrics and fibers. 100% cotton on one side, burlap on the other.",
     ecoImpact: "Zero-waste, plastic-free",
@@ -239,7 +293,9 @@ const productsData = [
     brand: "Howells Wood Products",
     location: "Redmond, OR",
     highlights: "Handmade, eco-friendly",
-    price: "$5.00",
+    options: [
+      { label: "Soap Dish", price: 5.00 }
+    ],
     image: "/howells-wood-soap-dish.png",
     description: "Handmade out of red alder wood. The original design prevents soap from sticking, and deep channels allow water to quickly run off.",
     ecoImpact: "Plastic-free",
@@ -252,7 +308,9 @@ const productsData = [
     brand: "Four Peaks Soapery",
     location: "New Mexico",
     highlights: "Handmade, Woman/Veteran-owned",
-    price: "$4.00",
+    options: [
+      { label: "Single", price: 4.00 }
+    ],
     image: "/sisal_soap_saver.png",
     description: "Slip your soap bar or broken pieces inside to prolong the life of the soap. Creates an excellent lather and gently exfoliates.",
     ecoImpact: "Biodegradable, compostable",
@@ -265,8 +323,10 @@ const productsData = [
     brand: "Craftinista Girl",
     location: "Farmington Hills, MI",
     highlights: "Women-owned, Michigan local",
-    price: "$18.00",
-    image: "/craftinista_girl_reusable_paper_towel.png", 
+    options: [
+      { label: "6-Pack", price: 18.00 }
+    ],
+    image: "/craftinista_girl_reusable_paper_towel.png",
     description: "Made with absorbent flannel material. Each individual towel measures 10\" x 12\". Wash with like items in the washing machine.",
     ecoImpact: "Reduces single-use plastic",
     scents: []
@@ -278,7 +338,10 @@ const productsData = [
     brand: "MJ Jarkets",
     location: "Dearborn, MI",
     highlights: "Handmade, Women-owned, Local",
-    price: "$6 (16oz) | $8 (32oz)",
+    options: [
+      { label: "16oz", price: 6.00 },
+      { label: "32oz", price: 8.00 }
+    ],
     image: "/Jarket assortment.png",
     description: "Protect your mason jar glass with a handmade, colorful 'jarket'. Slip over the bottom of your mason jar to add protection. Machine washable.",
     ecoImpact: "Plastic-free alternative to silicone",
@@ -291,7 +354,9 @@ const productsData = [
     brand: "reCAP Mason Jars",
     location: "Erie, Pennsylvania",
     highlights: "Women-owned, made in USA",
-    price: "$8.99",
+    options: [
+      { label: "Pump Lid", price: 8.99 }
+    ],
     image: "/reCap_mason_pump.png",
     description: "The reCAP® Pump Lid transforms Mason jars into refillable dispensers for liquid soaps, lotions, condiments, and more.\n\nThis 2 cc (0.0676 fl oz) pump features a lock-down saddle head and glass ball mechanism for smooth dispensing and long-lasting performance.\n\n- BPA-Free\n- Top-Rack Dishwasher Safe\n- Freezer Safe\n- Stain Resistant\n- Made in the USA",
     ecoImpact: "Repurposes mason jars for a variety of uses"
@@ -303,7 +368,9 @@ const productsData = [
     brand: "reCAP Mason Jars",
     location: "Erie, Pennsylvania",
     highlights: "Women-owned, made in USA",
-    price: "$8.99",
+    options: [
+      { label: "Sprayer Lid", price: 8.99 }
+    ],
     image: "/recap_mason_sprayer.png",
     description: "This trigger sprayer features a wide ergonomic head for comfort and an adjustable nozzle that goes from a fine mist to a strong, high-output spray. Built with a no-leak design, it provides smooth operation and consistent coverage on every use.\n\n- BPA-Free\n- Top-Rack Dishwasher Safe\n- Freezer Safe\n- Stain Resistant\n- Made in the USA",
     ecoImpact: "Repurposes mason jars for a variety of uses"
@@ -315,7 +382,9 @@ const productsData = [
     brand: "Brewing America",
     location: "Cove, Oregon",
     highlights: "Veteran-owned, made in USA",
-    price: "$8.25",
+    options: [
+      { label: "Pour Spout", price: 8.25 }
+    ],
     image: "/brewingamerica_spout.png",
     description: "This patent-pending design is made in the USA and engineered to be alcohol-resistant and leakproof; great for wet or dry food and liquids. Features a screw down flip cap with a handy notched hinge to give you a neatly controlled pour spout.",
     ecoImpact: "Repurposes mason jars for a variety of uses"
@@ -327,11 +396,14 @@ const productsData = [
     name: "2oz Glass Jar (Metal Lid)",
     category: "Containers",
     brand: "e3 Premium Jars",
-    location: "", 
+    location: "",
     highlights: "Reusable",
-    price: "$1.50",
+    options: [
+      { label: "2oz Jar", price: 1.50 }
+    ],
     image: "/2ozjar.png",
-    description: "Fill with a 1 month supply of toothpaste tablets (62 tablets). Must be purchased with an accompanying product.",
+    description: "Fill with a 1 month supply of toothpaste tablets (62 tablets).",
+    containerNote: "Must be purchased with an accompanying product.",
     ecoImpact: "Zero-waste"
   },
   {
@@ -339,11 +411,14 @@ const productsData = [
     name: "4oz Glass Jar (Metal Lid)",
     category: "Containers",
     brand: "e3 Premium Jars",
-    location: "", 
+    location: "",
     highlights: "Reusable",
-    price: "$2.00",
-    image: "/4ozwlid.png", 
-    description: "Sample size. Fill with 3.75 oz of liquid or powder laundry soap. Must be purchased with an accompanying product.",
+    options: [
+      { label: "4oz Jar", price: 2.00 }
+    ],
+    image: "/4ozwlid.png",
+    description: "Sample size. Fill with 3.75 oz of liquid or powder laundry soap.",
+    containerNote: "Must be purchased with an accompanying product.",
     ecoImpact: "Zero-waste"
   },
   {
@@ -353,9 +428,12 @@ const productsData = [
     brand: "e3 Premium Jars",
     location: "USA",
     highlights: "USA Made",
-    price: "$2.50",
+    options: [
+      { label: "16oz Regular Mouth Jar", price: 2.50 }
+    ],
     image: "/16ozjarregular.png",
-    description: "Premium glass mason pint jar with metal lid. Fill with 14 oz powder laundry soap, castile soap, or all-purpose cleaner. Compatible with reCAP mason spray and pump attachments (regular mouth). Must be purchased with an accompanying product.",
+    description: "Premium glass mason pint jar with metal lid. Fill with 14 oz powder laundry soap, castile soap, or all-purpose cleaner. Compatible with reCAP mason spray and pump attachments (regular mouth).",
+    containerNote: "Must be purchased with an accompanying product.",
     ecoImpact: "Zero-waste"
   },
   {
@@ -365,9 +443,12 @@ const productsData = [
     brand: "e3 Premium Jars",
     location: "USA",
     highlights: "USA Made",
-    price: "$2.75",
+    options: [
+      { label: "16oz Wide Mouth Jar", price: 2.75 }
+    ],
     image: "/16ozjarwide.png",
-    description: "Premium glass mason pint jar with metal lid. Fill with 14 oz of liquid or powder laundry soap. Compatible with Brewing America pour spout (wide mouth). Must be purchased with an accompanying product.",
+    description: "Premium glass mason pint jar with metal lid. Fill with 14 oz of liquid or powder laundry soap. Compatible with Brewing America pour spout (wide mouth).",
+    containerNote: "Must be purchased with an accompanying product.",
     ecoImpact: "Zero-waste"
   },
   {
@@ -377,76 +458,122 @@ const productsData = [
     brand: "e3 Premium Jars",
     location: "USA",
     highlights: "USA Made",
-    price: "$3.75",
+    options: [
+      { label: "32oz Wide Mouth Jar", price: 3.75 }
+    ],
     image: "/32ozjar.png",
-    description: "Premium glass mason quart jar with metal lid. Fill with 30 oz of liquid or powder laundry soap. Compatible with Brewing America pour spout (wide mouth). Must be purchased with an accompanying product.",
+    description: "Premium glass mason quart jar with metal lid. Fill with 30 oz of liquid or powder laundry soap. Compatible with Brewing America pour spout (wide mouth).",
+    containerNote: "Must be purchased with an accompanying product.",
     ecoImpact: "Zero-waste"
   }
 ];
 
 // --- INDIVIDUAL PRODUCT CARD COMPONENT ---
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, onAddToCart }) => {
   const [showIngredients, setShowIngredients] = useState(false);
+  const [selectedScent, setSelectedScent] = useState(
+    product.scents && product.scents.length > 0 ? product.scents[0] : null
+  );
+  const [selectedOption, setSelectedOption] = useState(product.options[0]);
+  const [qty, setQty] = useState(1);
+
+  const handleAddToCart = () => {
+    if (onAddToCart) {
+      onAddToCart({
+        productId: product.id,
+        name: product.name,
+        scent: selectedScent,
+        sizeLabel: selectedOption.label,
+        unitPrice: selectedOption.price,
+        qty,
+      });
+    }
+  };
 
   return (
     <div className="product-card">
       <div className="product-image-wrapper">
         <img src={product.image} alt={product.name} />
       </div>
-      
+
       <div className="product-info">
         <div className="product-meta">
           <span className="product-category">{product.category}</span>
           {product.ecoImpact && <span className="eco-impact">🌱 {product.ecoImpact}</span>}
         </div>
-        
+
         <h3>{product.name}</h3>
-        
+
         <div className="maker-block">
           <p className="maker-name">{product.brand}</p>
           <div className="maker-tags">
-            {/* The location pin will only render if there is actually a location written in the data! */}
             {product.location && <span className="maker-location">📍 {product.location}</span>}
             {product.highlights && <span className="maker-highlight">✨ {product.highlights}</span>}
           </div>
         </div>
-        
+
         <div className="product-description">
           {product.description.split('\n\n').map((paragraph, idx) => (
-            <p key={idx} className="product-description" style={{ 
-              whiteSpace: 'pre-line', /* This magic line allows normal line breaks to work like a bulleted list! */
-              marginTop: idx > 0 ? '0.5rem' : '0', 
-              fontSize: idx > 0 ? '0.85rem' : '0.95rem', 
-              opacity: idx > 0 ? 0.85 : 1, 
-              fontWeight: idx > 0 ? 500 : 400 
+            <p key={idx} className="product-description" style={{
+              whiteSpace: 'pre-line',
+              marginTop: idx > 0 ? '0.5rem' : '0',
+              fontSize: idx > 0 ? '0.85rem' : '0.95rem',
+              opacity: idx > 0 ? 0.85 : 1,
+              fontWeight: idx > 0 ? 500 : 400
             }}>
               {paragraph}
             </p>
           ))}
         </div>
-        
-        {/* Conditional Scents Rendering */}
+
+        {product.containerNote && (
+          <p className="container-note">{product.containerNote}</p>
+        )}
+
+        {/* Scent Selector */}
         {product.scents && product.scents.length > 0 && (
-          <div className="scents-container">
-            <span className="scents-label">Scents:</span>
-            <div className="scent-tags">
-              {product.scents.map((scent, index) => (
-                <span key={index} className="scent-tag">{scent}</span>
+          <div className="card-selector">
+            <label className="selector-label">Scent</label>
+            <select
+              className="selector-select"
+              value={selectedScent}
+              onChange={e => setSelectedScent(e.target.value)}
+            >
+              {product.scents.map(scent => (
+                <option key={scent} value={scent}>{scent}</option>
               ))}
-            </div>
+            </select>
+          </div>
+        )}
+
+        {/* Size / Tier Selector */}
+        {product.options.length > 1 && (
+          <div className="card-selector">
+            <label className="selector-label">Size / Option</label>
+            <select
+              className="selector-select"
+              value={selectedOption.label}
+              onChange={e => setSelectedOption(product.options.find(o => o.label === e.target.value))}
+            >
+              {product.options.map(opt => (
+                <option key={opt.label} value={opt.label}>
+                  {opt.label} — ${opt.price.toFixed(2)}
+                </option>
+              ))}
+            </select>
           </div>
         )}
 
         {/* --- INGREDIENTS TOGGLE --- */}
         {product.ingredients && (
           <div className="ingredients-section">
-            <button 
+            <button
               className="ingredients-toggle"
               onClick={() => setShowIngredients(!showIngredients)}
             >
               {showIngredients ? '− Hide Ingredients' : '+ View Ingredients'}
             </button>
-            
+
             {showIngredients && (
               <div className="ingredients-content">
                 {product.ingredients.split('\n\n').map((paragraph, idx) => (
@@ -458,7 +585,18 @@ const ProductCard = ({ product }) => {
         )}
 
         <div className="product-footer">
-          <span className="product-price">{product.price}</span>
+          <span className="product-price">${selectedOption.price.toFixed(2)}</span>
+        </div>
+
+        <div className="card-actions">
+          <div className="qty-control">
+            <button className="qty-btn" onClick={() => setQty(q => Math.max(1, q - 1))}>−</button>
+            <span className="qty-display">{qty}</span>
+            <button className="qty-btn" onClick={() => setQty(q => q + 1)}>+</button>
+          </div>
+          <button className="add-to-cart-btn" onClick={handleAddToCart}>
+            Add to Cart
+          </button>
         </div>
       </div>
     </div>
@@ -469,51 +607,50 @@ const ProductCard = ({ product }) => {
 // --- MAIN SHOP COMPONENT ---
 const Shop = () => {
   const [activeCategory, setActiveCategory] = useState('All');
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const [cartStep, setCartStep] = useState('cart'); // 'cart' | 'order'
+  const { addToCart, items } = useCart();
 
-  const filteredProducts = activeCategory === 'All' 
-    ? productsData 
+  const totalItems = items.reduce((sum, item) => sum + item.qty, 0);
+
+  const openCart = () => setIsCartOpen(true);
+  const closeCart = () => { setIsCartOpen(false); setCartStep('cart'); };
+
+  const filteredProducts = activeCategory === 'All'
+    ? productsData
     : productsData.filter(product => product.category === activeCategory);
 
   const categories = ['All', ...new Set(productsData.map(item => item.category))];
 
   return (
     <div className="shop-page-wrapper">
-<section className="shop-header">
+      <section className="shop-header">
         <h1>Shop Sustainable Goods</h1>
         <p>Clean, safe, and non-toxic products for your home and family. <br/> Supporting our community, one refill at a time.</p>
-        
-        {/* NEW ORDER FORM CTA */}
-        <div className="order-cta-container" style={{ marginTop: '2.5rem' }}>
-          <a 
-            href="https://forms.gle/caBd6tmsdi97ZzUL7" 
-            target="_blank" 
-            rel="noreferrer" 
-            style={{ 
-              display: 'inline-block', 
-              backgroundColor: 'var(--accent-aubergine)', 
-              color: 'var(--text-alabaster)', 
-              padding: '14px 36px', 
-              borderRadius: '30px', 
-              textDecoration: 'none', 
-              fontWeight: 'bold', 
-              fontSize: '1.15rem',
-              boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
-              transition: 'transform 0.2s ease, opacity 0.2s ease'
-            }}
-            onMouseOver={(e) => e.currentTarget.style.opacity = '0.9'}
-            onMouseOut={(e) => e.currentTarget.style.opacity = '1'}
-          >
-            Place an Order Here
-          </a>
-          <p style={{ marginTop: '1rem', fontSize: '0.95rem', opacity: 0.8, fontStyle: 'italic' }}>
-            Currently accepting orders for Tuesday meet-ups & Wednesday local delivery!
-          </p>
+
+        {/* CART CTA */}
+        <div className="order-cta-container">
+          <button className="shop-cart-cta-btn" onClick={openCart}>
+            {totalItems > 0
+              ? `View Cart (${totalItems} item${totalItems !== 1 ? 's' : ''})`
+              : 'Start Your Order'}
+          </button>
+
+          {/* Task 6 — static service area info, display only */}
+          <div className="service-area-info">
+            <p>
+              <strong>Tuesday pickup</strong> is free.{' '}
+              <strong>Wednesday delivery</strong> to Westland, Garden City, Wayne,
+              Dearborn Heights, Taylor, Allen Park, Lincoln Park, and Melvindale
+              is $5, free over $40.
+            </p>
+          </div>
         </div>
       </section>
 
       <div className="shop-filters">
         {categories.map(category => (
-          <button 
+          <button
             key={category}
             className={`filter-btn ${activeCategory === category ? 'active' : ''}`}
             onClick={() => setActiveCategory(category)}
@@ -525,9 +662,31 @@ const Shop = () => {
 
       <div className="product-grid-container">
         {filteredProducts.map(product => (
-          <ProductCard key={product.id} product={product} />
+          <ProductCard key={product.id} product={product} onAddToCart={addToCart} />
         ))}
       </div>
+
+      {/* Floating cart button — appears once something is in the cart */}
+      {totalItems > 0 && (
+        <button className="floating-cart-btn" onClick={openCart}>
+          <span className="cart-badge">{totalItems}</span>
+          View Cart
+        </button>
+      )}
+
+      {cartStep === 'cart' ? (
+        <CartDrawer
+          isOpen={isCartOpen}
+          onClose={closeCart}
+          onCheckout={() => setCartStep('order')}
+        />
+      ) : (
+        <OrderForm
+          isOpen={isCartOpen}
+          onClose={closeCart}
+          onBack={() => setCartStep('cart')}
+        />
+      )}
     </div>
   );
 };

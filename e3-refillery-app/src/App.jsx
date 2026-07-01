@@ -6,6 +6,7 @@ import Contact from './Contact';
 import Faqs from './Faqs';
 import Shop from './Shop';
 import { Analytics } from "@vercel/analytics/react";
+import { CartProvider } from './CartContext';
 
 // --- SCROLL HELPER ---
 const ScrollHandler = () => {
@@ -350,6 +351,7 @@ function App() {
   }, []);
 
   return (
+    <CartProvider>
     <BrowserRouter>
       <ScrollHandler />
       <div className="site-wrapper">
@@ -488,6 +490,7 @@ function App() {
         <Analytics />
       </div>
     </BrowserRouter>
+    </CartProvider>
   );
 } 
 
