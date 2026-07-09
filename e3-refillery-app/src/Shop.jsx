@@ -73,8 +73,8 @@ const productsData = [
     image: "/lincolnst_oatmeal_soap.png",
     description: "Crafted with natural ingredients and wrapped in sustainable, minimal packaging. Designed for those who value clean beauty and a lighter environmental footprint. Rich lather, long-lasting bars.",
     ecoImpact: "Sustainable, minimal packaging",
-    scents: ["Oatmeal", "Almond", "Bergamot & Sandalwood"],
-    ingredients: "Oatmeal: Avocado, castor, coconut, olive oils; shea butter; colloidal oats.\n\nAlmond: Olive oil, coconut oil, almond oil, rice bran oil, castor oil, shea butter, fragrance (bitter almond & soft orange notes).\n\nBergamot and Sandalwood: Avocado oil, castor oil, coconut oil, olive oil, shea butter, bergamot essential oil, Egyptian sandalwood fragrance."
+    scents: ["Oatmeal", "Almond", "Bergamot & Sandalwood", "Black Orchid", "Dirtbag", "Livernois Lavender", "Orange Blossom"],
+    ingredients: "Oatmeal: Avocado, castor, coconut, olive oils; shea butter; colloidal oats.\n\nAlmond: Olive oil, coconut oil, almond oil, rice bran oil, castor oil, shea butter, fragrance (bitter almond & soft orange notes).\n\nBergamot and Sandalwood: Avocado oil, castor oil, coconut oil, olive oil, shea butter, bergamot essential oil, Egyptian sandalwood fragrance.\n\nBlack Orchid: Saponified oils of olive, babassu, sesame, apricot kernel, macadamia nut, and castor oils, activated charcoal, alkanet root, fragrance (amber, Tahitian vanilla, sandalwood).\n\nDirtbag: Saponified oils of olive, coconut palm, sesame, safflower, castor; oils of grapefruit, Virginia cedarwood, Siberian fir; cornmeal, poppy seed.\n\nLivernois Lavender: Olive, coconut, sesame, castor oils; water; lavender and benzoin essential oils, alkanet root, linalool*, benzyl benzoate*, benzyl cinnamate*. *Naturally occurring components of essential oils."
   },
 
   // --- CLEANING ---
@@ -154,7 +154,7 @@ const productsData = [
     options: [
       { label: "2 Tablets", price: 3.00 }
     ],
-    image: "/green_llama_glass_cleaner.png",
+    image: "/green_llama_all_purpose.png",
     description: "Expertly formulated with natural, non-toxic ingredients. Your surfaces will be left impeccably clean with no harsh chemicals. Dissolve 2 tablets in 16oz of water.",
     ecoImpact: "Compostable packaging, zero plastic",
     scents: ["Lemongrass & Geranium"],
