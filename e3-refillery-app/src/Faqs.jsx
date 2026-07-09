@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import './Faqs.css';
 
 // --- YOUR FAQS DATA ---
@@ -159,6 +160,10 @@ const Faqs = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>FAQs | e3 Refillery</title>
+        <meta name="description" content="Answers about how e3 Refillery's zero-waste refill service, containers, pickup, and delivery in metro Detroit work." />
+      </Helmet>
       <section className="faq-hero">
         <h1>Frequently Asked Questions</h1>
         <p>Everything you need to know about refilling your home essentials, our delivery process, and our commitment to clean, non-toxic products.</p>

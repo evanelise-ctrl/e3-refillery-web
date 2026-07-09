@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import './FindUs.css'; 
+import { Helmet } from 'react-helmet-async';
+import './FindUs.css';
 
 const API_KEY = 'AIzaSyBvF4_stqxV0X8w7TmfJUNEYkwZi0FdkR0'; 
 const CALENDAR_ID = 'e3refillery@gmail.com'; 
@@ -116,7 +117,11 @@ const FindUs = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-      
+      <Helmet>
+        <title>Find Us | e3 Refillery Pop-Ups & Delivery</title>
+        <meta name="description" content="Find e3 Refillery pop-up events and check pickup and delivery days across Dearborn and metro Detroit." />
+      </Helmet>
+
       <section className="find-us-hero">
         <img src="/Web Icons-LeafAccentTop-gold.png" className="hero-leaf left" alt="" aria-hidden="true" />
         <img src="/Web Icons-LeafAccentBottom-gold.png" className="hero-leaf right" alt="" aria-hidden="true" />

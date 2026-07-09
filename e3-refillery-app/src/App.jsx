@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import './style.css';
 import FindUs from './FindUs';
 import Contact from './Contact';
@@ -36,6 +37,10 @@ const About = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Our Story & Mission | e3 Refillery</title>
+        <meta name="description" content="Meet the founder behind e3 Refillery and learn our mission to bring zero-waste, non-toxic refills to Dearborn and metro Detroit." />
+      </Helmet>
       {/* BOLD MISSION SECTION (Framed) */}
       <section id="mission" className="about-section">
         <div className="mission-wrapper">
@@ -176,6 +181,10 @@ const About = () => {
 // --- HOMEPAGE CONTENT ---
 const Home = () => (
   <>
+    <Helmet>
+      <title>e3 Refillery | Zero-Waste Refills in Dearborn, MI</title>
+      <meta name="description" content="Zero-waste refill store in Dearborn, Michigan. Shop sustainable home and body essentials with free Tuesday pickup and Wednesday delivery in metro Detroit." />
+    </Helmet>
 <section className="hero-full-bleed" style={{ position: 'relative', overflow: 'hidden' }}>
         {/* Background Video */}
         <video 

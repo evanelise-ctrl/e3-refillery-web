@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import './Shop.css';
 import { useCart } from './CartContext';
 import CartDrawer from './CartDrawer';
@@ -624,6 +625,10 @@ const Shop = () => {
 
   return (
     <div className="shop-page-wrapper">
+      <Helmet>
+        <title>Shop Sustainable Refills & Zero-Waste Goods | e3 Refillery</title>
+        <meta name="description" content="Shop zero-waste refills: personal care, cleaning, laundry, containers, and accessories from women-owned and local brands." />
+      </Helmet>
       <section className="shop-header">
         <h1>Shop Sustainable Goods</h1>
         <p>Clean, safe, and non-toxic products for your home and family. <br/> Supporting our community, one refill at a time.</p>
