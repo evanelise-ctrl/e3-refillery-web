@@ -2,9 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import './FindUs.css';
 
-const API_KEY = 'AIzaSyBvF4_stqxV0X8w7TmfJUNEYkwZi0FdkR0'; 
-const CALENDAR_ID = 'e3refillery@gmail.com'; 
-
 const FindUs = () => {
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -14,12 +11,9 @@ const FindUs = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const timeMin = (new Date()).toISOString();
-        const url = `https://www.googleapis.com/calendar/v3/calendars/${CALENDAR_ID}/events?key=${API_KEY}&timeMin=${timeMin}&singleEvents=true&orderBy=startTime&maxResults=50`; 
-        
-        const response = await fetch(url);
+        const response = await fetch('/api/calendar-events');
         const data = await response.json();
-        
+
         if (data.items) {
           setEvents(data.items);
         }
