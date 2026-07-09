@@ -154,7 +154,7 @@ const productsData = [
     options: [
       { label: "2 Tablets", price: 3.00 }
     ],
-    image: "/green_llama_all_purpose",
+    image: "/green_llama_all_purpose.png",
     description: "Expertly formulated with natural, non-toxic ingredients. Your surfaces will be left impeccably clean with no harsh chemicals. Dissolve 2 tablets in 16oz of water.",
     ecoImpact: "Compostable packaging, zero plastic",
     scents: ["Lemongrass & Geranium"],
