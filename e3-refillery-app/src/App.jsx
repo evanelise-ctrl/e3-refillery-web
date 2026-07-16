@@ -57,7 +57,7 @@ const About = () => {
       {/* OUR STORY SECTION (Interactive Accordion) */}
 <section id="our-story" className="about-section our-story-layout frosted-card-break">        
         <div className="story-sidebar">
-          <img src="/anna.png" alt="Anna Dewey, Founder" className="founder-img" style={{ width: '100%', maxWidth: '300px', borderRadius: '50%', marginBottom: '1.5rem', boxShadow: '0 15px 30px rgba(0,0,0,0.1)' }} />
+          <img src="/anna_01.png" alt="Anna Dewey, Founder" className="founder-img" style={{ width: '100%', maxWidth: '300px', borderRadius: '50%', marginBottom: '1.5rem', boxShadow: '0 15px 30px rgba(0,0,0,0.1)' }} />
           <h3 className="founder-name" style={{ color: 'var(--text-alabaster)', fontSize: '1.75rem', marginBottom: '0.25rem' }}>Anna Dewey</h3>
           <p className="founder-title" style={{ color: 'var(--text-alabaster)', fontSize: '1.1rem', opacity: '0.9' }}>Founder & Owner<br /><strong>e3 refillery LLC</strong></p>
         </div>
@@ -139,7 +139,7 @@ const About = () => {
 <section id="vision" className="about-section split-layout split-reverse">
         <div className="split-layout-inner">
           <div className="split-image">
-            <img src="/Table%20Top%202.png" alt="e3 Refillery Products" style={{ width: '100%', borderRadius: '20px', boxShadow: '0 15px 30px rgba(0,0,0,0.1)' }} />
+            <img src="/display-petals-posies-1.png" alt="e3 Refillery Products" style={{ width: '100%', borderRadius: '20px', boxShadow: '0 15px 30px rgba(0,0,0,0.1)' }} />
           </div>
           <div className="split-content">
             <h2 style={{ color: 'var(--bg-deep-spruce)', fontSize: '2.5rem', marginBottom: '1.5rem' }}>Our Vision</h2>
