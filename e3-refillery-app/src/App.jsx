@@ -56,8 +56,21 @@ const About = () => {
 
       {/* OUR STORY SECTION (Interactive Accordion) */}
 <section id="our-story" className="about-section our-story-layout frosted-card-break">        
-        <div className="story-sidebar">
-          <img src="/anna_01.png" alt="Anna Dewey, Founder" className="founder-img" style={{ width: '100%', maxWidth: '300px', borderRadius: '50%', marginBottom: '1.5rem', boxShadow: '0 15px 30px rgba(0,0,0,0.1)' }} />
+        <div className="story-sidebar" style={{ flex: '1', paddingRight: '2rem' }}>
+          <img 
+            src="/anna_01.png" 
+            alt="Anna Dewey, Founder" 
+            className="founder-img" 
+            style={{ 
+              width: '100%', 
+              maxWidth: '400px', 
+              aspectRatio: '3/4', 
+              objectFit: 'cover', 
+              borderRadius: '12px', 
+              marginBottom: '1.5rem', 
+              boxShadow: '0 15px 30px rgba(0,0,0,0.1)' 
+            }} 
+          />
           <h3 className="founder-name" style={{ color: 'var(--text-alabaster)', fontSize: '1.75rem', marginBottom: '0.25rem' }}>Anna Dewey</h3>
           <p className="founder-title" style={{ color: 'var(--text-alabaster)', fontSize: '1.1rem', opacity: '0.9' }}>Founder & Owner<br /><strong>e3 refillery LLC</strong></p>
         </div>
