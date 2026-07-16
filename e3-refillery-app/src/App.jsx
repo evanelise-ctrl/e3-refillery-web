@@ -287,7 +287,7 @@ const Home = () => (
       <div className="feature-frame">
           <div className="framed-feature-row">
               <div className="framed-image-container">
-                  <img src="/empowerment-image.jpg" alt="Empowered small businesses" onError={(e) => {e.target.src="/soap-gfv-2.png"}} />
+                  <img src="/empowerment-image.jpg" alt="Empowered small businesses" onError={(e) => {e.target.src="/unsponge.png"}} />
               </div>
               <div className="framed-text-content">
                   <h3>e = empowerment</h3>
