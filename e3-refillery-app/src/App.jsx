@@ -257,7 +257,7 @@ const Home = () => (
       <div className="feature-frame">
           <div className="framed-feature-row">
               <div className="framed-image-container">
-                  <img src="/earth-image.jpg" alt="Earth conscious products" onError={(e) => {e.target.src="/Container.png"}} />
+                  <img src="/earth-image.jpg" alt="Earth conscious products" onError={(e) => {e.target.src="/dry-shampoo.png"}} />
               </div>
               <div className="framed-text-content">
                   <h3>e = earth</h3>
@@ -272,7 +272,7 @@ const Home = () => (
       <div className="feature-frame">
           <div className="framed-feature-row reverse">
               <div className="framed-image-container">
-                  <img src="/equity-image.jpg" alt="Equitable community" onError={(e) => {e.target.src="/Table%20Top%202.png"}} />
+                  <img src="/equity-image.jpg" alt="Equitable community" onError={(e) => {e.target.src="/soap-gfv.png"}} />
               </div>
               <div className="framed-text-content">
                   <h3>e = equity</h3>
@@ -287,7 +287,7 @@ const Home = () => (
       <div className="feature-frame">
           <div className="framed-feature-row">
               <div className="framed-image-container">
-                  <img src="/empowerment-image.jpg" alt="Empowered small businesses" onError={(e) => {e.target.src="/Table%20Top%201.png"}} />
+                  <img src="/empowerment-image.jpg" alt="Empowered small businesses" onError={(e) => {e.target.src="/soap-gfv-2.png"}} />
               </div>
               <div className="framed-text-content">
                   <h3>e = empowerment</h3>
