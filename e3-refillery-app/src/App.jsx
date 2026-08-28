@@ -200,24 +200,25 @@ const Home = () => (
     </Helmet>
 <section className="hero-full-bleed" style={{ position: 'relative', overflow: 'hidden' }}>
         {/* Background Video */}
-        <video 
-          autoPlay 
-          loop 
-          muted 
-          playsInline 
-          style={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            transform: 'translate(-50%, -50%)',
-            zIndex: '-1'
-          }}
-        >
-          <source src="/herovideo.mp4" type="video/mp4" />
-        </video>
+      <video 
+        poster="/stillframe.png"
+        autoPlay 
+        loop 
+        muted 
+        playsInline 
+        style={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          transform: 'translate(-50%, -50%)',
+          zIndex: '-1'
+        }}
+      >
+        <source src="/herovideo.mp4" type="video/mp4" />
+      </video>
 
         {/* Hero Content */}
         <div className="hero-overlay-box">
